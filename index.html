@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="One Door · No Wrong Door — a compassionate, local-first homelessness resource portal connecting immediate help, shelter, food, health care, identification, benefits, employment, legal organization, veterans support, youth support, and verified Verve N Veda tools.">
+<meta name="theme-color" content="#102f3a">
+<meta name="color-scheme" content="light">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'">
+<title>One Door · No Wrong Door | Homeless Services</title>
+<style>
+:root{
+  --navy:#102f3a;
+  --navy-2:#174555;
+  --navy-3:#0a2028;
+  --sage:#6d8976;
+  --sage-soft:#dfe9e2;
+  --sun:#d8a94b;
+  --sun-soft:#f5e5b8;
+  --clay:#a85e46;
+  --clay-soft:#f1ddd6;
+  --cream:#f8f4ea;
+  --paper:#fffdf8;
+  --white:#ffffff;
+  --ink:#1e2a2f;
+  --muted:#66757a;
+  --line:#d7d9d1;
+  --line-dark:rgba(16,47,58,.2);
+  --danger:#8e2332;
+  --danger-soft:#fae8eb;
+  --blue:#2d6383;
+  --blue-soft:#e4eff5;
+  --shadow:0 18px 48px rgba(16,47,58,.13);
+  --shadow-soft:0 10px 28px rgba(16,47,58,.09);
+  --radius:7px;
+  --max:1280px;
+  --display:"Baskerville","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --sans:"Avenir Next","Montserrat","Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  overflow-x:hidden;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(216,169,75,.14),transparent 28rem),
+    radial-gradient(circle at 90% 18%,rgba(109,137,118,.14),transparent 30rem),
+    linear-gradient(180deg,#fbf8f0,var(--cream));
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+body.menu-open{overflow:hidden}
+a{color:inherit}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer;color:inherit}
+[hidden]{display:none!important}
+::selection{background:var(--sun-soft);color:var(--navy-3)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.skip-link{position:fixed;left:10px;top:10px;z-index:5000;transform:translateY(-180%);padding:10px 14px;background:var(--navy);color:#fff;text-decoration:none;border-radius:var(--radius)}
+.skip-link:focus{transform:none}
+.shell{width:min(calc(100% - 32px),var(--max));margin:auto}
+.urgent-bar{background:var(--navy-3);color:#fff;border-bottom:1px solid rgba(255,255,255,.16)}
+.urgent-inner{min-height:46px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:7px 0;font-size:.78rem;text-align:center}
+.urgent-inner strong{color:var(--sun-soft)}
+.urgent-link{display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:5px 9px;border:1px solid rgba(255,255,255,.28);border-radius:var(--radius);color:#fff;text-decoration:none;font-weight:700}
+.urgent-link:hover{background:#ffffff17}
+.quick-exit{border:1px solid #fff;background:#fff;color:var(--navy-3);min-height:32px;padding:5px 10px;border-radius:var(--radius);font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.site-header{position:sticky;top:0;z-index:1200;background:rgba(248,244,234,.97);border-bottom:1px solid var(--line-dark);backdrop-filter:blur(18px);box-shadow:0 10px 28px rgba(16,47,58,.08)}
+.header-inner{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:inline-flex;align-items:center;gap:12px;min-width:0;text-decoration:none;color:var(--navy)}
+.brand-mark{position:relative;width:52px;height:52px;flex:0 0 52px;border:2px solid var(--navy);border-radius:50%;background:var(--paper);box-shadow:0 7px 20px rgba(16,47,58,.12)}
+.brand-mark:before{content:"";position:absolute;left:13px;top:9px;width:22px;height:31px;border:3px solid var(--clay);border-bottom:0;border-radius:15px 15px 0 0}
+.brand-mark:after{content:"";position:absolute;left:24px;top:13px;width:2px;height:29px;background:var(--sun);box-shadow:7px 8px 0 -1px var(--navy)}
+.brand-copy{display:grid;line-height:1.05}
+.brand-name{font-family:var(--display);font-size:1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.brand-sub{margin-top:5px;color:var(--clay);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;justify-content:flex-end;gap:3px;flex-wrap:wrap}
+.nav-links a,.nav-links button{min-height:42px;display:inline-flex;align-items:center;justify-content:center;padding:8px 9px;border:0;background:transparent;color:var(--navy);text-decoration:none;font-size:.7rem;font-weight:750;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a:hover,.nav-links button:hover{background:var(--sage-soft);color:var(--navy-3)}
+.menu-button{display:none;width:45px;height:45px;border:1px solid var(--line-dark);background:var(--paper);border-radius:var(--radius)}
+.menu-lines,.menu-lines:before,.menu-lines:after{content:"";display:block;width:20px;height:2px;background:var(--navy);transition:.18s}
+.menu-lines{position:relative;margin:auto}.menu-lines:before,.menu-lines:after{position:absolute;left:0}.menu-lines:before{top:-6px}.menu-lines:after{top:6px}
+.menu-button[aria-expanded="true"] .menu-lines{background:transparent}.menu-button[aria-expanded="true"] .menu-lines:before{transform:translateY(6px) rotate(45deg)}.menu-button[aria-expanded="true"] .menu-lines:after{transform:translateY(-6px) rotate(-45deg)}
+.hero{position:relative;overflow:hidden;padding:82px 18px 72px;color:#fff;background:linear-gradient(145deg,var(--navy-3),var(--navy) 56%,var(--navy-2));border-bottom:1px solid rgba(255,255,255,.12)}
+.hero:before{content:"";position:absolute;left:50%;top:-240px;width:720px;height:720px;transform:translateX(-50%);border:1px solid rgba(245,229,184,.13);border-radius:50%;box-shadow:0 0 0 80px rgba(255,255,255,.025),0 0 0 160px rgba(255,255,255,.018)}
+.hero-grid{position:relative;z-index:1;width:min(100%,1180px);margin:auto;display:grid;grid-template-columns:1.12fr .88fr;gap:46px;align-items:center}
+.hero-copy{text-align:left}
+.kicker,.eyebrow{margin:0;color:var(--sun-soft);font-size:.72rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+.hero h1{margin:14px 0 0;font-family:var(--display);font-size:clamp(3.4rem,8vw,7rem);font-weight:500;line-height:.9;letter-spacing:-.045em}
+.hero h1 span{display:block;margin-top:.5em;color:var(--sun-soft);font-family:var(--sans);font-size:.19em;font-weight:700;line-height:1.4;letter-spacing:.18em;text-transform:uppercase}
+.hero-lead{max-width:760px;margin:24px 0 0;color:#e5eceb;font-family:var(--display);font-size:clamp(1.1rem,2.2vw,1.38rem);line-height:1.68}
+.hero-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:29px}
+.btn{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:11px 17px;border:1px solid transparent;border-radius:var(--radius);text-decoration:none;font-size:.74rem;font-weight:800;line-height:1.35;letter-spacing:.065em;text-align:center;text-transform:uppercase;transition:transform .16s,box-shadow .16s,background .16s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{color:var(--navy-3);background:linear-gradient(180deg,#fff4c9,var(--sun));border-color:#fff0b2;box-shadow:0 12px 26px rgba(0,0,0,.25)}
+.btn.secondary{color:#fff;background:#ffffff0d;border-color:#ffffff55}
+.btn.secondary:hover{background:#ffffff1a}
+.btn.dark{color:#fff;background:var(--navy);border-color:var(--navy)}
+.btn.soft{color:var(--navy);background:var(--sage-soft);border-color:#b9cbbf}
+.btn.clay{color:#fff;background:var(--clay);border-color:#8f4e3a}
+.btn.small{min-height:42px;padding:8px 12px;font-size:.68rem}
+.door-scene{position:relative;min-height:470px;display:grid;place-items:center}
+.door-frame{position:relative;width:min(86%,330px);height:430px;border:12px solid #203b42;border-bottom-width:18px;background:#061a20;box-shadow:0 28px 70px rgba(0,0,0,.38),inset 0 0 0 2px rgba(245,229,184,.18)}
+.door-frame:before{content:"";position:absolute;inset:15px;background:linear-gradient(160deg,#fbe9ac,#f2c96b 47%,#d59a42);clip-path:polygon(0 0,100% 0,100% 100%,42% 88%,0 100%);box-shadow:0 0 70px rgba(245,229,184,.58)}
+.door-frame:after{content:"";position:absolute;left:-74px;right:-74px;bottom:-26px;height:5px;background:linear-gradient(90deg,transparent,#f9e7a8,transparent);box-shadow:0 0 25px #f9e7a8}
+.door-message{position:absolute;left:50%;top:50%;width:74%;transform:translate(-50%,-50%);padding:20px;color:var(--navy-3);background:rgba(255,253,248,.9);border:1px solid rgba(16,47,58,.22);border-radius:var(--radius);box-shadow:0 18px 40px rgba(0,0,0,.2);text-align:center}
+.door-message strong{display:block;font-family:var(--display);font-size:1.48rem;line-height:1.1}.door-message span{display:block;margin-top:9px;font-size:.78rem;line-height:1.5}
+.metrics{position:relative;z-index:1;width:min(100%,900px);margin:46px auto 0;display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid rgba(255,255,255,.22)}
+.metric{padding:17px 12px;text-align:center;border-left:1px solid rgba(255,255,255,.22)}.metric:first-child{border-left:0}.metric strong{display:block;color:var(--sun-soft);font-family:var(--display);font-size:1.55rem}.metric span{display:block;margin-top:4px;color:#dce5e4;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+.notice-strip{padding:15px 18px;color:#fff;background:var(--clay);text-align:center;font-size:.84rem}.notice-strip strong{color:#fff8df}
+.section{padding:82px 18px}.section.alt{background:rgba(255,255,255,.63);border-block:1px solid var(--line)}.section.deep{color:#fff;background:linear-gradient(145deg,var(--navy-3),var(--navy));border-block:1px solid rgba(255,255,255,.12)}
+.section-inner{width:min(100%,var(--max));margin:auto}.section-heading{max-width:880px;margin:0 auto 38px;text-align:center}.section-heading .eyebrow{color:var(--clay)}.deep .section-heading .eyebrow{color:var(--sun-soft)}.section-heading h2{margin:12px 0 0;color:var(--navy);font-family:var(--display);font-size:clamp(2.5rem,5.4vw,5rem);font-weight:500;line-height:1.02;letter-spacing:-.035em}.deep .section-heading h2{color:#fff}.section-heading p:last-child{max-width:760px;margin:17px auto 0;color:var(--muted);line-height:1.72}.deep .section-heading p:last-child{color:#d6e0df}
+.immediate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.immediate-card{min-height:275px;padding:23px;display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--paper);border:1px solid var(--line-dark);border-radius:var(--radius);box-shadow:var(--shadow-soft)}
+.immediate-card.urgent{background:linear-gradient(145deg,#fff,var(--danger-soft));border-color:#d8a8b0}.immediate-icon,.tool-icon,.official-icon,.need-icon{width:54px;height:54px;display:grid;place-items:center;border-radius:50%;background:var(--sun-soft);color:var(--navy-3);font-family:var(--display);font-weight:700;font-size:1rem}.immediate-card h3,.tool-card h3,.official-card h3,.need-card h3,.plan-card h3,.letter-card h3{margin:17px 0 0;color:var(--navy);font-family:var(--display);font-size:1.3rem;font-weight:600;line-height:1.22}.immediate-card p,.tool-card p,.official-card p,.need-card p,.plan-card p,.letter-card p{margin:10px 0 0;color:var(--muted);font-size:.88rem;line-height:1.62}.immediate-card .btn{width:100%;margin-top:auto}
+.guide-shell{display:grid;grid-template-columns:.92fr 1.08fr;gap:16px;align-items:start}.guide-panel,.results-panel,.planner-shell,.letter-shell{background:var(--paper);border:1px solid var(--line-dark);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}.guide-panel h3,.results-panel h3,.planner-shell h3,.letter-shell h3{margin:0;color:var(--navy);font-family:var(--display);font-size:1.55rem}.guide-panel>p,.results-panel>p,.planner-shell>p,.letter-shell>p{color:var(--muted)}
+.field-group{margin-top:18px}.field-label{display:block;margin-bottom:7px;color:var(--navy);font-size:.72rem;font-weight:850;letter-spacing:.09em;text-transform:uppercase}.choice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.choice{min-height:48px;padding:9px 11px;border:1px solid var(--line-dark);border-radius:var(--radius);background:#fff;color:var(--navy);text-align:left;font-size:.8rem;font-weight:750}.choice[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 0 0 3px rgba(216,169,75,.25)}
+.field{width:100%;min-height:50px;padding:11px 13px;color:var(--ink);background:#fff;border:1px solid var(--line-dark);border-radius:var(--radius);outline:0}.field:focus{border-color:var(--sun);box-shadow:0 0 0 3px rgba(216,169,75,.18)}textarea.field{min-height:120px;resize:vertical;line-height:1.55}
+.guide-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.guide-actions .btn{flex:1}
+.privacy-box{margin-top:18px;padding:13px;background:var(--blue-soft);border-left:4px solid var(--blue);color:#2e4e60;font-size:.78rem;line-height:1.55}
+.result-list{display:grid;gap:10px;margin-top:16px}.result-item{padding:15px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--sage);border-radius:var(--radius)}.result-item strong{display:block;color:var(--navy)}.result-item span{display:block;margin-top:4px;color:var(--muted);font-size:.82rem}.result-links{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.mini-link{display:inline-flex;align-items:center;min-height:36px;padding:7px 9px;color:var(--navy);background:var(--sage-soft);border:1px solid #b9cbbf;border-radius:var(--radius);text-decoration:none;font-size:.68rem;font-weight:800;text-transform:uppercase}.mini-link.external{background:var(--blue-soft);border-color:#bad2df}.empty-guide{padding:26px;color:var(--muted);border:1px dashed var(--line-dark);text-align:center}
+.catalog-tools{display:grid;grid-template-columns:minmax(240px,1fr) 220px auto;gap:9px;margin-bottom:16px}.tool-button{min-height:50px;padding:10px 13px;border:1px solid var(--line-dark);border-radius:var(--radius);background:#fff;color:var(--navy);font-size:.78rem;font-weight:800}.tool-button[aria-pressed="true"]{background:var(--navy);color:#fff}.catalog-status{margin:0 3px 14px;color:var(--muted);font-size:.8rem}
+.tool-grid,.official-grid,.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.tool-card,.official-card,.plan-card,.letter-card{min-height:315px;padding:21px;display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--paper);border:1px solid var(--line-dark);border-radius:var(--radius);box-shadow:var(--shadow-soft)}.tool-card[hidden],.official-card[hidden]{display:none}.source-badge{margin-top:13px;padding:5px 8px;border:1px solid var(--line);color:var(--clay);background:var(--clay-soft);font-size:.62rem;font-weight:800;letter-spacing:.075em;text-transform:uppercase}.tool-meta{margin-top:9px;color:#899397;font-size:.68rem;font-style:italic}.tool-card .btn,.official-card .btn{width:100%;margin-top:auto}
+.deep .tool-card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.2);box-shadow:none}.deep .tool-card h3{color:#fff}.deep .tool-card p{color:#cedbd9}.deep .source-badge{color:var(--sun-soft);background:rgba(216,169,75,.1);border-color:rgba(245,229,184,.25)}.deep .tool-meta{color:#a9bbba}
+.official-card{min-height:330px}.official-host{max-width:100%;margin-top:9px;color:#8b9698;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.66rem;overflow-wrap:anywhere}.external-note{margin:18px auto 0;max-width:850px;padding:15px;background:var(--blue-soft);border:1px solid #c6d9e3;color:#31556a;text-align:center;font-size:.8rem;line-height:1.6}
+.planner-shell{display:grid;grid-template-columns:.95fr 1.05fr;gap:18px}.checklist{display:grid;gap:8px;margin-top:14px}.check-item{display:flex;gap:10px;align-items:flex-start;padding:11px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}.check-item input{width:18px;height:18px;margin-top:2px;accent-color:var(--navy)}.check-item label{cursor:pointer}.check-item strong{display:block;color:var(--navy);font-size:.86rem}.check-item span{display:block;margin-top:3px;color:var(--muted);font-size:.76rem}.planner-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.planner-actions .btn{flex:1}
+.letter-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:16px}.letter-controls{display:grid;gap:11px}.letter-output{min-height:420px;padding:22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);white-space:pre-wrap;font-family:var(--display);line-height:1.7;text-align:left}.letter-output.empty{display:grid;place-items:center;color:var(--muted);font-family:var(--sans);text-align:center}.letter-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}.letter-actions .btn{flex:1}
+.network-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.network-card{min-height:230px;padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--paper);border:1px solid var(--line-dark);border-radius:var(--radius);box-shadow:var(--shadow-soft);text-decoration:none}.network-card:hover{transform:translateY(-3px);border-color:var(--sun)}.network-card strong{margin-top:15px;color:var(--navy);font-family:var(--display);font-size:1.22rem}.network-card span{margin-top:8px;color:var(--muted);font-size:.82rem}.network-card small{margin-top:auto;color:#8a9394;font-size:.65rem;overflow-wrap:anywhere}
+.safety-notice{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.notice-card{padding:27px;background:var(--paper);border:1px solid var(--line-dark);border-radius:var(--radius);box-shadow:var(--shadow-soft);text-align:center}.notice-card h2,.notice-card h3{margin:12px 0 0;color:var(--navy);font-family:var(--display);font-weight:600}.notice-card h2{font-size:2rem}.notice-card h3{font-size:1.45rem}.notice-card p,.notice-card li{color:var(--muted);line-height:1.7}.notice-card ul{max-width:700px;margin:17px auto 0;padding-left:20px;text-align:left}.notice-card blockquote{margin:18px auto 0;color:var(--clay);font-family:var(--display);font-size:1.4rem;line-height:1.55;font-style:italic}.notice-card cite{display:block;margin-top:13px;color:var(--muted);font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;font-style:normal}
+.site-footer{padding:36px 18px;color:#d5dfdd;background:var(--navy-3);text-align:center;border-top:1px solid rgba(255,255,255,.14)}.footer-title{color:var(--sun-soft);font-family:var(--display);letter-spacing:.1em;text-transform:uppercase}.footer-meta{margin-top:7px;font-size:.75rem}.footer-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:13px}.footer-links a{color:#d5dfdd;font-size:.72rem}
+.toast{position:fixed;left:50%;bottom:18px;z-index:3000;transform:translate(-50%,140px);max-width:min(92vw,580px);padding:11px 15px;color:#fff;background:var(--navy);border:1px solid var(--sun);border-radius:var(--radius);box-shadow:var(--shadow);font-size:.8rem;font-weight:750;text-align:center;transition:.24s}.toast.show{transform:translate(-50%,0)}
+@media(max-width:1100px){.tool-grid,.official-grid{grid-template-columns:repeat(2,1fr)}.network-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:930px){.hero-grid,.guide-shell,.planner-shell,.letter-grid,.safety-notice{grid-template-columns:1fr}.hero-copy{text-align:center}.hero-actions{justify-content:center}.door-scene{min-height:410px}.door-frame{height:370px}.immediate-grid{grid-template-columns:repeat(2,1fr)}.network-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:790px){.nav-links{position:fixed;inset:79px 12px auto 12px;z-index:2100;display:none;max-height:calc(100vh - 94px);overflow:auto;padding:12px;flex-direction:column;align-items:stretch;background:var(--cream);border:1px solid var(--line-dark);box-shadow:var(--shadow)}.nav-links.open{display:flex}.nav-links a,.nav-links button{width:100%;min-height:48px;border:1px solid var(--line)}.menu-button{display:grid;place-items:center}.brand-sub{display:none}.metrics{grid-template-columns:repeat(2,1fr)}.metric:nth-child(3){border-left:0;border-top:1px solid rgba(255,255,255,.22)}.metric:nth-child(4){border-top:1px solid rgba(255,255,255,.22)}.catalog-tools{grid-template-columns:1fr 1fr}.catalog-tools .field:first-child{grid-column:1/-1}}
+@media(max-width:590px){.shell{width:min(calc(100% - 20px),var(--max))}.urgent-inner{align-items:stretch}.urgent-link,.quick-exit{width:100%}.hero{padding:62px 11px}.hero h1{font-size:clamp(3rem,17vw,5rem)}.door-scene{min-height:350px}.door-frame{width:260px;height:320px}.metrics{grid-template-columns:1fr}.metric{border-left:0!important;border-top:1px solid rgba(255,255,255,.22)}.metric:first-child{border-top:0}.section{padding:66px 11px}.immediate-grid,.tool-grid,.official-grid,.network-grid,.choice-grid,.catalog-tools{grid-template-columns:1fr}.catalog-tools .field:first-child{grid-column:auto}.guide-actions,.planner-actions,.letter-actions{flex-direction:column}.btn{width:100%}.tool-card,.official-card{min-height:285px}.letter-output{min-height:360px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+@media print{.urgent-bar,.site-header,.hero,.notice-strip,.catalog-tools,.guide-actions,.planner-actions,.letter-controls,.letter-actions,.favorite,.toast,.site-footer{display:none!important}.section,.section.alt,.section.deep{padding:20px 0;color:#111;background:#fff;border:0}.section-heading h2,.tool-card h3,.official-card h3,.notice-card h2,.notice-card h3{color:#111}.tool-grid,.official-grid{grid-template-columns:repeat(2,1fr)}.tool-card,.official-card,.notice-card,.planner-shell,.letter-shell{color:#111;background:#fff;border:1px solid #777;box-shadow:none;break-inside:avoid}.tool-card p,.official-card p,.notice-card p,.notice-card li{color:#333}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#immediate">Skip to immediate help</a>
+<div class="urgent-bar">
+  <div class="shell urgent-inner">
+    <strong>Immediate danger:</strong>
+    <a class="urgent-link" href="tel:911">Call 911</a>
+    <a class="urgent-link" href="tel:988">Call 988</a>
+    <a class="urgent-link" href="sms:988">Text 988</a>
+    <a class="urgent-link" href="tel:211">Call 211</a>
+    <span>This website is a resource guide, not emergency dispatch.</span>
+    <button class="quick-exit" id="quickExit" type="button">Quick Exit</button>
+  </div>
+</div>
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="#top" aria-label="One Door No Wrong Door home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-copy"><span class="brand-name">One Door · No Wrong Door</span><span class="brand-sub">Homeless Services & Stability Portal</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+      <a href="#immediate">Help Now</a>
+      <a href="#guide">One Door Guide</a>
+      <a href="#tools">Verve Tools</a>
+      <a href="#official">Official Help</a>
+      <a href="#plan">My Path</a>
+      <a href="#letters">Letters</a>
+      <button id="printButton" type="button">Print</button>
+    </nav>
+    <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation" aria-controls="navLinks" aria-expanded="false"><span class="menu-lines"></span></button>
+  </div>
+</header>
+<main id="top">
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="kicker">Receive · Listen · Connect · Follow Through</p>
+      <h1>One Door<span>No wrong door. No shame. A place to begin.</span></h1>
+      <p class="hero-lead">A compassionate starting point for anyone without stable housing—or worried they may lose it—to find immediate help, organize next steps, reach official services, and use original Verve N Veda tools for work, documents, health, reflection, and recovery.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#immediate">I need help now</a>
+        <a class="btn secondary" href="#guide">Build my next-step plan</a>
+        <a class="btn secondary" href="https://vervenveda.github.io/firmament.github.io/apps/Homeless_Hub_index.html">Open the Homeless Hub</a>
+      </div>
+    </div>
+    <div class="door-scene" aria-hidden="true">
+      <div class="door-frame"><div class="door-message"><strong>You are welcome here.</strong><span>Start with the need that feels most urgent. You do not have to solve everything at once.</span></div></div>
+    </div>
+  </div>
+  <div class="metrics" aria-label="Portal summary">
+    <div class="metric"><strong id="toolCount">12</strong><span>Verve N Veda tools</span></div>
+    <div class="metric"><strong id="officialCount">13</strong><span>Official help gateways</span></div>
+    <div class="metric"><strong>Local</strong><span>Private action plan</span></div>
+    <div class="metric"><strong>No Login</strong><span>Open public access</span></div>
+  </div>
+</section>
+<div class="notice-strip"><strong>One Door principle:</strong> Begin anywhere. The portal will help connect shelter, food, health, documents, benefits, work, safety, legal organization, and longer-term stability.</div>
+
+<section class="section" id="immediate">
+  <div class="section-inner">
+    <div class="section-heading"><p class="eyebrow">Immediate pathways</p><h2>What do you need first?</h2><p>Choose the doorway that matches today. Official outside services open in a new tab. Verve N Veda tools remain clearly labeled as original support tools.</p></div>
+    <div class="immediate-grid">
+      <article class="immediate-card urgent"><div class="immediate-icon">911</div><h3>Immediate Physical Danger</h3><p>Call emergency services when there is immediate danger, serious injury, fire, violence, exposure, or another life-threatening emergency.</p><a class="btn clay" href="tel:911">Call 911</a></article>
+      <article class="immediate-card"><div class="immediate-icon">211</div><h3>Shelter, Food & Local Help</h3><p>Call 211 for local housing, shelter, food, utility, transportation, and community-service referrals.</p><a class="btn dark" href="tel:211">Call 211</a></article>
+      <article class="immediate-card"><div class="immediate-icon">HUD</div><h3>Find Shelter Near You</h3><p>Search HUD’s national tool for shelters, food pantries, health clinics, and clothing resources by location.</p><a class="btn dark external-link" href="https://www.hud.gov/FindShelter" target="_blank" rel="noopener noreferrer">Open HUD Find Shelter ↗</a></article>
+      <article class="immediate-card"><div class="immediate-icon">988</div><h3>Emotional or Mental Health Crisis</h3><p>Call or text 988 to reach a trained crisis counselor. If there is immediate physical danger, call 911.</p><a class="btn dark" href="tel:988">Call 988</a></article>
+      <article class="immediate-card"><div class="immediate-icon">Safe</div><h3>Domestic Violence or Abuse</h3><p>Reach a live advocate for confidential safety planning, local shelter referrals, legal help, and support.</p><a class="btn dark external-link" href="https://www.thehotline.org/get-help/" target="_blank" rel="noopener noreferrer">Open The Hotline ↗</a></article>
+      <article class="immediate-card"><div class="immediate-icon">Youth</div><h3>Youth or Young Adult in Crisis</h3><p>The National Runaway Safeline supports runaway, homeless, and at-risk youth and families by phone and online.</p><a class="btn dark external-link" href="https://www.1800runaway.org/" target="_blank" rel="noopener noreferrer">Open Youth Help ↗</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="guide">
+  <div class="section-inner">
+    <div class="section-heading"><p class="eyebrow">One Door guided intake</p><h2>Build a calm next-step plan</h2><p>Select one or more needs. The guide creates a short, practical sequence using verified Verve N Veda tools and official public resources. Do not enter sensitive identifying information.</p></div>
+    <div class="guide-shell">
+      <section class="guide-panel" aria-labelledby="guideTitle">
+        <h3 id="guideTitle">What is happening today?</h3>
+        <p>Choose all that apply. You can change your selections at any time.</p>
+        <div class="field-group"><span class="field-label">Urgency</span><div class="choice-grid" id="urgencyChoices"><button class="choice" type="button" data-urgency="tonight" aria-pressed="false">I need a safe place tonight</button><button class="choice" type="button" data-urgency="soon" aria-pressed="false">I may lose housing soon</button><button class="choice" type="button" data-urgency="stabilize" aria-pressed="false">I am working toward stability</button><button class="choice" type="button" data-urgency="helping" aria-pressed="false">I am helping someone else</button></div></div>
+        <div class="field-group"><span class="field-label">Needs</span><div class="choice-grid" id="needChoices">
+          <button class="choice" type="button" data-need="shelter" aria-pressed="false">Shelter or housing</button><button class="choice" type="button" data-need="food" aria-pressed="false">Food or basic supplies</button><button class="choice" type="button" data-need="health" aria-pressed="false">Health or medication</button><button class="choice" type="button" data-need="documents" aria-pressed="false">ID or documents</button><button class="choice" type="button" data-need="benefits" aria-pressed="false">Benefits or financial help</button><button class="choice" type="button" data-need="work" aria-pressed="false">Work, résumé or training</button><button class="choice" type="button" data-need="legal" aria-pressed="false">Eviction, legal or records</button><button class="choice" type="button" data-need="safety" aria-pressed="false">Violence or personal safety</button><button class="choice" type="button" data-need="youth" aria-pressed="false">Youth or student support</button><button class="choice" type="button" data-need="veteran" aria-pressed="false">Veteran support</button><button class="choice" type="button" data-need="wellness" aria-pressed="false">Stress, sleep or reflection</button><button class="choice" type="button" data-need="family" aria-pressed="false">Family or caregiver support</button>
+        </div></div>
+        <div class="guide-actions"><button class="btn dark" id="buildGuide" type="button">Build my guide</button><button class="btn soft" id="resetGuide" type="button">Reset</button></div>
+        <div class="privacy-box"><strong>Privacy:</strong> Do not enter Social Security numbers, bank details, passwords, immigration-document numbers, medical-record numbers, full ID numbers, or photographs of documents. This guide stores only your selected categories in this browser.</div>
+      </section>
+      <section class="results-panel" aria-labelledby="resultsTitle"><h3 id="resultsTitle">Your next doorways</h3><p>Start with the first item that feels possible. A completed referral or phone call is progress.</p><div id="guideResults" class="result-list"><div class="empty-guide">Choose your urgency and needs, then select “Build my guide.”</div></div></section>
+    </div>
+  </div>
+</section>
+
+<section class="section deep" id="tools">
+  <div class="section-inner">
+    <div class="section-heading"><p class="eyebrow">Original Verve N Veda architecture</p><h2>Tools for rebuilding stability</h2><p>These original browser-based applications support resource navigation, work, writing, task follow-through, budgeting, health literacy, document protection, family support, and reflection.</p></div>
+    <div class="catalog-tools"><input class="field" id="toolSearch" type="search" placeholder="Search work, letters, health, journal, budget, veterans…" aria-label="Search Verve N Veda tools" autocomplete="off"><select class="field" id="toolCategory" aria-label="Filter Verve N Veda tools"></select><button class="tool-button" id="clearTools" type="button">Clear</button></div>
+    <div class="catalog-status" id="toolStatus" aria-live="polite"></div>
+    <div class="tool-grid" id="toolGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="official">
+  <div class="section-inner">
+    <div class="section-heading"><p class="eyebrow">Verified outside assistance</p><h2>Official and national help gateways</h2><p>These resources are separate from Verve N Veda. Availability, eligibility, hours, and local capacity can change. Verify details directly with the provider.</p></div>
+    <div class="catalog-tools"><input class="field" id="officialSearch" type="search" placeholder="Search shelter, food, benefits, ID, jobs, health, youth…" aria-label="Search official resources" autocomplete="off"><select class="field" id="officialCategory" aria-label="Filter official resources"></select><button class="tool-button" id="clearOfficial" type="button">Clear</button></div>
+    <div class="catalog-status" id="officialStatus" aria-live="polite"></div>
+    <div class="official-grid" id="officialGrid"></div>
+    <div class="external-note"><strong>Outside resource notice:</strong> Firm availability and eligibility are not guaranteed. If a referral is full or unavailable, return to 211, HUD Find Shelter, or your local Continuum of Care and ask for another pathway.</div>
+  </div>
+</section>
+
+<section class="section alt" id="plan">
+  <div class="section-inner">
+    <div class="section-heading"><p class="eyebrow">Private local organizer</p><h2>My path toward stability</h2><p>Check off steps as they are completed and keep short notes. This information stays in this browser unless you export or print it. Avoid sensitive identifying details.</p></div>
+    <div class="planner-shell">
+      <div><h3>Stability checklist</h3><p>Use this as a flexible guide—not a judgment or requirement.</p><div class="checklist" id="checklist"></div><div class="planner-actions"><button class="btn dark" id="exportPlan" type="button">Export plan</button><button class="btn soft" id="clearPlan" type="button">Clear local plan</button></div></div>
+      <div><h3>Notes for my next conversation</h3><p>Write only what you are comfortable keeping on this device.</p><label class="field-label" for="planNotes">Questions, names of agencies, appointment times, or next steps</label><textarea class="field" id="planNotes" placeholder="Example: Called 211. Ask the shelter about intake time, identification requirements, transportation, medication storage, and whether families can stay together."></textarea><div class="privacy-box">On a shared or public computer, export only when safe, then clear the local plan before leaving.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="letters">
+  <div class="section-inner">
+    <div class="section-heading"><p class="eyebrow">PROSE companion</p><h2>Letter and request starter</h2><p>Create a plain-language starting draft for an agency, employer, school, housing provider, or document office. Review every detail before sending. For complete formatting and résumé templates, open PROSE.</p></div>
+    <div class="letter-shell">
+      <div class="letter-grid">
+        <div class="letter-controls">
+          <label class="field-label" for="letterType">Draft type</label><select class="field" id="letterType"><option value="agency">Request for agency assistance</option><option value="housing">Housing or shelter follow-up</option><option value="documents">Document replacement request</option><option value="employment">Employment-support request</option><option value="school">School or student-support request</option></select>
+          <label class="field-label" for="recipientName">Recipient or organization</label><input class="field" id="recipientName" placeholder="Organization or staff name">
+          <label class="field-label" for="requestSummary">What are you asking for?</label><textarea class="field" id="requestSummary" placeholder="Keep this brief. Do not include sensitive ID numbers."></textarea>
+          <label class="field-label" for="deadlineText">Important date or urgency</label><input class="field" id="deadlineText" placeholder="Example: I need a response before Monday">
+          <button class="btn dark" id="buildLetter" type="button">Create starter draft</button>
+          <a class="btn soft" href="https://vervenveda.github.io/proresource_hub.github.io/Protools/PROSE%E2%84%A2%20editingsuite_index.html">Open PROSE for full editing</a>
+        </div>
+        <div><div class="letter-output empty" id="letterOutput">Your draft will appear here. It will not be saved automatically.</div><div class="letter-actions"><button class="btn dark" id="copyLetter" type="button">Copy draft</button><button class="btn soft" id="clearLetter" type="button">Clear draft</button></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="network">
+  <div class="section-inner">
+    <div class="section-heading"><p class="eyebrow">Connected public halls</p><h2>The wider support network</h2><p>Move between the public Verve N Veda GitHub Pages homes. No custom campaign domains or direct source-repository links are used.</p></div>
+    <div class="network-grid" id="networkGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="notice">
+  <div class="section-inner safety-notice">
+    <article class="notice-card"><p class="eyebrow">Safety and service notice</p><h2>A guide—not a promise of placement</h2><p>This portal does not operate a shelter, dispatch emergency help, guarantee eligibility, reserve beds, determine legal rights, provide medical treatment, or create a professional relationship.</p><ul><li>Call 911 for immediate danger or a life-threatening emergency.</li><li>Confirm intake hours, eligibility, transportation, accessibility, medication rules, family arrangements, pet policies, and identification requirements directly.</li><li>Do not upload or paste confidential records into an unverified service.</li><li>Use official sources for current benefits, legal requirements, deadlines, and program rules.</li></ul></article>
+    <article class="notice-card"><p class="eyebrow">One Door standard</p><h3>Dignity is not conditional.</h3><blockquote>“Receive the person. Listen to the need. Connect the next door. Follow through with care.”</blockquote><cite>One Door · No Wrong Door principle</cite></article>
+  </div>
+</section>
+</main>
+<footer class="site-footer"><div class="footer-title">One Door · No Wrong Door</div><div class="footer-meta">Homeless Services & Stability Portal · Local-first planning · No account required · © <span id="year"></span></div><div class="footer-links"><a href="https://vervenveda.github.io/">Verve N Veda Matrix</a><a href="https://vervenveda.github.io/firmament.github.io/apps/Homeless_Hub_index.html">Homeless Hub</a><a href="#notice">Safety Notice</a></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+"use strict";
+const INTERNAL_TOOLS=[
+  {id:"homeless-hub",title:"Verve N Veda Homeless Hub",url:"https://vervenveda.github.io/firmament.github.io/apps/Homeless_Hub_index.html",icon:"Door",category:"Resource Navigation",description:"Search housing, shelter, food, benefits, documents, safety, and community-support pathways in the existing Homeless Hub.",tags:"homeless housing shelter food documents benefits support"},
+  {id:"career-star",title:"Khaemenes Career Star",url:"https://vervenveda.github.io/Khaemenes_Academy.github.io/higher_learming/apps/Career_star_index.html",icon:"Star",category:"Work & Training",description:"Explore thirteen career zones, score interests and strengths, rank a short list, and plan small employment experiments.",tags:"career assessment interests strengths work training employment"},
+  {id:"prose",title:"PROSE™ Editorial Suite",url:"https://vervenveda.github.io/proresource_hub.github.io/Protools/PROSE%E2%84%A2%20editingsuite_index.html",icon:"P",category:"Letters & Documents",description:"Draft and format résumés, cover letters, agency requests, explanations, applications, statements, and other professional writing.",tags:"prose resume cover letter template writing application"},
+  {id:"daily-spark",title:"DailySpark™ Task Studio",url:"https://vervenveda.github.io/proresource_hub.github.io/Protools/DailySpark%E2%84%A2_task_studio_index.html",icon:"Task",category:"Planning",description:"Organize calls, appointments, deadlines, referrals, document requests, and follow-up tasks in a local-first workspace.",tags:"tasks appointments deadlines follow up planning reminders"},
+  {id:"daily-journal",title:"Aurora Daily Journal",url:"https://vervenveda.github.io/aurora.github.io/apps/daily_journal_index.html",icon:"J",category:"Wellness & Reflection",description:"Keep private daily notes about goals, emotions, actions, gratitude, and progress, with local save and export controls.",tags:"journal private reflection goals emotions wellness"},
+  {id:"firmament-law",title:"Firmament Law",url:"https://vervenveda.github.io/firmament.github.io/apps/Firmament_Law_index.html",icon:"Law",category:"Legal Organization",description:"Organize legal questions, timelines, facts, records, and draft materials before speaking with a qualified legal professional.",tags:"law eviction legal records timeline questions"},
+  {id:"family-hub",title:"Family Resource Hub",url:"https://vervenveda.github.io/firmament.github.io/apps/Family_Hub_index.html",icon:"Fam",category:"Family Support",description:"Find practical pathways for parents, children, caregivers, family stability, safety, and community assistance.",tags:"family children caregiver parents safety support"},
+  {id:"veterans",title:"National Veterans Portal",url:"https://vervenveda.github.io/firmament.github.io/apps/Veterans_Hub_National_index.html",icon:"VA",category:"Veteran Support",description:"A Verve N Veda veterans gateway for benefits, housing, health, employment, family, and official support resources.",tags:"veteran benefits housing health employment family"},
+  {id:"budget",title:"Financial Budget Calculator",url:"https://vervenveda.github.io/Khaemenes_Academy.github.io/higher_learming/apps/financial_budget_calculator_index.html",icon:"$",category:"Money & Benefits",description:"Create a simple private budget snapshot for income, expenses, immediate priorities, and planning conversations.",tags:"budget income expenses money benefits calculator"},
+  {id:"khaezip",title:"KhaeZip™ Archive Studio",url:"https://vervenveda.github.io/proresource_hub.github.io/Protools/KhaeZip%E2%84%A2_index.html",icon:"Zip",category:"Documents & Records",description:"Create and protect portable archive packages for documents you intentionally choose to preserve or transfer.",tags:"documents records archive zip protect export"},
+  {id:"medicament",title:"Medicament Hub",url:"https://vervenveda.github.io/medicament-hub.github.io/",icon:"Health",category:"Health",description:"Open the Verve N Veda health-literacy gateway for medical learning, caregiver tools, insurance, and public-health sources.",tags:"health medical clinic insurance caregiver"},
+  {id:"aurora",title:"Aurora Sanctuary",url:"https://vervenveda.github.io/aurora.github.io/",icon:"Rest",category:"Wellness & Reflection",description:"Use original breathing, rest, sleep, reflection, sound, and personal-growth applications during stressful transitions.",tags:"breathing rest sleep reflection wellness stress"}
+];
+const OFFICIAL_RESOURCES=[
+  {id:"hud-shelter",title:"HUD Find Shelter",url:"https://www.hud.gov/FindShelter",icon:"HUD",category:"Shelter & Housing",description:"Search by location for shelters, food pantries, health clinics, and clothing resources.",source:"U.S. Department of Housing and Urban Development"},
+  {id:"211",title:"211 Local Help",url:"https://www.211.org/",icon:"211",category:"Local Coordination",description:"Find local housing, utility, food, transportation, health, and community-service referrals; phone support is available by dialing 211.",source:"211 network"},
+  {id:"housing-help",title:"USA.gov Housing Help",url:"https://www.usa.gov/housing-help",icon:"US",category:"Shelter & Housing",description:"Find federal and state starting points for emergency housing, rental assistance, eviction prevention, and housing programs.",source:"USA.gov"},
+  {id:"benefits",title:"USA.gov Government Benefits",url:"https://www.usa.gov/benefits",icon:"US",category:"Benefits & Money",description:"Explore public programs for food, housing, health care, utilities, Social Security, and other basic needs.",source:"USA.gov"},
+  {id:"documents",title:"Replace Vital Documents",url:"https://www.usa.gov/replace-vital-documents",icon:"ID",category:"Documents",description:"Find official steps for replacing a state ID, Social Security card, birth certificate, passport, and other vital records.",source:"USA.gov"},
+  {id:"health-center",title:"Find a Health Center",url:"https://findahealthcenter.hrsa.gov/",icon:"HRSA",category:"Health",description:"Locate federally supported community health centers that provide medical, dental, mental health, substance-use, and support services.",source:"Health Resources and Services Administration"},
+  {id:"snap",title:"SNAP State Assistance",url:"https://www.fns.usda.gov/snap/applicant-participant",icon:"Food",category:"Food",description:"Find your state SNAP office, application information, case help, and benefit guidance.",source:"USDA Food and Nutrition Service"},
+  {id:"988",title:"988 Suicide & Crisis Lifeline",url:"https://988lifeline.org/",icon:"988",category:"Crisis & Safety",description:"Call, text, or chat for free and confidential emotional-crisis support, available day and night.",source:"988 Lifeline"},
+  {id:"samhsa",title:"SAMHSA Treatment Locators",url:"https://www.samhsa.gov/find-help/locators",icon:"Help",category:"Health",description:"Find mental-health and substance-use treatment providers and specialized treatment directories.",source:"Substance Abuse and Mental Health Services Administration"},
+  {id:"dv",title:"National Domestic Violence Hotline",url:"https://www.thehotline.org/get-help/",icon:"Safe",category:"Crisis & Safety",description:"Connect with a live advocate for safety planning, crisis support, shelter referrals, legal resources, and local providers.",source:"National Domestic Violence Hotline"},
+  {id:"jobs",title:"American Job Center Finder",url:"https://www.careeronestop.org/LocalHelp/AmericanJobCenters/american-job-centers.aspx",icon:"Job",category:"Work & Training",description:"Find free local employment help, computers, job-search workshops, career counseling, skills assessment, and training information.",source:"CareerOneStop · U.S. Department of Labor"},
+  {id:"va",title:"Homeless Veterans Help",url:"https://www.va.gov/homeless/nationalcallcenter.asp",icon:"VA",category:"Veteran Support",description:"Veterans and people helping a Veteran can reach trained counselors and local VA homelessness support at 877-424-3838, 24/7.",source:"U.S. Department of Veterans Affairs"},
+  {id:"youth",title:"National Runaway Safeline",url:"https://www.1800runaway.org/",icon:"Youth",category:"Youth",description:"Free, confidential crisis support and local referrals for runaway, homeless, and at-risk youth and their families.",source:"Federally designated youth crisis system"}
+];
+const NETWORK=[
+  {title:"Verve N Veda",url:"https://vervenveda.github.io/",mark:"V",description:"The public gateway to the full Verve N Veda network."},
+  {title:"Homeless Hub",url:"https://vervenveda.github.io/firmament.github.io/apps/Homeless_Hub_index.html",mark:"Door",description:"The existing internal hub for housing, shelter, food, health, documents, benefits, and support."},
+  {title:"Firmament",url:"https://vervenveda.github.io/firmament.github.io/",mark:"Law",description:"Legal-information, evidence, family, senior, veteran, and public-resource tools."},
+  {title:"ProReSources",url:"https://vervenveda.github.io/proresource_hub.github.io/",mark:"P",description:"Professional writing, task, archive, communication, and document tools."},
+  {title:"Khaemenes Academy",url:"https://vervenveda.github.io/Khaemenes_Academy.github.io/",mark:"K",description:"Career, financial, educational, and lifelong-learning applications."},
+  {title:"Medicament Hub",url:"https://vervenveda.github.io/medicament-hub.github.io/",mark:"Health",description:"Health literacy, medical education, caregiver, and public-health pathways."},
+  {title:"Aurora Sanctuary",url:"https://vervenveda.github.io/aurora.github.io/",mark:"Rest",description:"Breathing, rest, reflection, sleep, and personal-growth tools."},
+  {title:"One Nation For All",url:"https://vervenveda.github.io/onenationforall.github.io/",mark:"Civic",description:"Civic information, public participation, and government-resource pathways."}
+];
+const PLAN_STEPS=[
+  {id:"safe",title:"Safe place for tonight",text:"Confirm location, intake time, transportation, accessibility, family or pet rules, and what documents are required."},
+  {id:"food",title:"Food, water and essential supplies",text:"Locate a meal, pantry, hygiene supplies, clothing, phone charging, and safe storage options."},
+  {id:"health",title:"Health, medication and crisis support",text:"Identify urgent care, medication needs, mental-health support, substance-use treatment, and safe medication storage."},
+  {id:"documents",title:"Identification and important records",text:"Make a list of missing documents and ask an agency about fee waivers, mailing addresses, and replacement steps."},
+  {id:"benefits",title:"Benefits and income support",text:"Ask about SNAP, Medicaid, disability, TANF, veterans benefits, unemployment, and local emergency assistance."},
+  {id:"work",title:"Employment, training or education",text:"Identify one immediate job-search step and one longer-term career or training step."},
+  {id:"legal",title:"Legal, eviction or record questions",text:"Record dates, notices, court information, deadlines, facts, and questions without assuming an outcome."},
+  {id:"follow",title:"Warm referral and follow-through",text:"Write the name of the person or agency, the next action, the due date, and what to do if the referral is unavailable."}
+];
+const GUIDE_RULES={
+  shelter:["Call 211 and ask specifically for coordinated entry, emergency shelter, day-center, outreach, or prevention services.","Use HUD Find Shelter and the Verve N Veda Homeless Hub to create a short list of nearby options."],
+  food:["Ask 211 about same-day meals, pantries, hygiene supplies, clothing, and transportation.","Use the USDA SNAP directory to locate your state application and case-help information."],
+  health:["For emergency danger call 911; for emotional crisis call or text 988.","Use HRSA’s Find a Health Center and SAMHSA’s treatment locators for local care options."],
+  documents:["Use USA.gov’s document replacement guide to identify the correct issuing office.","Make a safe document checklist in DailySpark; do not store full ID numbers or document images on a shared device."],
+  benefits:["Use USA.gov Government Benefits and ask 211 or a caseworker which applications are most urgent.","Use the Verve N Veda budget calculator to prepare a simple income-and-expense snapshot."],
+  work:["Complete the Khaemenes Career Star to identify a short list of work directions.","Use an American Job Center for free job-search help, then draft a résumé or cover letter in PROSE."],
+  legal:["Open Firmament Law to organize dates, notices, facts, questions, and records.","Verify deadlines and rights with an official court, legal-aid provider, or qualified attorney."],
+  safety:["If there is immediate danger, call 911. For domestic violence support, use the National Domestic Violence Hotline.","Use a safer device when possible and consider whether browsing history or saved local data could be monitored."],
+  youth:["Contact the National Runaway Safeline for confidential support and local youth referrals.","Use the Family Resource Hub for additional family, caregiver, school, and community pathways."],
+  veteran:["Call the National Call Center for Homeless Veterans at 877-424-3838 or use the VA online help page.","Open the Verve N Veda National Veterans Portal for benefits, health, employment, and family resources."],
+  wellness:["Use Aurora’s breathing, sleep, reflection, and grounding tools for short periods of recovery.","Use the Daily Journal only on a device where local entries can be stored safely."],
+  family:["Open the Family Resource Hub and ask 211 about family shelter, child care, school stability, food, and benefits.","When contacting a shelter, ask whether family members can remain together and what documents are needed."]
+};
+const ALLOWED_INTERNAL_REPOS=new Set(["Homeless.github.io","firmament.github.io","Khaemenes_Academy.github.io","proresource_hub.github.io","aurora.github.io","medicament-hub.github.io","onenationforall.github.io"]);
+const ALLOWED_EXTERNAL_HOSTS=new Set(["www.hud.gov","hud.gov","www.211.org","211.org","www.usa.gov","usa.gov","findahealthcenter.hrsa.gov","www.fns.usda.gov","fns.usda.gov","988lifeline.org","www.988lifeline.org","www.samhsa.gov","samhsa.gov","www.thehotline.org","thehotline.org","www.careeronestop.org","careeronestop.org","www.va.gov","va.gov","department.va.gov","www.1800runaway.org","1800runaway.org"]);
+const $=id=>document.getElementById(id);
+const escapeHTML=value=>String(value).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
+function notify(message){const toast=$("toast");toast.textContent=message;toast.classList.add("show");clearTimeout(notify.timer);notify.timer=setTimeout(()=>toast.classList.remove("show"),2400)}
+function isAllowedURL(raw,kind="internal"){
+  try{
+    const url=new URL(raw,location.href);
+    if(["tel:","sms:"].includes(url.protocol))return true;
+    if(url.protocol!=="https:")return false;
+    if(kind==="internal"){
+      if(url.hostname!=="vervenveda.github.io")return false;
+      const parts=url.pathname.split("/").filter(Boolean);
+      if(parts.length===0)return true;
+      return ALLOWED_INTERNAL_REPOS.has(parts[0]);
+    }
+    return ALLOWED_EXTERNAL_HOSTS.has(url.hostname);
+  }catch{return false}
+}
+function safeLink(item,kind,label){
+  if(!isAllowedURL(item.url,kind))return `<span class="btn soft small" aria-disabled="true">Unavailable</span>`;
+  const external=kind==="external"?' target="_blank" rel="noopener noreferrer"':'';
+  return `<a class="btn ${kind==="external"?"soft":"primary"} small" href="${escapeHTML(item.url)}"${external}>${escapeHTML(label)}</a>`;
+}
+function setupNavigation(){
+  const button=$("menuButton"),nav=$("navLinks");
+  function closeMenu(returnFocus=false){nav.classList.remove("open");button.setAttribute("aria-expanded","false");button.setAttribute("aria-label","Open navigation");document.body.classList.remove("menu-open");if(returnFocus)button.focus()}
+  button.addEventListener("click",()=>{const open=!nav.classList.contains("open");nav.classList.toggle("open",open);button.setAttribute("aria-expanded",String(open));button.setAttribute("aria-label",open?"Close navigation":"Open navigation");document.body.classList.toggle("menu-open",open)});
+  nav.querySelectorAll("a,button").forEach(item=>item.addEventListener("click",()=>closeMenu()));
+  document.addEventListener("keydown",event=>{if(event.key==="Escape"&&nav.classList.contains("open"))closeMenu(true)});
+  document.addEventListener("click",event=>{if(nav.classList.contains("open")&&!nav.contains(event.target)&&!button.contains(event.target))closeMenu()});
+  window.addEventListener("resize",()=>{if(innerWidth>790)closeMenu()});
+}
+function renderTools(){
+  const query=$("toolSearch").value.trim().toLowerCase(),category=$("toolCategory").value;
+  const items=INTERNAL_TOOLS.filter(item=>(category==="all"||item.category===category)&&(!query||`${item.title} ${item.description} ${item.tags} ${item.category}`.toLowerCase().includes(query)));
+  $("toolGrid").innerHTML=items.length?items.map(item=>`<article class="tool-card"><div class="tool-icon">${escapeHTML(item.icon)}</div><span class="source-badge">Verve N Veda Original · ${escapeHTML(item.category)}</span><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.description)}</p><div class="tool-meta">Verified GitHub Pages route</div>${safeLink(item,"internal","Open original tool")}</article>`).join(""):`<div class="empty-guide" style="grid-column:1/-1">No Verve N Veda tool matches this search.</div>`;
+  $("toolStatus").textContent=`${items.length} of ${INTERNAL_TOOLS.length} verified tools shown.`;
+}
+function renderOfficial(){
+  const query=$("officialSearch").value.trim().toLowerCase(),category=$("officialCategory").value;
+  const items=OFFICIAL_RESOURCES.filter(item=>(category==="all"||item.category===category)&&(!query||`${item.title} ${item.description} ${item.source} ${item.category}`.toLowerCase().includes(query)));
+  $("officialGrid").innerHTML=items.length?items.map(item=>`<article class="official-card"><div class="official-icon">${escapeHTML(item.icon)}</div><span class="source-badge">Outside Resource · ${escapeHTML(item.category)}</span><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.description)}</p><div class="official-host">${escapeHTML(new URL(item.url).hostname)}</div>${safeLink(item,"external","Open official resource ↗")}</article>`).join(""):`<div class="empty-guide" style="grid-column:1/-1">No official resource matches this search.</div>`;
+  $("officialStatus").textContent=`${items.length} of ${OFFICIAL_RESOURCES.length} outside resources shown.`;
+}
+function renderNetwork(){
+  $("networkGrid").innerHTML=NETWORK.map(item=>isAllowedURL(item.url,"internal")?`<a class="network-card" href="${escapeHTML(item.url)}"><div class="tool-icon">${escapeHTML(item.mark)}</div><strong>${escapeHTML(item.title)}</strong><span>${escapeHTML(item.description)}</span><small>${escapeHTML(new URL(item.url).pathname)}</small></a>`:``).join("");
+}
+function setupGuide(){
+  document.querySelectorAll(".choice").forEach(button=>button.addEventListener("click",()=>button.setAttribute("aria-pressed",String(button.getAttribute("aria-pressed")!=="true"))));
+  $("buildGuide").addEventListener("click",()=>{
+    const urgency=[...document.querySelectorAll("[data-urgency][aria-pressed='true']")].map(x=>x.dataset.urgency);
+    const needs=[...document.querySelectorAll("[data-need][aria-pressed='true']")].map(x=>x.dataset.need);
+    if(!urgency.length&&!needs.length){notify("Choose at least one urgency or need.");return}
+    const steps=[];
+    if(urgency.includes("tonight"))steps.push({title:"Begin with immediate local coordination",text:"Call 211, ask for same-day shelter or coordinated entry, and open HUD Find Shelter. Confirm availability before traveling.",links:[{title:"Call 211",url:"tel:211",kind:"phone"},{title:"HUD Find Shelter",url:"https://www.hud.gov/FindShelter",kind:"external"}]});
+    if(urgency.includes("soon"))steps.push({title:"Ask for homelessness prevention",text:"Contact 211 or a local coordinated-entry provider before housing is lost. Ask about prevention, rental assistance, legal aid, mediation, and a written safety plan.",links:[{title:"USA.gov Housing Help",url:"https://www.usa.gov/housing-help",kind:"external"},{title:"Homeless Hub",url:INTERNAL_TOOLS[0].url,kind:"internal"}]});
+    needs.forEach(need=>(GUIDE_RULES[need]||[]).forEach((text,index)=>steps.push({title:`${need.charAt(0).toUpperCase()+need.slice(1)} · step ${index+1}`,text,links:guideLinksFor(need,index)})));
+    if(!steps.length)steps.push({title:"Start with a listening conversation",text:"Call 211, explain the most urgent need, and ask for a warm referral with a name, phone number, intake time, and backup option.",links:[{title:"Call 211",url:"tel:211",kind:"phone"}]});
+    $("guideResults").innerHTML=steps.map(step=>`<article class="result-item"><strong>${escapeHTML(step.title)}</strong><span>${escapeHTML(step.text)}</span><div class="result-links">${step.links.map(link=>guideMiniLink(link)).join("")}</div></article>`).join("");
+    try{localStorage.setItem("oneDoorGuideV1",JSON.stringify({urgency,needs}))}catch{}
+  });
+  $("resetGuide").addEventListener("click",()=>{document.querySelectorAll(".choice").forEach(button=>button.setAttribute("aria-pressed","false"));$("guideResults").innerHTML='<div class="empty-guide">Choose your urgency and needs, then select “Build my guide.”</div>';try{localStorage.removeItem("oneDoorGuideV1")}catch{}});
+  try{const saved=JSON.parse(localStorage.getItem("oneDoorGuideV1")||"null");if(saved){(saved.urgency||[]).forEach(value=>document.querySelector(`[data-urgency="${CSS.escape(value)}"]`)?.setAttribute("aria-pressed","true"));(saved.needs||[]).forEach(value=>document.querySelector(`[data-need="${CSS.escape(value)}"]`)?.setAttribute("aria-pressed","true"))}}catch{}
+}
+function guideLinksFor(need,index){
+  const map={shelter:[[{title:"Call 211",url:"tel:211",kind:"phone"},{title:"HUD Find Shelter",url:"https://www.hud.gov/FindShelter",kind:"external"}],[{title:"Homeless Hub",url:INTERNAL_TOOLS[0].url,kind:"internal"}]],food:[[{title:"Call 211",url:"tel:211",kind:"phone"}],[{title:"SNAP Help",url:"https://www.fns.usda.gov/snap/applicant-participant",kind:"external"}]],health:[[{title:"Call 988",url:"tel:988",kind:"phone"}],[{title:"Find Health Center",url:"https://findahealthcenter.hrsa.gov/",kind:"external"},{title:"SAMHSA",url:"https://www.samhsa.gov/find-help/locators",kind:"external"}]],documents:[[{title:"Replace Documents",url:"https://www.usa.gov/replace-vital-documents",kind:"external"}],[{title:"DailySpark",url:INTERNAL_TOOLS[3].url,kind:"internal"}]],benefits:[[{title:"Government Benefits",url:"https://www.usa.gov/benefits",kind:"external"}],[{title:"Budget Tool",url:INTERNAL_TOOLS[8].url,kind:"internal"}]],work:[[{title:"Career Star",url:INTERNAL_TOOLS[1].url,kind:"internal"},{title:"Job Center",url:"https://www.careeronestop.org/LocalHelp/AmericanJobCenters/american-job-centers.aspx",kind:"external"}],[{title:"Open PROSE",url:INTERNAL_TOOLS[2].url,kind:"internal"}]],legal:[[{title:"Firmament Law",url:INTERNAL_TOOLS[5].url,kind:"internal"}],[{title:"Homeless Hub",url:INTERNAL_TOOLS[0].url,kind:"internal"}]],safety:[[{title:"Call 911",url:"tel:911",kind:"phone"},{title:"The Hotline",url:"https://www.thehotline.org/get-help/",kind:"external"}],[{title:"Quick Exit",url:"https://www.usa.gov/",kind:"external"}]],youth:[[{title:"Youth Help",url:"https://www.1800runaway.org/",kind:"external"}],[{title:"Family Hub",url:INTERNAL_TOOLS[6].url,kind:"internal"}]],veteran:[[{title:"Call VA",url:"tel:8774243838",kind:"phone"},{title:"VA Homeless Help",url:"https://www.va.gov/homeless/nationalcallcenter.asp",kind:"external"}],[{title:"Veterans Portal",url:INTERNAL_TOOLS[7].url,kind:"internal"}]],wellness:[[{title:"Aurora Sanctuary",url:INTERNAL_TOOLS[11].url,kind:"internal"}],[{title:"Daily Journal",url:INTERNAL_TOOLS[4].url,kind:"internal"}]],family:[[{title:"Family Hub",url:INTERNAL_TOOLS[6].url,kind:"internal"},{title:"Call 211",url:"tel:211",kind:"phone"}],[{title:"Homeless Hub",url:INTERNAL_TOOLS[0].url,kind:"internal"}]]};return (map[need]||[])[index]||[]}
+function guideMiniLink(link){const kind=link.kind==="internal"?"internal":"external";if(link.kind==="phone")return `<a class="mini-link" href="${escapeHTML(link.url)}">${escapeHTML(link.title)}</a>`;if(!isAllowedURL(link.url,kind))return "";return `<a class="mini-link ${kind==="external"?"external":""}" href="${escapeHTML(link.url)}"${kind==="external"?' target="_blank" rel="noopener noreferrer"':''}>${escapeHTML(link.title)}</a>`}
+function setupPlanner(){
+  const KEY="oneDoorStabilityPlanV1",NOTES="oneDoorStabilityNotesV1";
+  let checked={};try{checked=JSON.parse(localStorage.getItem(KEY)||"{}")}catch{}
+  $("checklist").innerHTML=PLAN_STEPS.map(step=>`<div class="check-item"><input id="step-${escapeHTML(step.id)}" type="checkbox" data-plan="${escapeHTML(step.id)}" ${checked[step.id]?"checked":""}><label for="step-${escapeHTML(step.id)}"><strong>${escapeHTML(step.title)}</strong><span>${escapeHTML(step.text)}</span></label></div>`).join("");
+  try{$("planNotes").value=localStorage.getItem(NOTES)||""}catch{}
+  document.querySelectorAll("[data-plan]").forEach(input=>input.addEventListener("change",()=>{const data={};document.querySelectorAll("[data-plan]").forEach(item=>data[item.dataset.plan]=item.checked);try{localStorage.setItem(KEY,JSON.stringify(data))}catch{}}));
+  $("planNotes").addEventListener("input",()=>{try{localStorage.setItem(NOTES,$("planNotes").value)}catch{}});
+  $("clearPlan").addEventListener("click",()=>{if(!confirm("Clear the checklist and notes stored in this browser?"))return;document.querySelectorAll("[data-plan]").forEach(item=>item.checked=false);$("planNotes").value="";try{localStorage.removeItem(KEY);localStorage.removeItem(NOTES)}catch{}notify("Local plan cleared.")});
+  $("exportPlan").addEventListener("click",()=>{const lines=["ONE DOOR · NO WRONG DOOR — MY PATH","",...PLAN_STEPS.map(step=>`${document.querySelector(`[data-plan="${step.id}"]`)?.checked?"[x]":"[ ]"} ${step.title}\n    ${step.text}`),"","NOTES",$("planNotes").value||"(none)","","Privacy reminder: remove sensitive identifying information before sharing."];downloadText("one-door-stability-plan.txt",lines.join("\n"));notify("Plan exported.")});
+}
+function setupLetters(){
+  $("buildLetter").addEventListener("click",()=>{const type=$("letterType").value,recipient=$("recipientName").value.trim()||"[Organization or staff name]",summary=$("requestSummary").value.trim()||"[Describe the assistance or information you are requesting]",deadline=$("deadlineText").value.trim();const openings={agency:"I am writing to request information and assistance related to housing stability and essential services.",housing:"I am following up to ask about housing, shelter, coordinated-entry, or homelessness-prevention options.",documents:"I am requesting guidance about replacing an important identity or vital document.",employment:"I am requesting employment, training, résumé, application, or job-search support.",school:"I am requesting school or student-support assistance related to housing instability."};const draft=`Date: ${new Date().toLocaleDateString()}\n\nTo: ${recipient}\n\nDear Sir or Madam,\n\n${openings[type]}\n\nMy request:\n${summary}\n\n${deadline?`Important timing:\n${deadline}\n\n`:""}Please let me know the next step, any eligibility or identification requirements, the intake hours, and whom I should contact if this is not the correct office. If the requested service is unavailable, I would appreciate a referral to another appropriate resource.\n\nThank you for your time and assistance.\n\nSincerely,\n[Your name]\n[Safe contact method, if appropriate]`;
+    $("letterOutput").textContent=draft;$("letterOutput").classList.remove("empty");
+  });
+  $("copyLetter").addEventListener("click",async()=>{const text=$("letterOutput").textContent;if($("letterOutput").classList.contains("empty")){notify("Create a draft first.");return}try{await navigator.clipboard.writeText(text);notify("Draft copied.")}catch{prompt("Copy this draft:",text)}});
+  $("clearLetter").addEventListener("click",()=>{$("recipientName").value="";$("requestSummary").value="";$("deadlineText").value="";$("letterOutput").textContent="Your draft will appear here. It will not be saved automatically.";$("letterOutput").classList.add("empty")});
+}
+function downloadText(filename,text){const blob=new Blob([text],{type:"text/plain;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function auditOneDoor(){
+  const duplicate=values=>[...new Set(values.filter((value,index)=>values.indexOf(value)!==index))];
+  const allInternal=[...INTERNAL_TOOLS,...NETWORK];
+  const report={internalTools:INTERNAL_TOOLS.length,officialResources:OFFICIAL_RESOURCES.length,networkHalls:NETWORK.length,duplicateInternalIds:duplicate(INTERNAL_TOOLS.map(x=>x.id)),duplicateInternalToolUrls:duplicate(INTERNAL_TOOLS.map(x=>x.url)),duplicateNetworkUrls:duplicate(NETWORK.map(x=>x.url)),duplicateOfficialIds:duplicate(OFFICIAL_RESOURCES.map(x=>x.id)),duplicateOfficialUrls:duplicate(OFFICIAL_RESOURCES.map(x=>x.url)),blockedInternal:allInternal.filter(x=>!isAllowedURL(x.url,"internal")).map(x=>x.title),blockedExternal:OFFICIAL_RESOURCES.filter(x=>!isAllowedURL(x.url,"external")).map(x=>x.title),customDomains:allInternal.filter(x=>{try{return new URL(x.url).hostname!=="vervenveda.github.io"}catch{return true}}).map(x=>x.title),directGitHubLinks:[...allInternal,...OFFICIAL_RESOURCES].filter(x=>{try{return new URL(x.url).hostname==="github.com"}catch{return false}}).map(x=>x.title)};
+  report.passed=!Object.values(report).some(value=>Array.isArray(value)&&value.length);console.table(report);return report;
+}
+window.auditOneDoor=auditOneDoor;
+const toolCategories=["all",...new Set(INTERNAL_TOOLS.map(x=>x.category))];$("toolCategory").innerHTML=toolCategories.map(x=>`<option value="${escapeHTML(x)}">${x==="all"?"All Verve tools":escapeHTML(x)}</option>`).join("");
+const officialCategories=["all",...new Set(OFFICIAL_RESOURCES.map(x=>x.category))];$("officialCategory").innerHTML=officialCategories.map(x=>`<option value="${escapeHTML(x)}">${x==="all"?"All outside resources":escapeHTML(x)}</option>`).join("");
+$("toolSearch").addEventListener("input",renderTools);$("toolCategory").addEventListener("change",renderTools);$("clearTools").addEventListener("click",()=>{$("toolSearch").value="";$("toolCategory").value="all";renderTools();$("toolSearch").focus()});
+$("officialSearch").addEventListener("input",renderOfficial);$("officialCategory").addEventListener("change",renderOfficial);$("clearOfficial").addEventListener("click",()=>{$("officialSearch").value="";$("officialCategory").value="all";renderOfficial();$("officialSearch").focus()});
+$("quickExit").addEventListener("click",()=>window.location.replace("https://www.usa.gov/"));$("printButton").addEventListener("click",()=>print());$("year").textContent=new Date().getFullYear();$("toolCount").textContent=INTERNAL_TOOLS.length;$("officialCount").textContent=OFFICIAL_RESOURCES.length;
+setupNavigation();setupGuide();setupPlanner();setupLetters();renderTools();renderOfficial();renderNetwork();
+</script>
+</body>
+</html>

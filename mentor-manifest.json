@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "sourceId": "verve.homeless-services",
+  "name": "One Door · No Wrong Door",
+  "classification": "civic",
+  "mentorSearchable": true,
+  "audiences": [
+    "high",
+    "higher-learning",
+    "adult",
+    "parent"
+  ],
+  "roles": [
+    "student",
+    "parent",
+    "educator"
+  ],
+  "homepage": "https://vervenveda.com/Homeless.github.io/",
+  "repository": "vervenveda/Homeless.github.io",
+  "inventoryAuthority": "provisional-root-anchor",
+  "resources": [
+    {
+      "id": "homeless-services-home",
+      "title": "One Door · No Wrong Door",
+      "description": "Compassionate public-service gateway for shelter, housing, food, health care, identification, benefits, employment, and coordinated support.",
+      "url": "https://vervenveda.com/Homeless.github.io/",
+      "audiences": [
+        "high",
+        "higher-learning",
+        "adult",
+        "parent"
+      ],
+      "roles": [
+        "student",
+        "parent",
+        "educator"
+      ],
+      "domains": [
+        "housing",
+        "homelessness",
+        "public-services",
+        "community-support",
+        "resource-navigation"
+      ],
+      "skills": [
+        "resource-navigation",
+        "service-literacy",
+        "planning"
+      ],
+      "tags": [
+        "homeless-services",
+        "housing",
+        "support",
+        "one-door",
+        "active-expansion"
+      ],
+      "mentorEligible": true,
+      "featured": false,
+      "resourceType": "hub",
+      "learningValue": "supplemental",
+      "curricularWeight": "supplemental",
+      "requiresFreshnessCheck": true,
+      "dynamicContent": true,
+      "highStakesDomain": "housing-support"
+    }
+  ],
+  "mentorNotes": "PROVISIONAL FEDERATION ANCHOR. This repository is under active expansion. The root landing page is the only inventory authority exposed by this manifest at this stage. Do not infer that unlisted child apps, courses, tools, or directories are absent, obsolete, or non-recommendable. Replace this provisional inventory with a verified deep manifest after the repository upgrade pass is complete."
+}

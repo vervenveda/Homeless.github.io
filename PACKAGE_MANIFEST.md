@@ -1,0 +1,12 @@
+# PACKAGE_MANIFEST.md
+
+Generated: 2026-08-11T03:01:40
+
+| File | Bytes | SHA-256 |
+|---|---:|---|
+| `CHANGELOG.md` | 885 | `f6f5dd52524385d5cdc1257dd381df3ae84f1ce0d9b4733afdb6bb35aa376590` |
+| `README.md` | 476 | `2ec5e696b06aee1470b10bd71bdad4f0c32a52c84b211e4d80a604dd9a59f8d5` |
+| `VALIDATION.md` | 1956 | `09110e5bfda6ad99deb04b16ffe43fa86c71e4ecbdab2cfae40d633d497e0591` |
+| `docs/HOPE_MENTOR_HANDOFF.md` | 1349 | `144c84ce8005b79803f6b4751db3bba937865d8b0c408a7edea5dc59c3cc5adf` |
+| `docs/RESOURCE_RESEARCH.md` | 2058 | `f47a1589c997e6ac57115bae86f793abf69eecce6e25633a87d311758e42b0f3` |
+| `index.html` | 100604 | `7d683f07b7169e0030a528d7e38d91c24c6914d574e9f624bfde007260a4a0be` |

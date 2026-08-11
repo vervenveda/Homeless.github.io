@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="One Door · No Wrong Door — a compassionate, local-first homelessness resource portal connecting immediate help, shelter, food, health care, identification, benefits, employment, legal organization, veterans support, youth support, and verified Verve N Veda tools.">
+<meta name="description" content="One Door · No Wrong Door — a compassionate, local-first homelessness resource portal with opt-in geolocation, shelter and food locators, job and clothing support, public benefits, provider funding pathways, local planning, and Hope · NAIB adult resource mentoring.">
 <meta name="theme-color" content="#102f3a">
 <meta name="color-scheme" content="light">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(self), payment=(), usb=(), interest-cohort=()">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'">
 <title>One Door · No Wrong Door | Homeless Services</title>
 <style>
@@ -141,6 +141,109 @@ button{cursor:pointer;color:inherit}
 @media(max-width:590px){.shell{width:min(calc(100% - 20px),var(--max))}.urgent-inner{align-items:stretch}.urgent-link,.quick-exit{width:100%}.hero{padding:62px 11px}.hero h1{font-size:clamp(3rem,17vw,5rem)}.door-scene{min-height:350px}.door-frame{width:260px;height:320px}.metrics{grid-template-columns:1fr}.metric{border-left:0!important;border-top:1px solid rgba(255,255,255,.22)}.metric:first-child{border-top:0}.section{padding:66px 11px}.immediate-grid,.tool-grid,.official-grid,.network-grid,.choice-grid,.catalog-tools{grid-template-columns:1fr}.catalog-tools .field:first-child{grid-column:auto}.guide-actions,.planner-actions,.letter-actions{flex-direction:column}.btn{width:100%}.tool-card,.official-card{min-height:285px}.letter-output{min-height:360px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 @media print{.urgent-bar,.site-header,.hero,.notice-strip,.catalog-tools,.guide-actions,.planner-actions,.letter-controls,.letter-actions,.favorite,.toast,.site-footer{display:none!important}.section,.section.alt,.section.deep{padding:20px 0;color:#111;background:#fff;border:0}.section-heading h2,.tool-card h3,.official-card h3,.notice-card h2,.notice-card h3{color:#111}.tool-grid,.official-grid{grid-template-columns:repeat(2,1fr)}.tool-card,.official-card,.notice-card,.planner-shell,.letter-shell{color:#111;background:#fff;border:1px solid #777;box-shadow:none;break-inside:avoid}.tool-card p,.official-card p,.notice-card p,.notice-card li{color:#333}}
+
+/* ===== ONE DOOR v2 · LOCATION + HOPE ===== */
+.location-shell,.hope-shell{display:grid;grid-template-columns:.88fr 1.12fr;gap:21px;align-items:start}
+.location-panel,.nearby-panel,.hope-card,.hope-boundaries{
+  padding:28px;border:1px solid var(--line-dark);border-radius:21px;
+  background:var(--paper);box-shadow:var(--shadow);text-align:center
+}
+.location-panel h3,.nearby-panel h3,.hope-card h3,.hope-boundaries h3{
+  margin:14px 0 0;color:var(--navy);font-family:var(--display);font-size:1.65rem
+}
+.location-panel>p,.nearby-panel>p,.hope-boundaries>p{color:var(--muted);font-size:.86rem}
+.location-badge,.hope-mark{
+  width:66px;height:66px;display:grid;place-items:center;margin:auto;border-radius:50%;
+  color:var(--navy-3);background:linear-gradient(145deg,#fff4c9,var(--sun));
+  border:1px solid #e0b85f;font-family:var(--display);font-size:1.45rem;font-weight:700
+}
+.location-actions,.hope-actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:21px}
+.location-manual{margin-top:24px;text-align:left}
+.location-entry{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px}
+.location-status{
+  margin-top:16px;padding:12px 14px;border:1px solid #c6d9e3;border-radius:7px;
+  color:#31556a;background:var(--blue-soft);font-size:.78rem;line-height:1.55
+}
+.nearby-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:18px}
+.nearby-card{
+  min-height:185px;display:flex;flex-direction:column;align-items:center;padding:18px;
+  border:1px solid var(--line);border-radius:11px;background:#fff;text-align:center
+}
+.nearby-card strong{color:var(--navy);font-family:var(--display);font-size:1.05rem}
+.nearby-card span{margin-top:7px;color:var(--muted);font-size:.73rem;line-height:1.55}
+.nearby-card .result-links{margin-top:auto;justify-content:center;padding-top:12px}
+.nearby-tag{margin-bottom:9px;color:var(--clay);font-size:.61rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+
+.hope-section{position:relative;overflow:hidden}
+.hope-section:before{
+  content:"";position:absolute;left:50%;top:-420px;width:760px;height:760px;transform:translateX(-50%);
+  border:1px solid rgba(245,229,184,.08);border-radius:50%;pointer-events:none
+}
+.hope-shell{position:relative;z-index:1}
+.hope-card{background:rgba(255,255,255,.075);border-color:rgba(255,255,255,.2);color:#fff}
+.hope-card h3{color:#fff;font-size:clamp(2rem,4vw,3.5rem)}
+.hope-card .eyebrow{margin-top:18px;color:var(--sun-soft)}
+.hope-lead{max-width:660px;margin:16px auto 0;color:#d7e2e0;font-family:var(--display);font-size:1.08rem;line-height:1.72}
+.hope-capabilities{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin-top:20px}
+.hope-capabilities span{
+  padding:6px 9px;border:1px solid rgba(255,255,255,.18);border-radius:999px;
+  color:#eef5f3;background:rgba(255,255,255,.045);font-size:.67rem
+}
+.hope-label{margin-top:24px;color:var(--sun-soft);text-align:left}
+.hope-message{min-height:132px;background:rgba(255,255,255,.95)}
+.hope-share{display:flex;align-items:flex-start;gap:9px;margin-top:13px;color:#d7e2e0;font-size:.76rem;text-align:left}
+.hope-share input{width:18px;height:18px;flex:0 0 auto;accent-color:var(--sun)}
+.hope-privacy{margin-top:18px;padding:13px;border-left:4px solid var(--sun);background:rgba(255,255,255,.06);color:#cedbd9;font-size:.75rem;text-align:left;line-height:1.6}
+.hope-boundaries{background:var(--paper)}
+.hope-boundary-list{display:grid;gap:10px;margin:19px 0}
+.hope-boundary-list>div{padding:14px;border:1px solid var(--line);border-radius:11px;background:#fff;text-align:left}
+.hope-boundary-list strong{display:block;color:var(--clay);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+.hope-boundary-list span{display:block;margin-top:5px;color:var(--muted);font-size:.79rem;line-height:1.6}
+.hope-boundaries .btn{width:100%}
+
+.funding-warning{
+  max-width:900px;margin:0 auto 21px;padding:16px 18px;border:1px solid #e2c56f;border-left:5px solid var(--sun);
+  border-radius:11px;color:#604d22;background:#fff7d9;font-size:.82rem;line-height:1.65;text-align:left
+}
+.funding-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.funding-card{
+  min-height:300px;display:flex;flex-direction:column;align-items:center;padding:24px;
+  border:1px solid var(--line-dark);border-radius:21px;background:var(--paper);box-shadow:var(--shadow-soft);text-align:center
+}
+.funding-card .official-icon{margin-bottom:2px}
+.funding-card h3{margin:16px 0 0;color:var(--navy);font-family:var(--display);font-size:1.35rem}
+.funding-card p{color:var(--muted);font-size:.82rem;line-height:1.65}
+.funding-audience{margin:10px 0 0;color:var(--clay);font-size:.65rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+.funding-card .btn{width:100%;margin-top:auto}
+.research-stamp{max-width:850px;margin:20px auto 0;color:var(--muted);font-size:.72rem;text-align:center}
+
+.section-heading{margin-bottom:55px}
+.section-heading .eyebrow{
+  font-family:var(--display);font-size:clamp(1.45rem,3vw,2.35rem);font-weight:600;
+  line-height:1.18;letter-spacing:.035em;text-transform:none
+}
+.section-heading h2{
+  max-width:760px;margin:15px auto 0;font-family:var(--sans);
+  font-size:clamp(1rem,1.7vw,1.3rem);font-weight:500;line-height:1.6;letter-spacing:.01em
+}
+.section-heading p:last-child{margin-top:14px;font-size:.84rem;line-height:1.8}
+.deep .section-heading h2{color:#e8efed}
+
+@media(max-width:930px){
+  .location-shell,.hope-shell{grid-template-columns:1fr}
+  .nearby-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .nearby-grid,.funding-grid{grid-template-columns:1fr}
+  .location-entry{grid-template-columns:1fr}
+  .location-actions,.hope-actions{flex-direction:column}
+  .location-actions .btn,.hope-actions .btn{width:100%}
+}
+@media print{
+  #nearby .location-panel,.hope-actions,.hope-share,.hope-message,.funding-card .btn{display:none!important}
+  .nearby-grid,.funding-grid{grid-template-columns:repeat(2,1fr)}
+}
+
 </style>
 </head>
 <body>
@@ -164,11 +267,12 @@ button{cursor:pointer;color:inherit}
     </a>
     <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
       <a href="#immediate">Help Now</a>
-      <a href="#guide">One Door Guide</a>
-      <a href="#tools">Verve Tools</a>
-      <a href="#official">Official Help</a>
+      <a href="#nearby">Near Me</a>
+      <a href="#guide">My Guide</a>
+      <a href="#hope">Hope</a>
+      <a href="#official">Resources</a>
+      <a href="#funding">Funding</a>
       <a href="#plan">My Path</a>
-      <a href="#letters">Letters</a>
       <button id="printButton" type="button">Print</button>
     </nav>
     <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation" aria-controls="navLinks" aria-expanded="false"><span class="menu-lines"></span></button>
@@ -180,11 +284,11 @@ button{cursor:pointer;color:inherit}
     <div class="hero-copy">
       <p class="kicker">Receive · Listen · Connect · Follow Through</p>
       <h1>One Door<span>No wrong door. No shame. A place to begin.</span></h1>
-      <p class="hero-lead">A compassionate starting point for anyone without stable housing—or worried they may lose it—to find immediate help, organize next steps, reach official services, and use original Verve N Veda tools for work, documents, health, reflection, and recovery.</p>
+      <p class="hero-lead">A compassionate starting point for anyone without stable housing—or worried they may lose it—to find nearby help, organize next steps, reach verified public and nonprofit resources, search for work and clothing support, and walk through the process with Hope · the NAIB adult resource mentor.</p>
       <div class="hero-actions">
         <a class="btn primary" href="#immediate">I need help now</a>
-        <a class="btn secondary" href="#guide">Build my next-step plan</a>
-        <a class="btn secondary" href="https://vervenveda.github.io/firmament.github.io/apps/Homeless_Hub_index.html">Open the Homeless Hub</a>
+        <a class="btn secondary" href="#nearby">Find help near me</a>
+        <a class="btn secondary" href="#hope">Talk it through with Hope</a>
       </div>
     </div>
     <div class="door-scene" aria-hidden="true">
@@ -193,8 +297,8 @@ button{cursor:pointer;color:inherit}
   </div>
   <div class="metrics" aria-label="Portal summary">
     <div class="metric"><strong id="toolCount">12</strong><span>Verve N Veda tools</span></div>
-    <div class="metric"><strong id="officialCount">13</strong><span>Official help gateways</span></div>
-    <div class="metric"><strong>Local</strong><span>Private action plan</span></div>
+    <div class="metric"><strong id="officialCount">13</strong><span>Public & nonprofit gateways</span></div>
+    <div class="metric"><strong>Opt-In</strong><span>Location never auto-requested</span></div>
     <div class="metric"><strong>No Login</strong><span>Open public access</span></div>
   </div>
 </section>
@@ -214,7 +318,53 @@ button{cursor:pointer;color:inherit}
   </div>
 </section>
 
-<section class="section alt" id="guide">
+<section class="section alt" id="nearby">
+  <div class="section-inner">
+    <div class="section-heading">
+      <p class="eyebrow">Find help around you</p>
+      <h2>Use your location only when you choose.</h2>
+      <p>One Door can use your browser location to create nearby search links for food, shelter, clothing, thrift stores, job centers, legal aid, health care, libraries, and community services. Precise coordinates stay in this page's memory and are never saved to localStorage or sent to a One Door server.</p>
+    </div>
+
+    <div class="location-shell">
+      <section class="location-panel" aria-labelledby="locationTitle">
+        <div class="location-badge" aria-hidden="true">⌖</div>
+        <h3 id="locationTitle">Your search area</h3>
+        <p>Choose browser location or enter a city, state, or ZIP code. Either method is optional.</p>
+
+        <div class="location-actions">
+          <button class="btn dark" id="useLocation" type="button">Use My Location</button>
+          <button class="btn soft" id="clearLocation" type="button">Clear Location</button>
+        </div>
+
+        <div class="location-manual">
+          <label class="field-label" for="manualLocation">Or type a city, state, or ZIP</label>
+          <div class="location-entry">
+            <input class="field" id="manualLocation" maxlength="80" autocomplete="postal-code"
+                   placeholder="Example: Tampa, FL or 33602">
+            <button class="btn dark small" id="useManualLocation" type="button">Use This Area</button>
+          </div>
+        </div>
+
+        <div class="location-status" id="locationStatus" role="status" aria-live="polite">
+          No location selected. Official national locators still work without sharing your location here.
+        </div>
+
+        <div class="privacy-box">
+          <strong>Location privacy:</strong> One Door does not request location on page load. Browser coordinates are held only in memory for this tab and are not included in your saved plan. Clearing or closing the page removes them.
+        </div>
+      </section>
+
+      <section class="nearby-panel" aria-labelledby="nearbyTitle">
+        <h3 id="nearbyTitle">Nearby doorways</h3>
+        <p>Call or check the provider before traveling. Hours, eligibility, stock, beds, meals, transportation and intake rules can change.</p>
+        <div class="nearby-grid" id="nearbyGrid"></div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="guide">
   <div class="section-inner">
     <div class="section-heading"><p class="eyebrow">One Door guided intake</p><h2>Build a calm next-step plan</h2><p>Select one or more needs. The guide creates a short, practical sequence using verified Verve N Veda tools and official public resources. Do not enter sensitive identifying information.</p></div>
     <div class="guide-shell">
@@ -233,7 +383,62 @@ button{cursor:pointer;color:inherit}
   </div>
 </section>
 
-<section class="section deep" id="tools">
+<section class="section deep hope-section" id="hope">
+  <div class="section-inner">
+    <div class="section-heading">
+      <p class="eyebrow">NAIB adult resource mentor</p>
+      <h2>Meet Hope.</h2>
+      <p>Hope is the named homelessness-and-stability mentor for this doorway. She can help turn a complicated situation into a short sequence: what must happen today, which resource to call first, what to ask, what documents to gather, what backup plan to keep, and what can wait until later.</p>
+    </div>
+
+    <div class="hope-shell">
+      <article class="hope-card">
+        <span class="hope-mark" aria-hidden="true">H</span>
+        <p class="eyebrow">Receive · Listen · Connect · Follow Through</p>
+        <h3>Hope · Adult Resource Mentor</h3>
+        <p class="hope-lead">You do not have to explain everything perfectly. Start with the need that is hardest to solve alone.</p>
+
+        <div class="hope-capabilities">
+          <span>Housing & shelter</span><span>Food & clothing</span><span>Jobs & training</span>
+          <span>ID & benefits</span><span>Calls & questions</span><span>Backup planning</span>
+        </div>
+
+        <label class="field-label hope-label" for="hopeMessage">What would you like Hope to help organize?</label>
+        <textarea class="field hope-message" id="hopeMessage" maxlength="1200"
+                  placeholder="Example: I need a safe place this week, food today, and help finding work. I also need to replace my ID."></textarea>
+
+        <label class="hope-share">
+          <input id="hopeIncludeArea" type="checkbox">
+          <span>Include my selected search area in the copied Hope brief.</span>
+        </label>
+
+        <div class="hope-actions">
+          <button class="btn primary" id="copyHopeBrief" type="button">Copy Brief for Hope</button>
+          <a class="btn secondary" id="openNaib" href="https://artist1970.github.io/noema-ai.github.io/#naib-workspace"
+             target="_blank" rel="noopener noreferrer">Open NAIB · Ask for Hope ↗</a>
+        </div>
+
+        <div class="hope-privacy">
+          Nothing is silently transmitted to NAIB. “Copy Brief for Hope” puts a plain-text summary on your clipboard for you to review and paste yourself. Your private planner notes are never included automatically.
+        </div>
+      </article>
+
+      <aside class="hope-boundaries">
+        <h3>What Hope can—and cannot—do</h3>
+        <div class="hope-boundary-list">
+          <div><strong>Can</strong><span>Help prioritize needs and prepare a call, appointment, application, job-search or document checklist.</span></div>
+          <div><strong>Can</strong><span>Help compare public and nonprofit pathways and create a backup when the first referral is full or unavailable.</span></div>
+          <div><strong>Cannot</strong><span>Dispatch emergency responders, reserve shelter beds, guarantee benefits, award grants, or promise provider availability.</span></div>
+          <div><strong>Cannot</strong><span>Replace a lawyer, doctor, licensed clinician, benefits worker, housing case manager, or emergency service.</span></div>
+        </div>
+        <a class="btn soft" href="https://artist1970.github.io/noema-ai.github.io/"
+           target="_blank" rel="noopener noreferrer">Open NAIB Home ↗</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="tools">
   <div class="section-inner">
     <div class="section-heading"><p class="eyebrow">Original Verve N Veda architecture</p><h2>Tools for rebuilding stability</h2><p>These original browser-based applications support resource navigation, work, writing, task follow-through, budgeting, health literacy, document protection, family support, and reflection.</p></div>
     <div class="catalog-tools"><input class="field" id="toolSearch" type="search" placeholder="Search work, letters, health, journal, budget, veterans…" aria-label="Search Verve N Veda tools" autocomplete="off"><select class="field" id="toolCategory" aria-label="Filter Verve N Veda tools"></select><button class="tool-button" id="clearTools" type="button">Clear</button></div>
@@ -244,15 +449,33 @@ button{cursor:pointer;color:inherit}
 
 <section class="section" id="official">
   <div class="section-inner">
-    <div class="section-heading"><p class="eyebrow">Verified outside assistance</p><h2>Official and national help gateways</h2><p>These resources are separate from Verve N Veda. Availability, eligibility, hours, and local capacity can change. Verify details directly with the provider.</p></div>
-    <div class="catalog-tools"><input class="field" id="officialSearch" type="search" placeholder="Search shelter, food, benefits, ID, jobs, health, youth…" aria-label="Search official resources" autocomplete="off"><select class="field" id="officialCategory" aria-label="Filter official resources"></select><button class="tool-button" id="clearOfficial" type="button">Clear</button></div>
+    <div class="section-heading"><p class="eyebrow">Verified public & nonprofit assistance</p><h2>National gateways that lead back to local help.</h2><p>Government and nonprofit locators can connect a person to nearby shelter, food, clothing, health care, employment, legal aid and community support. Availability, eligibility, hours and capacity can change; verify details directly with the provider.</p></div>
+    <div class="catalog-tools"><input class="field" id="officialSearch" type="search" placeholder="Search shelter, food, clothing, thrift, benefits, jobs, legal, health, youth…" aria-label="Search official resources" autocomplete="off"><select class="field" id="officialCategory" aria-label="Filter official resources"></select><button class="tool-button" id="clearOfficial" type="button">Clear</button></div>
     <div class="catalog-status" id="officialStatus" aria-live="polite"></div>
     <div class="official-grid" id="officialGrid"></div>
-    <div class="external-note"><strong>Outside resource notice:</strong> Firm availability and eligibility are not guaranteed. If a referral is full or unavailable, return to 211, HUD Find Shelter, or your local Continuum of Care and ask for another pathway.</div>
+    <div class="external-note"><strong>Call-first notice:</strong> Availability and eligibility are not guaranteed. If a referral is full or unavailable, return to 211, HUD Find Shelter, your local Continuum of Care, a Community Action Agency, or Hope and ask for a backup pathway.</div>
   </div>
 </section>
 
-<section class="section alt" id="plan">
+<section class="section alt" id="funding">
+  <div class="section-inner">
+    <div class="section-heading">
+      <p class="eyebrow">Grants & funding pathways</p>
+      <h2>Separate personal assistance from provider funding.</h2>
+      <p>Many homelessness “grants” fund governments, nonprofit organizations, housing agencies, tribes, and service providers—not direct cash payments to an individual. If you need help today, use the service locators above. If you operate a program or organization, use the funding sources below.</p>
+    </div>
+
+    <div class="funding-warning">
+      <strong>For an individual seeking help:</strong>
+      Do not spend scarce time applying to a provider-only federal NOFO. Ask 211, your local Continuum of Care, Community Action Agency, or Hope which funded programs actually accept individual applications in your area.
+    </div>
+
+    <div class="funding-grid" id="fundingGrid"></div>
+    <p class="research-stamp">Funding research snapshot: August 2026. Always open the source and verify the current notice, eligibility rules and deadline before acting.</p>
+  </div>
+</section>
+
+<section class="section" id="plan">
   <div class="section-inner">
     <div class="section-heading"><p class="eyebrow">Private local organizer</p><h2>My path toward stability</h2><p>Check off steps as they are completed and keep short notes. This information stays in this browser unless you export or print it. Avoid sensitive identifying details.</p></div>
     <div class="planner-shell">
@@ -273,7 +496,7 @@ button{cursor:pointer;color:inherit}
           <label class="field-label" for="requestSummary">What are you asking for?</label><textarea class="field" id="requestSummary" placeholder="Keep this brief. Do not include sensitive ID numbers."></textarea>
           <label class="field-label" for="deadlineText">Important date or urgency</label><input class="field" id="deadlineText" placeholder="Example: I need a response before Monday">
           <button class="btn dark" id="buildLetter" type="button">Create starter draft</button>
-          <a class="btn soft" href="https://vervenveda.github.io/proresource_hub.github.io/Protools/PROSE%E2%84%A2%20editingsuite_index.html">Open PROSE for full editing</a>
+          <a class="btn soft" href="https://vervenveda.com/proresource_hub.github.io/Protools/PROSE%E2%84%A2%20editingsuite_index.html">Open PROSE for full editing</a>
         </div>
         <div><div class="letter-output empty" id="letterOutput">Your draft will appear here. It will not be saved automatically.</div><div class="letter-actions"><button class="btn dark" id="copyLetter" type="button">Copy draft</button><button class="btn soft" id="clearLetter" type="button">Clear draft</button></div></div>
       </div>
@@ -295,48 +518,381 @@ button{cursor:pointer;color:inherit}
   </div>
 </section>
 </main>
-<footer class="site-footer"><div class="footer-title">One Door · No Wrong Door</div><div class="footer-meta">Homeless Services & Stability Portal · Local-first planning · No account required · © <span id="year"></span></div><div class="footer-links"><a href="https://vervenveda.github.io/">Verve N Veda Matrix</a><a href="https://vervenveda.github.io/firmament.github.io/apps/Homeless_Hub_index.html">Homeless Hub</a><a href="#notice">Safety Notice</a></div></footer>
+<footer class="site-footer"><div class="footer-title">One Door · No Wrong Door</div><div class="footer-meta">Homeless Services & Stability Portal · Local-first planning · No account required · © <span id="year"></span></div><div class="footer-links"><a href="https://vervenveda.com/">Verve N Veda Matrix</a><a href="https://vervenveda.com/firmament.github.io/apps/Homeless_Hub_index.html">Homeless Hub</a><a href="#notice">Safety Notice</a></div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 "use strict";
 const INTERNAL_TOOLS=[
-  {id:"homeless-hub",title:"Verve N Veda Homeless Hub",url:"https://vervenveda.github.io/firmament.github.io/apps/Homeless_Hub_index.html",icon:"Door",category:"Resource Navigation",description:"Search housing, shelter, food, benefits, documents, safety, and community-support pathways in the existing Homeless Hub.",tags:"homeless housing shelter food documents benefits support"},
-  {id:"career-star",title:"Khaemenes Career Star",url:"https://vervenveda.github.io/Khaemenes_Academy.github.io/higher_learming/apps/Career_star_index.html",icon:"Star",category:"Work & Training",description:"Explore thirteen career zones, score interests and strengths, rank a short list, and plan small employment experiments.",tags:"career assessment interests strengths work training employment"},
-  {id:"prose",title:"PROSE™ Editorial Suite",url:"https://vervenveda.github.io/proresource_hub.github.io/Protools/PROSE%E2%84%A2%20editingsuite_index.html",icon:"P",category:"Letters & Documents",description:"Draft and format résumés, cover letters, agency requests, explanations, applications, statements, and other professional writing.",tags:"prose resume cover letter template writing application"},
-  {id:"daily-spark",title:"DailySpark™ Task Studio",url:"https://vervenveda.github.io/proresource_hub.github.io/Protools/DailySpark%E2%84%A2_task_studio_index.html",icon:"Task",category:"Planning",description:"Organize calls, appointments, deadlines, referrals, document requests, and follow-up tasks in a local-first workspace.",tags:"tasks appointments deadlines follow up planning reminders"},
-  {id:"daily-journal",title:"Aurora Daily Journal",url:"https://vervenveda.github.io/aurora.github.io/apps/daily_journal_index.html",icon:"J",category:"Wellness & Reflection",description:"Keep private daily notes about goals, emotions, actions, gratitude, and progress, with local save and export controls.",tags:"journal private reflection goals emotions wellness"},
-  {id:"firmament-law",title:"Firmament Law",url:"https://vervenveda.github.io/firmament.github.io/apps/Firmament_Law_index.html",icon:"Law",category:"Legal Organization",description:"Organize legal questions, timelines, facts, records, and draft materials before speaking with a qualified legal professional.",tags:"law eviction legal records timeline questions"},
-  {id:"family-hub",title:"Family Resource Hub",url:"https://vervenveda.github.io/firmament.github.io/apps/Family_Hub_index.html",icon:"Fam",category:"Family Support",description:"Find practical pathways for parents, children, caregivers, family stability, safety, and community assistance.",tags:"family children caregiver parents safety support"},
-  {id:"veterans",title:"National Veterans Portal",url:"https://vervenveda.github.io/firmament.github.io/apps/Veterans_Hub_National_index.html",icon:"VA",category:"Veteran Support",description:"A Verve N Veda veterans gateway for benefits, housing, health, employment, family, and official support resources.",tags:"veteran benefits housing health employment family"},
-  {id:"budget",title:"Financial Budget Calculator",url:"https://vervenveda.github.io/Khaemenes_Academy.github.io/higher_learming/apps/financial_budget_calculator_index.html",icon:"$",category:"Money & Benefits",description:"Create a simple private budget snapshot for income, expenses, immediate priorities, and planning conversations.",tags:"budget income expenses money benefits calculator"},
-  {id:"khaezip",title:"KhaeZip™ Archive Studio",url:"https://vervenveda.github.io/proresource_hub.github.io/Protools/KhaeZip%E2%84%A2_index.html",icon:"Zip",category:"Documents & Records",description:"Create and protect portable archive packages for documents you intentionally choose to preserve or transfer.",tags:"documents records archive zip protect export"},
-  {id:"medicament",title:"Medicament Hub",url:"https://vervenveda.github.io/medicament-hub.github.io/",icon:"Health",category:"Health",description:"Open the Verve N Veda health-literacy gateway for medical learning, caregiver tools, insurance, and public-health sources.",tags:"health medical clinic insurance caregiver"},
-  {id:"aurora",title:"Aurora Sanctuary",url:"https://vervenveda.github.io/aurora.github.io/",icon:"Rest",category:"Wellness & Reflection",description:"Use original breathing, rest, sleep, reflection, sound, and personal-growth applications during stressful transitions.",tags:"breathing rest sleep reflection wellness stress"}
+  {
+    "id": "homeless-hub",
+    "title": "Verve N Veda Homeless Hub",
+    "url": "https://vervenveda.com/firmament.github.io/apps/Homeless_Hub_index.html",
+    "icon": "Door",
+    "category": "Resource Navigation",
+    "description": "Search housing, shelter, food, benefits, documents, safety, and community-support pathways in the existing Homeless Hub.",
+    "tags": "homeless housing shelter food documents benefits support"
+  },
+  {
+    "id": "career-star",
+    "title": "Khaemenes Career Star",
+    "url": "https://vervenveda.com/Khaemenes_Academy.github.io/higher_learming/apps/Career_star_index.html",
+    "icon": "Star",
+    "category": "Work & Training",
+    "description": "Explore thirteen career zones, score interests and strengths, rank a short list, and plan small employment experiments.",
+    "tags": "career assessment interests strengths work training employment"
+  },
+  {
+    "id": "prose",
+    "title": "PROSE™ Editorial Suite",
+    "url": "https://vervenveda.com/proresource_hub.github.io/Protools/PROSE%E2%84%A2%20editingsuite_index.html",
+    "icon": "P",
+    "category": "Letters & Documents",
+    "description": "Draft and format résumés, cover letters, agency requests, explanations, applications, statements, and other professional writing.",
+    "tags": "prose resume cover letter template writing application"
+  },
+  {
+    "id": "daily-spark",
+    "title": "DailySpark™ Task Studio",
+    "url": "https://vervenveda.com/proresource_hub.github.io/Protools/DailySpark%E2%84%A2_task_studio_index.html",
+    "icon": "Task",
+    "category": "Planning",
+    "description": "Organize calls, appointments, deadlines, referrals, document requests, and follow-up tasks in a local-first workspace.",
+    "tags": "tasks appointments deadlines follow up planning reminders"
+  },
+  {
+    "id": "daily-journal",
+    "title": "Aurora Daily Journal",
+    "url": "https://vervenveda.com/aurora.github.io/apps/daily_journal_index.html",
+    "icon": "J",
+    "category": "Wellness & Reflection",
+    "description": "Keep private daily notes about goals, emotions, actions, gratitude, and progress, with local save and export controls.",
+    "tags": "journal private reflection goals emotions wellness"
+  },
+  {
+    "id": "firmament-law",
+    "title": "Firmament Law",
+    "url": "https://vervenveda.com/firmament.github.io/apps/Firmament_Law_index.html",
+    "icon": "Law",
+    "category": "Legal Organization",
+    "description": "Organize legal questions, timelines, facts, records, and draft materials before speaking with a qualified legal professional.",
+    "tags": "law eviction legal records timeline questions"
+  },
+  {
+    "id": "family-hub",
+    "title": "Family Resource Hub",
+    "url": "https://vervenveda.com/firmament.github.io/apps/Family_Hub_index.html",
+    "icon": "Fam",
+    "category": "Family Support",
+    "description": "Find practical pathways for parents, children, caregivers, family stability, safety, and community assistance.",
+    "tags": "family children caregiver parents safety support"
+  },
+  {
+    "id": "veterans",
+    "title": "National Veterans Portal",
+    "url": "https://vervenveda.com/firmament.github.io/apps/Veterans_Hub_National_index.html",
+    "icon": "VA",
+    "category": "Veteran Support",
+    "description": "A Verve N Veda veterans gateway for benefits, housing, health, employment, family, and official support resources.",
+    "tags": "veteran benefits housing health employment family"
+  },
+  {
+    "id": "budget",
+    "title": "Financial Budget Calculator",
+    "url": "https://vervenveda.com/Khaemenes_Academy.github.io/higher_learming/apps/financial_budget_calculator_index.html",
+    "icon": "$",
+    "category": "Money & Benefits",
+    "description": "Create a simple private budget snapshot for income, expenses, immediate priorities, and planning conversations.",
+    "tags": "budget income expenses money benefits calculator"
+  },
+  {
+    "id": "khaezip",
+    "title": "KhaeZip™ Archive Studio",
+    "url": "https://vervenveda.com/proresource_hub.github.io/Protools/KhaeZip%E2%84%A2_index.html",
+    "icon": "Zip",
+    "category": "Documents & Records",
+    "description": "Create and protect portable archive packages for documents you intentionally choose to preserve or transfer.",
+    "tags": "documents records archive zip protect export"
+  },
+  {
+    "id": "medicament",
+    "title": "Medicament Hub",
+    "url": "https://vervenveda.com/medicament-hub.github.io/",
+    "icon": "Health",
+    "category": "Health",
+    "description": "Open the Verve N Veda health-literacy gateway for medical learning, caregiver tools, insurance, and public-health sources.",
+    "tags": "health medical clinic insurance caregiver"
+  },
+  {
+    "id": "aurora",
+    "title": "Aurora Sanctuary",
+    "url": "https://vervenveda.com/aurora.github.io/",
+    "icon": "Rest",
+    "category": "Wellness & Reflection",
+    "description": "Use original breathing, rest, sleep, reflection, sound, and personal-growth applications during stressful transitions.",
+    "tags": "breathing rest sleep reflection wellness stress"
+  }
 ];
 const OFFICIAL_RESOURCES=[
-  {id:"hud-shelter",title:"HUD Find Shelter",url:"https://www.hud.gov/FindShelter",icon:"HUD",category:"Shelter & Housing",description:"Search by location for shelters, food pantries, health clinics, and clothing resources.",source:"U.S. Department of Housing and Urban Development"},
-  {id:"211",title:"211 Local Help",url:"https://www.211.org/",icon:"211",category:"Local Coordination",description:"Find local housing, utility, food, transportation, health, and community-service referrals; phone support is available by dialing 211.",source:"211 network"},
-  {id:"housing-help",title:"USA.gov Housing Help",url:"https://www.usa.gov/housing-help",icon:"US",category:"Shelter & Housing",description:"Find federal and state starting points for emergency housing, rental assistance, eviction prevention, and housing programs.",source:"USA.gov"},
-  {id:"benefits",title:"USA.gov Government Benefits",url:"https://www.usa.gov/benefits",icon:"US",category:"Benefits & Money",description:"Explore public programs for food, housing, health care, utilities, Social Security, and other basic needs.",source:"USA.gov"},
-  {id:"documents",title:"Replace Vital Documents",url:"https://www.usa.gov/replace-vital-documents",icon:"ID",category:"Documents",description:"Find official steps for replacing a state ID, Social Security card, birth certificate, passport, and other vital records.",source:"USA.gov"},
-  {id:"health-center",title:"Find a Health Center",url:"https://findahealthcenter.hrsa.gov/",icon:"HRSA",category:"Health",description:"Locate federally supported community health centers that provide medical, dental, mental health, substance-use, and support services.",source:"Health Resources and Services Administration"},
-  {id:"snap",title:"SNAP State Assistance",url:"https://www.fns.usda.gov/snap/applicant-participant",icon:"Food",category:"Food",description:"Find your state SNAP office, application information, case help, and benefit guidance.",source:"USDA Food and Nutrition Service"},
-  {id:"988",title:"988 Suicide & Crisis Lifeline",url:"https://988lifeline.org/",icon:"988",category:"Crisis & Safety",description:"Call, text, or chat for free and confidential emotional-crisis support, available day and night.",source:"988 Lifeline"},
-  {id:"samhsa",title:"SAMHSA Treatment Locators",url:"https://www.samhsa.gov/find-help/locators",icon:"Help",category:"Health",description:"Find mental-health and substance-use treatment providers and specialized treatment directories.",source:"Substance Abuse and Mental Health Services Administration"},
-  {id:"dv",title:"National Domestic Violence Hotline",url:"https://www.thehotline.org/get-help/",icon:"Safe",category:"Crisis & Safety",description:"Connect with a live advocate for safety planning, crisis support, shelter referrals, legal resources, and local providers.",source:"National Domestic Violence Hotline"},
-  {id:"jobs",title:"American Job Center Finder",url:"https://www.careeronestop.org/LocalHelp/AmericanJobCenters/american-job-centers.aspx",icon:"Job",category:"Work & Training",description:"Find free local employment help, computers, job-search workshops, career counseling, skills assessment, and training information.",source:"CareerOneStop · U.S. Department of Labor"},
-  {id:"va",title:"Homeless Veterans Help",url:"https://www.va.gov/homeless/nationalcallcenter.asp",icon:"VA",category:"Veteran Support",description:"Veterans and people helping a Veteran can reach trained counselors and local VA homelessness support at 877-424-3838, 24/7.",source:"U.S. Department of Veterans Affairs"},
-  {id:"youth",title:"National Runaway Safeline",url:"https://www.1800runaway.org/",icon:"Youth",category:"Youth",description:"Free, confidential crisis support and local referrals for runaway, homeless, and at-risk youth and their families.",source:"Federally designated youth crisis system"}
+  {
+    "id": "hud-shelter",
+    "title": "HUD Find Shelter",
+    "url": "https://www.hud.gov/FindShelter",
+    "icon": "HUD",
+    "category": "Shelter & Housing",
+    "description": "Search by location for shelters, food pantries, health clinics, and clothing resources.",
+    "source": "U.S. Department of Housing and Urban Development",
+    "type": "Government / national gateway"
+  },
+  {
+    "id": "211",
+    "title": "211 Local Help",
+    "url": "https://www.211.org/",
+    "icon": "211",
+    "category": "Local Coordination",
+    "description": "Find local housing, utility, food, transportation, health, and community-service referrals; phone support is available by dialing 211.",
+    "source": "211 network",
+    "type": "National service network"
+  },
+  {
+    "id": "housing-help",
+    "title": "USA.gov Housing Help",
+    "url": "https://www.usa.gov/housing-help",
+    "icon": "US",
+    "category": "Shelter & Housing",
+    "description": "Find federal and state starting points for emergency housing, rental assistance, eviction prevention, and housing programs.",
+    "source": "USA.gov",
+    "type": "Government / national gateway"
+  },
+  {
+    "id": "benefits",
+    "title": "USA.gov Government Benefits",
+    "url": "https://www.usa.gov/benefits",
+    "icon": "US",
+    "category": "Benefits & Money",
+    "description": "Explore public programs for food, housing, health care, utilities, Social Security, and other basic needs.",
+    "source": "USA.gov",
+    "type": "Government / national gateway"
+  },
+  {
+    "id": "documents",
+    "title": "Replace Vital Documents",
+    "url": "https://www.usa.gov/replace-vital-documents",
+    "icon": "ID",
+    "category": "Documents",
+    "description": "Find official steps for replacing a state ID, Social Security card, birth certificate, passport, and other vital records.",
+    "source": "USA.gov",
+    "type": "Government / national gateway"
+  },
+  {
+    "id": "health-center",
+    "title": "Find a Health Center",
+    "url": "https://findahealthcenter.hrsa.gov/",
+    "icon": "HRSA",
+    "category": "Health",
+    "description": "Locate federally supported community health centers that provide medical, dental, mental health, substance-use, and support services.",
+    "source": "Health Resources and Services Administration",
+    "type": "Government / national gateway"
+  },
+  {
+    "id": "snap",
+    "title": "SNAP State Assistance",
+    "url": "https://www.fns.usda.gov/snap/applicant-participant",
+    "icon": "Food",
+    "category": "Food",
+    "description": "Find your state SNAP office, application information, case help, and benefit guidance.",
+    "source": "USDA Food and Nutrition Service",
+    "type": "Government / national gateway"
+  },
+  {
+    "id": "988",
+    "title": "988 Suicide & Crisis Lifeline",
+    "url": "https://988lifeline.org/",
+    "icon": "988",
+    "category": "Crisis & Safety",
+    "description": "Call, text, or chat for free and confidential emotional-crisis support, available day and night.",
+    "source": "988 Lifeline",
+    "type": "National service network"
+  },
+  {
+    "id": "samhsa",
+    "title": "SAMHSA Treatment Locators",
+    "url": "https://www.samhsa.gov/find-help/locators",
+    "icon": "Help",
+    "category": "Health",
+    "description": "Find mental-health and substance-use treatment providers and specialized treatment directories.",
+    "source": "Substance Abuse and Mental Health Services Administration",
+    "type": "Government / national gateway"
+  },
+  {
+    "id": "dv",
+    "title": "National Domestic Violence Hotline",
+    "url": "https://www.thehotline.org/get-help/",
+    "icon": "Safe",
+    "category": "Crisis & Safety",
+    "description": "Connect with a live advocate for safety planning, crisis support, shelter referrals, legal resources, and local providers.",
+    "source": "National Domestic Violence Hotline",
+    "type": "National service network"
+  },
+  {
+    "id": "jobs",
+    "title": "American Job Center Finder",
+    "url": "https://www.careeronestop.org/LocalHelp/AmericanJobCenters/american-job-centers.aspx",
+    "icon": "Job",
+    "category": "Work & Training",
+    "description": "Find free local employment help, computers, job-search workshops, career counseling, skills assessment, and training information.",
+    "source": "CareerOneStop · U.S. Department of Labor",
+    "type": "Government / national gateway"
+  },
+  {
+    "id": "va",
+    "title": "Homeless Veterans Help",
+    "url": "https://www.va.gov/homeless/nationalcallcenter.asp",
+    "icon": "VA",
+    "category": "Veteran Support",
+    "description": "Veterans and people helping a Veteran can reach trained counselors and local VA homelessness support at 877-424-3838, 24/7.",
+    "source": "U.S. Department of Veterans Affairs",
+    "type": "Government / national gateway"
+  },
+  {
+    "id": "youth",
+    "title": "National Runaway Safeline",
+    "url": "https://www.1800runaway.org/",
+    "icon": "Youth",
+    "category": "Youth",
+    "description": "Free, confidential crisis support and local referrals for runaway, homeless, and at-risk youth and their families.",
+    "source": "Federally designated youth crisis system",
+    "type": "National service network"
+  },
+  {
+    "id": "feeding-america",
+    "title": "Feeding America · Find Your Local Food Bank",
+    "url": "https://www.feedingamerica.org/find-your-local-foodbank",
+    "icon": "Food",
+    "category": "Food",
+    "description": "Search by ZIP code or use the locator to find the food bank serving your community, then check partner pantries, meal programs and hours.",
+    "source": "Feeding America · nonprofit network",
+    "type": "Nonprofit"
+  },
+  {
+    "id": "community-action",
+    "title": "Find Your Community Action Agency",
+    "url": "https://communityactionpartnership.com/find-a-cap/",
+    "icon": "CAA",
+    "category": "Local Coordination",
+    "description": "Search by ZIP, state, county, radius or service for a Community Action Agency that may connect low-income households with housing, nutrition, utilities, transportation, employment and crisis assistance.",
+    "source": "National Community Action Partnership",
+    "type": "Nonprofit network"
+  },
+  {
+    "id": "voa",
+    "title": "Volunteers of America · Service Navigator",
+    "url": "https://www.voa.org/service-navigator/",
+    "icon": "VOA",
+    "category": "Shelter & Housing",
+    "description": "Search by ZIP or city for local VOA services, including homelessness prevention, shelters, transitional housing, affordable housing, behavioral health and other community programs where available.",
+    "source": "Volunteers of America",
+    "type": "Nonprofit"
+  },
+  {
+    "id": "goodwill-career",
+    "title": "Goodwill · Career Center Locator",
+    "url": "https://www.goodwill.org/locate-a-career-center/",
+    "icon": "Job",
+    "category": "Work & Training",
+    "description": "Find a local Goodwill career center for job-search assistance, résumé help, interviews, applications, career coaching, training and community-support connections. Services vary by location.",
+    "source": "Goodwill Industries International",
+    "type": "Nonprofit"
+  },
+  {
+    "id": "goodwill-thrift",
+    "title": "Goodwill · Thrift & Service Locator",
+    "url": "https://www.goodwill.org/locator/",
+    "icon": "Wear",
+    "category": "Clothing & Thrift",
+    "description": "Search for nearby Goodwill retail, outlet, donation, staffing and job-support locations. Ask the local organization whether clothing vouchers, work attire or other assistance is available.",
+    "source": "Goodwill Industries International",
+    "type": "Nonprofit"
+  },
+  {
+    "id": "salvation-army",
+    "title": "The Salvation Army · Find Help",
+    "url": "https://www.salvationarmyusa.org/",
+    "icon": "SA",
+    "category": "Basic Needs",
+    "description": "Search by city or ZIP and filter for homeless shelters, food pantries, thrift stores, rent or utility assistance, adult programs and other local services.",
+    "source": "The Salvation Army USA",
+    "type": "Nonprofit"
+  },
+  {
+    "id": "legal-aid",
+    "title": "Legal Services Corporation · Find Legal Help",
+    "url": "https://www.lsc.gov/",
+    "icon": "Law",
+    "category": "Legal",
+    "description": "Enter a ZIP code or city to locate an LSC-funded civil legal-aid organization near you for qualifying legal problems.",
+    "source": "Legal Services Corporation",
+    "type": "Publicly funded legal-aid network"
+  },
+  {
+    "id": "dress-success",
+    "title": "Dress for Success · Local Network",
+    "url": "https://dressforsuccess.org/",
+    "icon": "DFS",
+    "category": "Clothing & Thrift",
+    "description": "For women seeking work, local affiliates may offer interview attire, suiting, career-center support, networking and workplace-development programs.",
+    "source": "Dress for Success Worldwide",
+    "type": "Nonprofit"
+  }
 ];
 const NETWORK=[
-  {title:"Verve N Veda",url:"https://vervenveda.github.io/",mark:"V",description:"The public gateway to the full Verve N Veda network."},
-  {title:"Homeless Hub",url:"https://vervenveda.github.io/firmament.github.io/apps/Homeless_Hub_index.html",mark:"Door",description:"The existing internal hub for housing, shelter, food, health, documents, benefits, and support."},
-  {title:"Firmament",url:"https://vervenveda.github.io/firmament.github.io/",mark:"Law",description:"Legal-information, evidence, family, senior, veteran, and public-resource tools."},
-  {title:"ProReSources",url:"https://vervenveda.github.io/proresource_hub.github.io/",mark:"P",description:"Professional writing, task, archive, communication, and document tools."},
-  {title:"Khaemenes Academy",url:"https://vervenveda.github.io/Khaemenes_Academy.github.io/",mark:"K",description:"Career, financial, educational, and lifelong-learning applications."},
-  {title:"Medicament Hub",url:"https://vervenveda.github.io/medicament-hub.github.io/",mark:"Health",description:"Health literacy, medical education, caregiver, and public-health pathways."},
-  {title:"Aurora Sanctuary",url:"https://vervenveda.github.io/aurora.github.io/",mark:"Rest",description:"Breathing, rest, reflection, sleep, and personal-growth tools."},
-  {title:"One Nation For All",url:"https://vervenveda.github.io/onenationforall.github.io/",mark:"Civic",description:"Civic information, public participation, and government-resource pathways."}
+  {
+    "title": "Verve N Veda",
+    "url": "https://vervenveda.com/",
+    "mark": "V",
+    "description": "The public gateway to the full Verve N Veda network."
+  },
+  {
+    "title": "Homeless Hub",
+    "url": "https://vervenveda.com/firmament.github.io/apps/Homeless_Hub_index.html",
+    "mark": "Door",
+    "description": "The existing internal hub for housing, shelter, food, health, documents, benefits, and support."
+  },
+  {
+    "title": "Firmament",
+    "url": "https://vervenveda.com/firmament.github.io/",
+    "mark": "Law",
+    "description": "Legal-information, evidence, family, senior, veteran, and public-resource tools."
+  },
+  {
+    "title": "ProReSources",
+    "url": "https://vervenveda.com/proresource_hub.github.io/",
+    "mark": "P",
+    "description": "Professional writing, task, archive, communication, and document tools."
+  },
+  {
+    "title": "Khaemenes Academy",
+    "url": "https://vervenveda.com/Khaemenes_Academy.github.io/",
+    "mark": "K",
+    "description": "Career, financial, educational, and lifelong-learning applications."
+  },
+  {
+    "title": "Medicament Hub",
+    "url": "https://vervenveda.com/medicament-hub.github.io/",
+    "mark": "Health",
+    "description": "Health literacy, medical education, caregiver, and public-health pathways."
+  },
+  {
+    "title": "Aurora Sanctuary",
+    "url": "https://vervenveda.com/aurora.github.io/",
+    "mark": "Rest",
+    "description": "Breathing, rest, reflection, sleep, and personal-growth tools."
+  },
+  {
+    "title": "One Nation For All",
+    "url": "https://vervenveda.com/onenationforall.github.io/",
+    "mark": "Civic",
+    "description": "Civic information, public participation, and government-resource pathways."
+  }
 ];
 const PLAN_STEPS=[
   {id:"safe",title:"Safe place for tonight",text:"Confirm location, intake time, transportation, accessibility, family or pet rules, and what documents are required."},
@@ -349,21 +905,97 @@ const PLAN_STEPS=[
   {id:"follow",title:"Warm referral and follow-through",text:"Write the name of the person or agency, the next action, the due date, and what to do if the referral is unavailable."}
 ];
 const GUIDE_RULES={
-  shelter:["Call 211 and ask specifically for coordinated entry, emergency shelter, day-center, outreach, or prevention services.","Use HUD Find Shelter and the Verve N Veda Homeless Hub to create a short list of nearby options."],
-  food:["Ask 211 about same-day meals, pantries, hygiene supplies, clothing, and transportation.","Use the USDA SNAP directory to locate your state application and case-help information."],
-  health:["For emergency danger call 911; for emotional crisis call or text 988.","Use HRSA’s Find a Health Center and SAMHSA’s treatment locators for local care options."],
-  documents:["Use USA.gov’s document replacement guide to identify the correct issuing office.","Make a safe document checklist in DailySpark; do not store full ID numbers or document images on a shared device."],
-  benefits:["Use USA.gov Government Benefits and ask 211 or a caseworker which applications are most urgent.","Use the Verve N Veda budget calculator to prepare a simple income-and-expense snapshot."],
-  work:["Complete the Khaemenes Career Star to identify a short list of work directions.","Use an American Job Center for free job-search help, then draft a résumé or cover letter in PROSE."],
-  legal:["Open Firmament Law to organize dates, notices, facts, questions, and records.","Verify deadlines and rights with an official court, legal-aid provider, or qualified attorney."],
-  safety:["If there is immediate danger, call 911. For domestic violence support, use the National Domestic Violence Hotline.","Use a safer device when possible and consider whether browsing history or saved local data could be monitored."],
-  youth:["Contact the National Runaway Safeline for confidential support and local youth referrals.","Use the Family Resource Hub for additional family, caregiver, school, and community pathways."],
-  veteran:["Call the National Call Center for Homeless Veterans at 877-424-3838 or use the VA online help page.","Open the Verve N Veda National Veterans Portal for benefits, health, employment, and family resources."],
-  wellness:["Use Aurora’s breathing, sleep, reflection, and grounding tools for short periods of recovery.","Use the Daily Journal only on a device where local entries can be stored safely."],
-  family:["Open the Family Resource Hub and ask 211 about family shelter, child care, school stability, food, and benefits.","When contacting a shelter, ask whether family members can remain together and what documents are needed."]
+  "shelter": [
+    "Call 211 and ask specifically for coordinated entry, emergency shelter, day-center, outreach, or prevention services.",
+    "Use HUD Find Shelter and the Verve N Veda Homeless Hub to create a short list of nearby options."
+  ],
+  "food": [
+    "Ask 211 about same-day meals, pantries, hygiene supplies, clothing, and transportation. Use the Near Me section to create a local food search.",
+    "Use Feeding America to locate the food bank serving your area and USDA SNAP resources for benefit guidance."
+  ],
+  "health": [
+    "For emergency danger call 911; for emotional crisis call or text 988.",
+    "Use HRSA’s Find a Health Center and SAMHSA’s treatment locators for local care options."
+  ],
+  "documents": [
+    "Use USA.gov’s document replacement guide to identify the correct issuing office.",
+    "Make a safe document checklist in DailySpark; do not store full ID numbers or document images on a shared device."
+  ],
+  "benefits": [
+    "Use USA.gov Government Benefits and ask 211 or a caseworker which applications are most urgent.",
+    "Use the Verve N Veda budget calculator to prepare a simple income-and-expense snapshot."
+  ],
+  "work": [
+    "Complete the Khaemenes Career Star to identify a short list of work directions, then use an American Job Center or Goodwill Career Center for local job-search support.",
+    "Use PROSE for a résumé or cover letter. If interview clothing is a barrier, check Goodwill, The Salvation Army, or Dress for Success where applicable."
+  ],
+  "legal": [
+    "Open Firmament Law to organize dates, notices, facts, questions, and records.",
+    "Use Legal Services Corporation to find a local civil legal-aid organization, then verify deadlines with the court, legal-aid provider, or a qualified attorney."
+  ],
+  "safety": [
+    "If there is immediate danger, call 911. For domestic violence support, use the National Domestic Violence Hotline.",
+    "Use a safer device when possible and consider whether browsing history or saved local data could be monitored."
+  ],
+  "youth": [
+    "Contact the National Runaway Safeline for confidential support and local youth referrals.",
+    "Use the Family Resource Hub for additional family, caregiver, school, and community pathways."
+  ],
+  "veteran": [
+    "Call the National Call Center for Homeless Veterans at 877-424-3838 or use the VA online help page.",
+    "Open the Verve N Veda National Veterans Portal for benefits, health, employment, and family resources."
+  ],
+  "wellness": [
+    "Use Aurora’s breathing, sleep, reflection, and grounding tools for short periods of recovery.",
+    "Use the Daily Journal only on a device where local entries can be stored safely."
+  ],
+  "family": [
+    "Open the Family Resource Hub and ask 211 about family shelter, child care, school stability, food, and benefits.",
+    "When contacting a shelter, ask whether family members can remain together and what documents are needed."
+  ]
 };
+
+const FUNDING_RESOURCES=[
+  {
+    id:"coc-2026",title:"HUD Continuum of Care Competition",
+    url:"https://www.hud.gov/hud-partners/coc-program-competition",icon:"CoC",
+    audience:"Eligible providers & public entities",
+    description:"HUD's annual Continuum of Care competition funds eligible homelessness-response projects. It is generally for qualifying nonprofits, governments, tribes/TDHEs, public housing agencies and other eligible project applicants—not a direct personal cash grant."
+  },
+  {
+    id:"hud-funding",title:"HUD Funding Opportunities",
+    url:"https://www.hud.gov/grants",icon:"HUD",
+    audience:"Organizations & eligible applicants",
+    description:"Central HUD directory for current Notices of Funding Opportunity. HUD directs applicants to the current notice and Grants.gov/e-snaps requirements."
+  },
+  {
+    id:"grants-gov",title:"Grants.gov / Simpler.Grants",
+    url:"https://simpler.grants.gov/",icon:"Grant",
+    audience:"Eligible organizations & entities",
+    description:"Search current federal funding opportunities and read the eligibility section before preparing an application. Individual eligibility varies by opportunity and many homelessness NOFOs exclude individuals."
+  },
+  {
+    id:"csbg",title:"Community Services Block Grant · Local Services",
+    url:"https://communityactionpartnership.com/find-a-cap/",icon:"CAA",
+    audience:"Individuals use local agencies · funding flows through states & local entities",
+    description:"CSBG supports local anti-poverty services through eligible entities. For a person seeking assistance, the practical doorway is usually the local Community Action Agency rather than a federal grant application."
+  }
+];
+
 const ALLOWED_INTERNAL_REPOS=new Set(["Homeless.github.io","firmament.github.io","Khaemenes_Academy.github.io","proresource_hub.github.io","aurora.github.io","medicament-hub.github.io","onenationforall.github.io"]);
-const ALLOWED_EXTERNAL_HOSTS=new Set(["www.hud.gov","hud.gov","www.211.org","211.org","www.usa.gov","usa.gov","findahealthcenter.hrsa.gov","www.fns.usda.gov","fns.usda.gov","988lifeline.org","www.988lifeline.org","www.samhsa.gov","samhsa.gov","www.thehotline.org","thehotline.org","www.careeronestop.org","careeronestop.org","www.va.gov","va.gov","department.va.gov","www.1800runaway.org","1800runaway.org"]);
+const ALLOWED_INTERNAL_HOSTS=new Set(["vervenveda.com","www.vervenveda.com","vervenveda.github.io"]);
+const ALLOWED_EXTERNAL_HOSTS=new Set([
+  "www.hud.gov","hud.gov","www.211.org","211.org","www.usa.gov","usa.gov",
+  "findahealthcenter.hrsa.gov","www.fns.usda.gov","fns.usda.gov","988lifeline.org","www.988lifeline.org",
+  "www.samhsa.gov","samhsa.gov","www.thehotline.org","thehotline.org",
+  "www.careeronestop.org","careeronestop.org","cloudfront.careeronestop.org",
+  "www.va.gov","va.gov","department.va.gov","www.1800runaway.org","1800runaway.org",
+  "www.feedingamerica.org","feedingamerica.org","communityactionpartnership.com","www.communityactionpartnership.com",
+  "www.voa.org","voa.org","www.goodwill.org","goodwill.org","www.salvationarmyusa.org","salvationarmyusa.org",
+  "www.lsc.gov","lsc.gov","dressforsuccess.org","www.dressforsuccess.org",
+  "www.grants.gov","grants.gov","simpler.grants.gov","www.google.com","google.com","maps.google.com"
+]);
+const MENTOR_HOSTS=new Set(["artist1970.github.io"]);
 const $=id=>document.getElementById(id);
 const escapeHTML=value=>String(value).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
 function notify(message){const toast=$("toast");toast.textContent=message;toast.classList.add("show");clearTimeout(notify.timer);notify.timer=setTimeout(()=>toast.classList.remove("show"),2400)}
@@ -373,11 +1005,15 @@ function isAllowedURL(raw,kind="internal"){
     if(["tel:","sms:"].includes(url.protocol))return true;
     if(url.protocol!=="https:")return false;
     if(kind==="internal"){
-      if(url.hostname!=="vervenveda.github.io")return false;
-      const parts=url.pathname.split("/").filter(Boolean);
-      if(parts.length===0)return true;
-      return ALLOWED_INTERNAL_REPOS.has(parts[0]);
+      if(!ALLOWED_INTERNAL_HOSTS.has(url.hostname))return false;
+      if(url.hostname==="vervenveda.github.io"){
+        const parts=url.pathname.split("/").filter(Boolean);
+        if(parts.length===0)return true;
+        return ALLOWED_INTERNAL_REPOS.has(parts[0]);
+      }
+      return true;
     }
+    if(kind==="mentor")return MENTOR_HOSTS.has(url.hostname);
     return ALLOWED_EXTERNAL_HOSTS.has(url.hostname);
   }catch{return false}
 }
@@ -386,6 +1022,130 @@ function safeLink(item,kind,label){
   const external=kind==="external"?' target="_blank" rel="noopener noreferrer"':'';
   return `<a class="btn ${kind==="external"?"soft":"primary"} small" href="${escapeHTML(item.url)}"${external}>${escapeHTML(label)}</a>`;
 }
+
+const NEARBY_LANES=[
+  {id:"shelter",title:"Shelter & Outreach",tag:"Housing",query:"homeless shelter outreach coordinated entry",official:"https://www.hud.gov/FindShelter",officialLabel:"HUD Find Shelter"},
+  {id:"food",title:"Food Banks & Pantries",tag:"Food",query:"food pantry food bank free meals",official:"https://www.feedingamerica.org/find-your-local-foodbank",officialLabel:"Feeding America"},
+  {id:"thrift",title:"Clothing & Thrift",tag:"Clothing",query:"thrift store clothing assistance homeless",official:"https://www.goodwill.org/locator/",officialLabel:"Goodwill Locator"},
+  {id:"jobs",title:"Jobs & Career Centers",tag:"Employment",query:"American Job Center workforce career center",official:"https://www.careeronestop.org/LocalHelp/AmericanJobCenters/american-job-centers.aspx",officialLabel:"Job Center Finder"},
+  {id:"community",title:"Community Action",tag:"Local Help",query:"Community Action Agency emergency assistance",official:"https://communityactionpartnership.com/find-a-cap/",officialLabel:"Find Your CAA"},
+  {id:"voa",title:"Volunteers of America",tag:"Community",query:"Volunteers of America homeless services",official:"https://www.voa.org/service-navigator/",officialLabel:"VOA Services"},
+  {id:"health",title:"Health & Clinics",tag:"Health",query:"community health center homeless clinic",official:"https://findahealthcenter.hrsa.gov/",officialLabel:"HRSA Health Center"},
+  {id:"legal",title:"Free Civil Legal Aid",tag:"Legal",query:"legal aid eviction housing homeless",official:"https://www.lsc.gov/",officialLabel:"Find Legal Aid"},
+  {id:"library",title:"Library, Internet & Charging",tag:"Access",query:"public library",official:"https://www.careeronestop.org/LocalHelp/CommunityServices/find-libraries.aspx",officialLabel:"Library Finder"}
+];
+
+let oneDoorLocation={mode:"none",label:"",lat:null,lng:null};
+
+function sanitizedArea(value){
+  return String(value||"").replace(/[<>{}\[\]]/g,"").trim().slice(0,80);
+}
+function locationContext(){
+  if(oneDoorLocation.mode==="coords")return `${oneDoorLocation.lat.toFixed(5)},${oneDoorLocation.lng.toFixed(5)}`;
+  if(oneDoorLocation.mode==="manual")return oneDoorLocation.label;
+  return "";
+}
+function mapsUrl(query){
+  const area=locationContext();
+  const q=area?`${query} near ${area}`:`${query} near me`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+}
+function renderNearby(){
+  const area=locationContext();
+  $("nearbyGrid").innerHTML=NEARBY_LANES.map(lane=>`
+    <article class="nearby-card">
+      <div class="nearby-tag">${escapeHTML(lane.tag)}</div>
+      <strong>${escapeHTML(lane.title)}</strong>
+      <span>${area?`Search centered on ${escapeHTML(oneDoorLocation.mode==="manual"?area:"your selected browser location")}.`:"Use a national locator now, or choose a search area above."}</span>
+      <div class="result-links">
+        <a class="mini-link external" href="${escapeHTML(mapsUrl(lane.query))}" target="_blank" rel="noopener noreferrer">Map Search ↗</a>
+        <a class="mini-link external" href="${escapeHTML(lane.official)}" target="_blank" rel="noopener noreferrer">${escapeHTML(lane.officialLabel)} ↗</a>
+      </div>
+    </article>
+  `).join("");
+}
+function setLocationStatus(text){$("locationStatus").textContent=text}
+function setupLocation(){
+  $("useLocation").addEventListener("click",()=>{
+    if(!navigator.geolocation){setLocationStatus("This browser does not provide geolocation. Enter a city, state, or ZIP instead.");return}
+    setLocationStatus("Waiting for your browser's location permission…");
+    navigator.geolocation.getCurrentPosition(
+      pos=>{
+        oneDoorLocation={mode:"coords",label:"Browser location",lat:Number(pos.coords.latitude),lng:Number(pos.coords.longitude)};
+        setLocationStatus("Location ready for this tab only. Precise coordinates were not saved. Nearby search links have been refreshed.");
+        renderNearby();
+      },
+      err=>{
+        oneDoorLocation={mode:"none",label:"",lat:null,lng:null};
+        setLocationStatus(err.code===1?"Location permission was not granted. You can type a city, state, or ZIP instead.":"Your location could not be determined. You can type a city, state, or ZIP instead.");
+        renderNearby();
+      },
+      {enableHighAccuracy:false,timeout:10000,maximumAge:300000}
+    );
+  });
+  $("useManualLocation").addEventListener("click",()=>{
+    const value=sanitizedArea($("manualLocation").value);
+    if(!value){notify("Enter a city, state, or ZIP.");return}
+    oneDoorLocation={mode:"manual",label:value,lat:null,lng:null};
+    setLocationStatus(`Search area set to ${value}. It is not saved to your local plan.`);
+    renderNearby();
+  });
+  $("clearLocation").addEventListener("click",()=>{
+    oneDoorLocation={mode:"none",label:"",lat:null,lng:null};
+    $("manualLocation").value="";
+    setLocationStatus("Location cleared. Official national locators still work without sharing your location here.");
+    renderNearby();
+  });
+  renderNearby();
+}
+function selectedGuideNeeds(){
+  return {
+    urgency:[...document.querySelectorAll("[data-urgency][aria-pressed='true']")].map(x=>x.textContent.trim()),
+    needs:[...document.querySelectorAll("[data-need][aria-pressed='true']")].map(x=>x.textContent.trim())
+  };
+}
+function buildHopeBrief(){
+  const selected=selectedGuideNeeds();
+  const message=$("hopeMessage").value.trim();
+  const includeArea=$("hopeIncludeArea").checked;
+  const area=locationContext();
+  const lines=[
+    "ONE DOOR · HOPE RESOURCE BRIEF",
+    "",
+    "Please act as Hope, the adult homelessness and stability resource mentor.",
+    "Help me prioritize the next few practical steps. Do not assume a provider has space, funding, eligibility, or availability; help me verify before traveling.",
+    "",
+    `Urgency selected: ${selected.urgency.length?selected.urgency.join("; "):"(none selected)"}`,
+    `Needs selected: ${selected.needs.length?selected.needs.join("; "):"(none selected)"}`,
+    `What I want help organizing: ${message||"(I will explain after opening NAIB.)"}`
+  ];
+  if(includeArea){
+    lines.push(`Search area I chose to share: ${area||(sanitizedArea($("manualLocation").value)||"(not set)")}`);
+  }else{
+    lines.push("Location: not included in this brief.");
+  }
+  lines.push("","Please help me make: 1) a today list, 2) who to call and what to ask, 3) a backup if the first option is unavailable, and 4) what can wait until later.","Do not ask me to post full SSNs, bank numbers, passwords, medical-record numbers, or full identity-document numbers.");
+  return lines.join("\n");
+}
+function setupHope(){
+  $("copyHopeBrief").addEventListener("click",async()=>{
+    const brief=buildHopeBrief();
+    try{await navigator.clipboard.writeText(brief);notify("Hope brief copied. Open NAIB and paste it when you are ready.")}
+    catch{prompt("Copy this brief for Hope:",brief)}
+  });
+}
+function renderFunding(){
+  $("fundingGrid").innerHTML=FUNDING_RESOURCES.map(item=>`
+    <article class="funding-card">
+      <div class="official-icon">${escapeHTML(item.icon)}</div>
+      <div class="funding-audience">${escapeHTML(item.audience)}</div>
+      <h3>${escapeHTML(item.title)}</h3>
+      <p>${escapeHTML(item.description)}</p>
+      ${safeLink(item,"external","Open funding source ↗")}
+    </article>
+  `).join("");
+}
+
 function setupNavigation(){
   const button=$("menuButton"),nav=$("navLinks");
   function closeMenu(returnFocus=false){nav.classList.remove("open");button.setAttribute("aria-expanded","false");button.setAttribute("aria-label","Open navigation");document.body.classList.remove("menu-open");if(returnFocus)button.focus()}
@@ -404,7 +1164,7 @@ function renderTools(){
 function renderOfficial(){
   const query=$("officialSearch").value.trim().toLowerCase(),category=$("officialCategory").value;
   const items=OFFICIAL_RESOURCES.filter(item=>(category==="all"||item.category===category)&&(!query||`${item.title} ${item.description} ${item.source} ${item.category}`.toLowerCase().includes(query)));
-  $("officialGrid").innerHTML=items.length?items.map(item=>`<article class="official-card"><div class="official-icon">${escapeHTML(item.icon)}</div><span class="source-badge">Outside Resource · ${escapeHTML(item.category)}</span><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.description)}</p><div class="official-host">${escapeHTML(new URL(item.url).hostname)}</div>${safeLink(item,"external","Open official resource ↗")}</article>`).join(""):`<div class="empty-guide" style="grid-column:1/-1">No official resource matches this search.</div>`;
+  $("officialGrid").innerHTML=items.length?items.map(item=>`<article class="official-card"><div class="official-icon">${escapeHTML(item.icon)}</div><span class="source-badge">${escapeHTML(item.type||"Outside Resource")} · ${escapeHTML(item.category)}</span><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.description)}</p><div class="official-host">${escapeHTML(new URL(item.url).hostname)}</div>${safeLink(item,"external","Open resource ↗")}</article>`).join(""):`<div class="empty-guide" style="grid-column:1/-1">No official resource matches this search.</div>`;
   $("officialStatus").textContent=`${items.length} of ${OFFICIAL_RESOURCES.length} outside resources shown.`;
 }
 function renderNetwork(){
@@ -428,8 +1188,8 @@ function setupGuide(){
   try{const saved=JSON.parse(localStorage.getItem("oneDoorGuideV1")||"null");if(saved){(saved.urgency||[]).forEach(value=>document.querySelector(`[data-urgency="${CSS.escape(value)}"]`)?.setAttribute("aria-pressed","true"));(saved.needs||[]).forEach(value=>document.querySelector(`[data-need="${CSS.escape(value)}"]`)?.setAttribute("aria-pressed","true"))}}catch{}
 }
 function guideLinksFor(need,index){
-  const map={shelter:[[{title:"Call 211",url:"tel:211",kind:"phone"},{title:"HUD Find Shelter",url:"https://www.hud.gov/FindShelter",kind:"external"}],[{title:"Homeless Hub",url:INTERNAL_TOOLS[0].url,kind:"internal"}]],food:[[{title:"Call 211",url:"tel:211",kind:"phone"}],[{title:"SNAP Help",url:"https://www.fns.usda.gov/snap/applicant-participant",kind:"external"}]],health:[[{title:"Call 988",url:"tel:988",kind:"phone"}],[{title:"Find Health Center",url:"https://findahealthcenter.hrsa.gov/",kind:"external"},{title:"SAMHSA",url:"https://www.samhsa.gov/find-help/locators",kind:"external"}]],documents:[[{title:"Replace Documents",url:"https://www.usa.gov/replace-vital-documents",kind:"external"}],[{title:"DailySpark",url:INTERNAL_TOOLS[3].url,kind:"internal"}]],benefits:[[{title:"Government Benefits",url:"https://www.usa.gov/benefits",kind:"external"}],[{title:"Budget Tool",url:INTERNAL_TOOLS[8].url,kind:"internal"}]],work:[[{title:"Career Star",url:INTERNAL_TOOLS[1].url,kind:"internal"},{title:"Job Center",url:"https://www.careeronestop.org/LocalHelp/AmericanJobCenters/american-job-centers.aspx",kind:"external"}],[{title:"Open PROSE",url:INTERNAL_TOOLS[2].url,kind:"internal"}]],legal:[[{title:"Firmament Law",url:INTERNAL_TOOLS[5].url,kind:"internal"}],[{title:"Homeless Hub",url:INTERNAL_TOOLS[0].url,kind:"internal"}]],safety:[[{title:"Call 911",url:"tel:911",kind:"phone"},{title:"The Hotline",url:"https://www.thehotline.org/get-help/",kind:"external"}],[{title:"Quick Exit",url:"https://www.usa.gov/",kind:"external"}]],youth:[[{title:"Youth Help",url:"https://www.1800runaway.org/",kind:"external"}],[{title:"Family Hub",url:INTERNAL_TOOLS[6].url,kind:"internal"}]],veteran:[[{title:"Call VA",url:"tel:8774243838",kind:"phone"},{title:"VA Homeless Help",url:"https://www.va.gov/homeless/nationalcallcenter.asp",kind:"external"}],[{title:"Veterans Portal",url:INTERNAL_TOOLS[7].url,kind:"internal"}]],wellness:[[{title:"Aurora Sanctuary",url:INTERNAL_TOOLS[11].url,kind:"internal"}],[{title:"Daily Journal",url:INTERNAL_TOOLS[4].url,kind:"internal"}]],family:[[{title:"Family Hub",url:INTERNAL_TOOLS[6].url,kind:"internal"},{title:"Call 211",url:"tel:211",kind:"phone"}],[{title:"Homeless Hub",url:INTERNAL_TOOLS[0].url,kind:"internal"}]]};return (map[need]||[])[index]||[]}
-function guideMiniLink(link){const kind=link.kind==="internal"?"internal":"external";if(link.kind==="phone")return `<a class="mini-link" href="${escapeHTML(link.url)}">${escapeHTML(link.title)}</a>`;if(!isAllowedURL(link.url,kind))return "";return `<a class="mini-link ${kind==="external"?"external":""}" href="${escapeHTML(link.url)}"${kind==="external"?' target="_blank" rel="noopener noreferrer"':''}>${escapeHTML(link.title)}</a>`}
+  const map={shelter:[[{title:"Call 211",url:"tel:211",kind:"phone"},{title:"HUD Find Shelter",url:"https://www.hud.gov/FindShelter",kind:"external"}],[{title:"Homeless Hub",url:INTERNAL_TOOLS[0].url,kind:"internal"}]],food:[[{title:"Call 211",url:"tel:211",kind:"phone"},{title:"Food Near Me",url:"#nearby",kind:"anchor"}],[{title:"Feeding America",url:"https://www.feedingamerica.org/find-your-local-foodbank",kind:"external"},{title:"SNAP Help",url:"https://www.fns.usda.gov/snap/applicant-participant",kind:"external"}]],health:[[{title:"Call 988",url:"tel:988",kind:"phone"}],[{title:"Find Health Center",url:"https://findahealthcenter.hrsa.gov/",kind:"external"},{title:"SAMHSA",url:"https://www.samhsa.gov/find-help/locators",kind:"external"}]],documents:[[{title:"Replace Documents",url:"https://www.usa.gov/replace-vital-documents",kind:"external"}],[{title:"DailySpark",url:INTERNAL_TOOLS[3].url,kind:"internal"}]],benefits:[[{title:"Government Benefits",url:"https://www.usa.gov/benefits",kind:"external"}],[{title:"Budget Tool",url:INTERNAL_TOOLS[8].url,kind:"internal"}]],work:[[{title:"Career Star",url:INTERNAL_TOOLS[1].url,kind:"internal"},{title:"Job Center",url:"https://www.careeronestop.org/LocalHelp/AmericanJobCenters/american-job-centers.aspx",kind:"external"},{title:"Goodwill Career Center",url:"https://www.goodwill.org/locate-a-career-center/",kind:"external"}],[{title:"Open PROSE",url:INTERNAL_TOOLS[2].url,kind:"internal"},{title:"Clothing & Thrift Near Me",url:"#nearby",kind:"anchor"}]],legal:[[{title:"Firmament Law",url:INTERNAL_TOOLS[5].url,kind:"internal"}],[{title:"Find Legal Aid",url:"https://www.lsc.gov/",kind:"external"},{title:"Homeless Hub",url:INTERNAL_TOOLS[0].url,kind:"internal"}]],safety:[[{title:"Call 911",url:"tel:911",kind:"phone"},{title:"The Hotline",url:"https://www.thehotline.org/get-help/",kind:"external"}],[{title:"Quick Exit",url:"https://www.usa.gov/",kind:"external"}]],youth:[[{title:"Youth Help",url:"https://www.1800runaway.org/",kind:"external"}],[{title:"Family Hub",url:INTERNAL_TOOLS[6].url,kind:"internal"}]],veteran:[[{title:"Call VA",url:"tel:8774243838",kind:"phone"},{title:"VA Homeless Help",url:"https://www.va.gov/homeless/nationalcallcenter.asp",kind:"external"}],[{title:"Veterans Portal",url:INTERNAL_TOOLS[7].url,kind:"internal"}]],wellness:[[{title:"Aurora Sanctuary",url:INTERNAL_TOOLS[11].url,kind:"internal"}],[{title:"Daily Journal",url:INTERNAL_TOOLS[4].url,kind:"internal"}]],family:[[{title:"Family Hub",url:INTERNAL_TOOLS[6].url,kind:"internal"},{title:"Call 211",url:"tel:211",kind:"phone"}],[{title:"Homeless Hub",url:INTERNAL_TOOLS[0].url,kind:"internal"}]]};return (map[need]||[])[index]||[]}
+function guideMiniLink(link){if(link.kind==="anchor")return `<a class="mini-link" href="${escapeHTML(link.url)}">${escapeHTML(link.title)}</a>`;const kind=link.kind==="internal"?"internal":"external";if(link.kind==="phone")return `<a class="mini-link" href="${escapeHTML(link.url)}">${escapeHTML(link.title)}</a>`;if(!isAllowedURL(link.url,kind))return "";return `<a class="mini-link ${kind==="external"?"external":""}" href="${escapeHTML(link.url)}"${kind==="external"?' target="_blank" rel="noopener noreferrer"':''}>${escapeHTML(link.title)}</a>`}
 function setupPlanner(){
   const KEY="oneDoorStabilityPlanV1",NOTES="oneDoorStabilityNotesV1";
   let checked={};try{checked=JSON.parse(localStorage.getItem(KEY)||"{}")}catch{}
@@ -451,7 +1211,7 @@ function downloadText(filename,text){const blob=new Blob([text],{type:"text/plai
 function auditOneDoor(){
   const duplicate=values=>[...new Set(values.filter((value,index)=>values.indexOf(value)!==index))];
   const allInternal=[...INTERNAL_TOOLS,...NETWORK];
-  const report={internalTools:INTERNAL_TOOLS.length,officialResources:OFFICIAL_RESOURCES.length,networkHalls:NETWORK.length,duplicateInternalIds:duplicate(INTERNAL_TOOLS.map(x=>x.id)),duplicateInternalToolUrls:duplicate(INTERNAL_TOOLS.map(x=>x.url)),duplicateNetworkUrls:duplicate(NETWORK.map(x=>x.url)),duplicateOfficialIds:duplicate(OFFICIAL_RESOURCES.map(x=>x.id)),duplicateOfficialUrls:duplicate(OFFICIAL_RESOURCES.map(x=>x.url)),blockedInternal:allInternal.filter(x=>!isAllowedURL(x.url,"internal")).map(x=>x.title),blockedExternal:OFFICIAL_RESOURCES.filter(x=>!isAllowedURL(x.url,"external")).map(x=>x.title),customDomains:allInternal.filter(x=>{try{return new URL(x.url).hostname!=="vervenveda.github.io"}catch{return true}}).map(x=>x.title),directGitHubLinks:[...allInternal,...OFFICIAL_RESOURCES].filter(x=>{try{return new URL(x.url).hostname==="github.com"}catch{return false}}).map(x=>x.title)};
+  const report={internalTools:INTERNAL_TOOLS.length,officialResources:OFFICIAL_RESOURCES.length,networkHalls:NETWORK.length,duplicateInternalIds:duplicate(INTERNAL_TOOLS.map(x=>x.id)),duplicateInternalToolUrls:duplicate(INTERNAL_TOOLS.map(x=>x.url)),duplicateNetworkUrls:duplicate(NETWORK.map(x=>x.url)),duplicateOfficialIds:duplicate(OFFICIAL_RESOURCES.map(x=>x.id)),duplicateOfficialUrls:duplicate(OFFICIAL_RESOURCES.map(x=>x.url)),blockedInternal:allInternal.filter(x=>!isAllowedURL(x.url,"internal")).map(x=>x.title),blockedExternal:OFFICIAL_RESOURCES.filter(x=>!isAllowedURL(x.url,"external")).map(x=>x.title),customDomains:allInternal.filter(x=>{try{return !ALLOWED_INTERNAL_HOSTS.has(new URL(x.url).hostname)}catch{return true}}).map(x=>x.title),directGitHubLinks:[...allInternal,...OFFICIAL_RESOURCES].filter(x=>{try{return new URL(x.url).hostname==="github.com"}catch{return false}}).map(x=>x.title)};
   report.passed=!Object.values(report).some(value=>Array.isArray(value)&&value.length);console.table(report);return report;
 }
 window.auditOneDoor=auditOneDoor;
@@ -460,7 +1220,7 @@ const officialCategories=["all",...new Set(OFFICIAL_RESOURCES.map(x=>x.category)
 $("toolSearch").addEventListener("input",renderTools);$("toolCategory").addEventListener("change",renderTools);$("clearTools").addEventListener("click",()=>{$("toolSearch").value="";$("toolCategory").value="all";renderTools();$("toolSearch").focus()});
 $("officialSearch").addEventListener("input",renderOfficial);$("officialCategory").addEventListener("change",renderOfficial);$("clearOfficial").addEventListener("click",()=>{$("officialSearch").value="";$("officialCategory").value="all";renderOfficial();$("officialSearch").focus()});
 $("quickExit").addEventListener("click",()=>window.location.replace("https://www.usa.gov/"));$("printButton").addEventListener("click",()=>print());$("year").textContent=new Date().getFullYear();$("toolCount").textContent=INTERNAL_TOOLS.length;$("officialCount").textContent=OFFICIAL_RESOURCES.length;
-setupNavigation();setupGuide();setupPlanner();setupLetters();renderTools();renderOfficial();renderNetwork();
+setupNavigation();setupLocation();setupGuide();setupHope();setupPlanner();setupLetters();renderTools();renderOfficial();renderFunding();renderNetwork();
 </script>
 </body>
 </html>

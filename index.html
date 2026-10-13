@@ -71,7 +71,7 @@ button{cursor:pointer;color:inherit}
 .urgent-inner strong{color:var(--sun-soft)}
 .urgent-link{display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:5px 9px;border:1px solid rgba(255,255,255,.28);border-radius:var(--radius);color:#fff;text-decoration:none;font-weight:700}
 .urgent-link:hover{background:#ffffff17}
-.quick-exit{border:1px solid #fff;background:#fff;color:var(--navy-3);min-height:32px;padding:5px 10px;border-radius:var(--radius);font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.quick-exit{border:1px solid #fff;background:#fff;color:var(--navy-3);min-height:32px;padding:5px 10px;border-radius:var(--radius);font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}.quick-exit-note{font-size:.68rem;color:#f4e9d4}
 .site-header{position:sticky;top:0;z-index:1200;background:rgba(248,244,234,.97);border-bottom:1px solid var(--line-dark);backdrop-filter:blur(18px);box-shadow:0 10px 28px rgba(16,47,58,.08)}
 .header-inner{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{display:inline-flex;align-items:center;gap:12px;min-width:0;text-decoration:none;color:var(--navy)}
@@ -84,6 +84,7 @@ button{cursor:pointer;color:inherit}
 .nav-links{display:flex;align-items:center;justify-content:flex-end;gap:3px;flex-wrap:wrap}
 .nav-links a,.nav-links button{min-height:42px;display:inline-flex;align-items:center;justify-content:center;padding:8px 9px;border:0;background:transparent;color:var(--navy);text-decoration:none;font-size:.7rem;font-weight:750;letter-spacing:.06em;text-transform:uppercase}
 .nav-links a:hover,.nav-links button:hover{background:var(--sage-soft);color:var(--navy-3)}
+.nav-links a[aria-current="location"]{background:var(--sage-soft);color:var(--navy-3);box-shadow:inset 0 -3px 0 var(--sun)}
 .menu-button{display:none;width:45px;height:45px;border:1px solid var(--line-dark);background:var(--paper);border-radius:var(--radius)}
 .menu-lines,.menu-lines:before,.menu-lines:after{content:"";display:block;width:20px;height:2px;background:var(--navy);transition:.18s}
 .menu-lines{position:relative;margin:auto}.menu-lines:before,.menu-lines:after{position:absolute;left:0}.menu-lines:before{top:-6px}.menu-lines:after{top:6px}
@@ -256,7 +257,7 @@ button{cursor:pointer;color:inherit}
     <a class="urgent-link" href="sms:988">Text 988</a>
     <a class="urgent-link" href="tel:211">Call 211</a>
     <span>This website is a resource guide, not emergency dispatch.</span>
-    <button class="quick-exit" id="quickExit" type="button">Quick Exit</button>
+    <button class="quick-exit" id="quickExit" type="button">Quick Exit</button><span class="quick-exit-note">Quick Exit leaves this page; it cannot erase browser history.</span>
   </div>
 </div>
 <header class="site-header">
@@ -284,7 +285,7 @@ button{cursor:pointer;color:inherit}
     <div class="hero-copy">
       <p class="kicker">Receive · Listen · Connect · Follow Through</p>
       <h1>One Door<span>No wrong door. No shame. A place to begin.</span></h1>
-      <p class="hero-lead">A compassionate starting point for anyone without stable housing or worried they may lose it to find nearby help, organize next steps, reach verified public and nonprofit resources, search for work and clothing support, and walk through the process with Hope · the NAIB adult resource mentor.</p>
+      <p class="hero-lead">A compassionate starting point for anyone without stable housing or worried they may lose it: find nearby help, organize next steps, reach public and nonprofit resources, search for work and clothing support, and walk through the process with Hope · the NAIB adult resource mentor.</p>
       <div class="hero-actions">
         <a class="btn primary" href="#immediate">I need help now</a>
         <a class="btn secondary" href="#nearby">Find help near me</a>
@@ -323,7 +324,7 @@ button{cursor:pointer;color:inherit}
     <div class="section-heading">
       <p class="eyebrow">Find help around you</p>
       <h2>Use your location only when you choose.</h2>
-      <p>One Door can use your browser location to create nearby search links for food, shelter, clothing, thrift stores, job centers, legal aid, health care, libraries, and community services. Precise coordinates stay in this page's memory and are never saved to localStorage or sent to a One Door server.</p>
+      <p>One Door can use your browser location to create nearby search links for food, shelter, clothing, thrift stores, job centers, legal aid, health care, libraries, and community services. Precise coordinates stay in this page's memory and are never saved to localStorage or sent to a One Door server. If you click Map Search, the search area—including precise coordinates when browser location is selected—is included in a Google Maps URL and sent to Google when that link opens.</p>
     </div>
 
     <div class="location-shell">
@@ -351,7 +352,7 @@ button{cursor:pointer;color:inherit}
         </div>
 
         <div class="privacy-box">
-          <strong>Location privacy:</strong> One Door does not request location on page load. Browser coordinates are held only in memory for this tab and are not included in your saved plan. Clearing or closing the page removes them.
+          <strong>Location privacy:</strong> One Door does not request location on page load. Browser coordinates are held only in memory for this tab and are not included in your saved plan. Clearing or closing the page removes them. Map Search opens Google Maps and shares the search query with Google; use a city or ZIP instead if you do not want to send precise coordinates.
         </div>
       </section>
 
@@ -366,7 +367,7 @@ button{cursor:pointer;color:inherit}
 
 <section class="section" id="guide">
   <div class="section-inner">
-    <div class="section-heading"><p class="eyebrow">One Door guided intake</p><h2>Build a calm next-step plan</h2><p>Select one or more needs. The guide creates a short, practical sequence using verified Verve N Veda tools and official public resources. Do not enter sensitive identifying information.</p></div>
+    <div class="section-heading"><p class="eyebrow">One Door guided intake</p><h2>Build a calm next-step plan</h2><p>Select one or more needs. The guide creates a short, practical sequence using listed Verve N Veda tools and official public resources. Do not enter sensitive identifying information.</p></div>
     <div class="guide-shell">
       <section class="guide-panel" aria-labelledby="guideTitle">
         <h3 id="guideTitle">What is happening today?</h3>
@@ -449,7 +450,7 @@ button{cursor:pointer;color:inherit}
 
 <section class="section" id="official">
   <div class="section-inner">
-    <div class="section-heading"><p class="eyebrow">Verified public & nonprofit assistance</p><h2>National gateways that lead back to local help.</h2><p>Government and nonprofit locators can connect a person to nearby shelter, food, clothing, health care, employment, legal aid and community support. Availability, eligibility, hours and capacity can change; verify details directly with the provider.</p></div>
+    <div class="section-heading"><p class="eyebrow">Official public & nonprofit gateways</p><h2>National gateways that lead back to local help.</h2><p>Government and nonprofit locators can connect a person to nearby shelter, food, clothing, health care, employment, legal aid and community support. These destinations are curated, but this page does not confirm live availability or continuously verify every destination. Check details directly with the provider.</p></div>
     <div class="catalog-tools"><input class="field" id="officialSearch" type="search" placeholder="Search shelter, food, clothing, thrift, benefits, jobs, legal, health, youth…" aria-label="Search official resources" autocomplete="off"><select class="field" id="officialCategory" aria-label="Filter official resources"></select><button class="tool-button" id="clearOfficial" type="button">Clear</button></div>
     <div class="catalog-status" id="officialStatus" aria-live="polite"></div>
     <div class="official-grid" id="officialGrid"></div>
@@ -496,7 +497,7 @@ button{cursor:pointer;color:inherit}
           <label class="field-label" for="requestSummary">What are you asking for?</label><textarea class="field" id="requestSummary" placeholder="Keep this brief. Do not include sensitive ID numbers."></textarea>
           <label class="field-label" for="deadlineText">Important date or urgency</label><input class="field" id="deadlineText" placeholder="Example: I need a response before Monday">
           <button class="btn dark" id="buildLetter" type="button">Create starter draft</button>
-          <a class="btn soft" href="https://vervenveda.com/proresource_hub.github.io/Protools/PROSE%E2%84%A2%20editingsuite_index.html">Open PROSE for full editing</a>
+          <a class="btn soft" href="https://vervenveda.com/proresource_hub.github.io/Protools/PROSE/Editorial%20Suite/editingsuite_index.html">Open PROSE for full editing</a>
         </div>
         <div><div class="letter-output empty" id="letterOutput">Your draft will appear here. It will not be saved automatically.</div><div class="letter-actions"><button class="btn dark" id="copyLetter" type="button">Copy draft</button><button class="btn soft" id="clearLetter" type="button">Clear draft</button></div></div>
       </div>
@@ -534,17 +535,17 @@ const INTERNAL_TOOLS=[
   },
   {
     "id": "career-star",
-    "title": "Khaemenes Career Star",
-    "url": "https://vervenveda.com/Khaemenes_Academy.github.io/higher_learming/apps/Career_star_index.html",
+    "title": "Khaemenes Academy · Career Resources",
+    "url": "https://vervenveda.com/Khaemenes_Academy.github.io/",
     "icon": "Star",
     "category": "Work & Training",
-    "description": "Explore thirteen career zones, score interests and strengths, rank a short list, and plan small employment experiments.",
-    "tags": "career assessment interests strengths work training employment"
+    "description": "The Career Star source assets are present in the Academy repository, but a standalone interactive HTML route was not found in the current repository tree. Open the Academy for currently deployed career-learning resources.",
+    "tags": "career assessment interests strengths work training employment academy"
   },
   {
     "id": "prose",
     "title": "PROSE™ Editorial Suite",
-    "url": "https://vervenveda.com/proresource_hub.github.io/Protools/PROSE%E2%84%A2%20editingsuite_index.html",
+    "url": "https://vervenveda.com/proresource_hub.github.io/Protools/PROSE/Editorial%20Suite/editingsuite_index.html",
     "icon": "P",
     "category": "Letters & Documents",
     "description": "Draft and format résumés, cover letters, agency requests, explanations, applications, statements, and other professional writing.",
@@ -597,12 +598,12 @@ const INTERNAL_TOOLS=[
   },
   {
     "id": "budget",
-    "title": "Financial Budget Calculator",
-    "url": "https://vervenveda.com/Khaemenes_Academy.github.io/higher_learming/apps/financial_budget_calculator_index.html",
+    "title": "Khaemenes Academy · Financial Resources",
+    "url": "https://vervenveda.com/Khaemenes_Academy.github.io/",
     "icon": "$",
     "category": "Money & Benefits",
-    "description": "Create a simple private budget snapshot for income, expenses, immediate priorities, and planning conversations.",
-    "tags": "budget income expenses money benefits calculator"
+    "description": "A standalone financial-budget-calculator HTML route was not found in the current Academy repository tree. Open the Academy for currently deployed financial-learning resources; the calculator route should be restored when its page is published.",
+    "tags": "budget income expenses money benefits calculator academy"
   },
   {
     "id": "khaezip",
@@ -1148,18 +1149,29 @@ function renderFunding(){
 
 function setupNavigation(){
   const button=$("menuButton"),nav=$("navLinks");
+  const sectionLinks=[...nav.querySelectorAll('a[href^="#"]')].filter(link=>$(link.getAttribute("href").slice(1)));
+  function setCurrent(link){
+    sectionLinks.forEach(item=>{if(item===link)item.setAttribute("aria-current","location");else item.removeAttribute("aria-current")});
+  }
   function closeMenu(returnFocus=false){nav.classList.remove("open");button.setAttribute("aria-expanded","false");button.setAttribute("aria-label","Open navigation");document.body.classList.remove("menu-open");if(returnFocus)button.focus()}
   button.addEventListener("click",()=>{const open=!nav.classList.contains("open");nav.classList.toggle("open",open);button.setAttribute("aria-expanded",String(open));button.setAttribute("aria-label",open?"Close navigation":"Open navigation");document.body.classList.toggle("menu-open",open)});
-  nav.querySelectorAll("a,button").forEach(item=>item.addEventListener("click",()=>closeMenu()));
+  nav.querySelectorAll("a,button").forEach(item=>item.addEventListener("click",()=>{if(item.matches('a[href^="#"]'))setCurrent(item);closeMenu()}));
   document.addEventListener("keydown",event=>{if(event.key==="Escape"&&nav.classList.contains("open"))closeMenu(true)});
   document.addEventListener("click",event=>{if(nav.classList.contains("open")&&!nav.contains(event.target)&&!button.contains(event.target))closeMenu()});
   window.addEventListener("resize",()=>{if(innerWidth>790)closeMenu()});
+  if("IntersectionObserver" in window){
+    const observer=new IntersectionObserver(entries=>{
+      const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+      if(visible){const link=sectionLinks.find(item=>item.getAttribute("href")==="#" + visible.target.id);if(link)setCurrent(link)}
+    },{rootMargin:"-18% 0px -68% 0px",threshold:[0,.15,.35,.6]});
+    sectionLinks.forEach(link=>observer.observe($(link.getAttribute("href").slice(1))));
+  }
 }
 function renderTools(){
   const query=$("toolSearch").value.trim().toLowerCase(),category=$("toolCategory").value;
   const items=INTERNAL_TOOLS.filter(item=>(category==="all"||item.category===category)&&(!query||`${item.title} ${item.description} ${item.tags} ${item.category}`.toLowerCase().includes(query)));
-  $("toolGrid").innerHTML=items.length?items.map(item=>`<article class="tool-card"><div class="tool-icon">${escapeHTML(item.icon)}</div><span class="source-badge">Verve N Veda Original · ${escapeHTML(item.category)}</span><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.description)}</p><div class="tool-meta">Verified GitHub Pages route</div>${safeLink(item,"internal","Open original tool")}</article>`).join(""):`<div class="empty-guide" style="grid-column:1/-1">No Verve N Veda tool matches this search.</div>`;
-  $("toolStatus").textContent=`${items.length} of ${INTERNAL_TOOLS.length} verified tools shown.`;
+  $("toolGrid").innerHTML=items.length?items.map(item=>`<article class="tool-card"><div class="tool-icon">${escapeHTML(item.icon)}</div><span class="source-badge">Verve N Veda Original · ${escapeHTML(item.category)}</span><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.description)}</p><div class="tool-meta">Configured destination · live reachability not checked</div>${safeLink(item,"internal","Open original tool")}</article>`).join(""):`<div class="empty-guide" style="grid-column:1/-1">No Verve N Veda tool matches this search.</div>`;
+  $("toolStatus").textContent=`${items.length} of ${INTERNAL_TOOLS.length} listed tools shown. Link allowlist checks do not confirm that a destination is online or that its file exists.`;
 }
 function renderOfficial(){
   const query=$("officialSearch").value.trim().toLowerCase(),category=$("officialCategory").value;
@@ -1212,7 +1224,7 @@ function auditOneDoor(){
   const duplicate=values=>[...new Set(values.filter((value,index)=>values.indexOf(value)!==index))];
   const allInternal=[...INTERNAL_TOOLS,...NETWORK];
   const report={internalTools:INTERNAL_TOOLS.length,officialResources:OFFICIAL_RESOURCES.length,networkHalls:NETWORK.length,duplicateInternalIds:duplicate(INTERNAL_TOOLS.map(x=>x.id)),duplicateInternalToolUrls:duplicate(INTERNAL_TOOLS.map(x=>x.url)),duplicateNetworkUrls:duplicate(NETWORK.map(x=>x.url)),duplicateOfficialIds:duplicate(OFFICIAL_RESOURCES.map(x=>x.id)),duplicateOfficialUrls:duplicate(OFFICIAL_RESOURCES.map(x=>x.url)),blockedInternal:allInternal.filter(x=>!isAllowedURL(x.url,"internal")).map(x=>x.title),blockedExternal:OFFICIAL_RESOURCES.filter(x=>!isAllowedURL(x.url,"external")).map(x=>x.title),customDomains:allInternal.filter(x=>{try{return !ALLOWED_INTERNAL_HOSTS.has(new URL(x.url).hostname)}catch{return true}}).map(x=>x.title),directGitHubLinks:[...allInternal,...OFFICIAL_RESOURCES].filter(x=>{try{return new URL(x.url).hostname==="github.com"}catch{return false}}).map(x=>x.title)};
-  report.passed=!Object.values(report).some(value=>Array.isArray(value)&&value.length);console.table(report);return report;
+  report.policyPassed=!Object.entries(report).some(([key,value])=>key!=="destinationChecks"&&Array.isArray(value)&&value.length);report.destinationChecks="NOT TESTED: this browser-side audit checks URL policy and duplicates only; it does not make HTTP requests or confirm that destination files exist.";report.passed=report.policyPassed;console.table(report);console.warn(report.destinationChecks);return report;
 }
 window.auditOneDoor=auditOneDoor;
 const toolCategories=["all",...new Set(INTERNAL_TOOLS.map(x=>x.category))];$("toolCategory").innerHTML=toolCategories.map(x=>`<option value="${escapeHTML(x)}">${x==="all"?"All Verve tools":escapeHTML(x)}</option>`).join("");

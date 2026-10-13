@@ -51,3 +51,20 @@
 - broken static in-page anchors: **NONE**
 - canonical Verve network URLs: **PASS**
 - deployed-browser visual test: **NOT CLAIMED**
+
+
+### Navigation and link-integrity follow-up — October 2026
+- Skip-to-immediate-help link present and targets the immediate-help section: **PASS**
+- Mobile navigation retains expanded-state, Escape-to-close, outside-click close, and focus return: **PASS by source inspection**
+- Active navigation item follows the visible section when IntersectionObserver is supported: **PASS by source inspection**
+- Static duplicate IDs: **NONE**
+- Static in-page anchors without matching IDs: **NONE**
+- PROSE editorial-suite link points to the actual nested repository path: **PASS by repository-tree inspection**
+- Career Star and standalone budget-calculator links no longer claim unavailable standalone routes; cards direct to the Academy landing page and explain the limitation: **PASS by repository-tree inspection**
+- Browser-side `auditOneDoor()` scope is explicitly described: **PASS** — URL allowlist and duplicate checks only; no HTTP requests or destination-file checks
+- Nearby Map Search privacy disclosure explains that clicking opens Google Maps and shares the query: **PASS**
+- Quick Exit limitation is disclosed: **PASS** — leaves the current page but cannot erase browser history
+- Live HTTP checks of every deployed route and all outside resources: **NOT COMPLETED**
+- Cross-device browser/keyboard/screen-reader test: **NOT CLAIMED**
+
+Note: “configured destination” and “listed resource” are not equivalent to a live, working destination. The separate browser-level link checker remains a future improvement.

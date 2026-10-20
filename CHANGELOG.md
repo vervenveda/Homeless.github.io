@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## v2.2 · Compassionate Guided Intake · 2026-10-20
+- added an optional progressive-disclosure panel for response style and practical constraints
+- changed the guide response from a flat list into a first action, call script, verification checklist, backup doorway and transparent rationale
+- added dignity-first acknowledgments for immediate, soon, stability and helper contexts
+- preserved local-first storage with a versioned `oneDoorGuideV2` key and migration from `oneDoorGuideV1`
+- kept provider contact, location sharing and Hope handoff explicit; no automatic transmission was added
+- retained the original guide rules and resource links as expandable additional doorways
+
 ## v2.1 · Route + Accessibility Hardening · 2026-10-20
 - corrected Career Star to the live Khaemenes Higher Learning portal route
 - corrected PROSE to the live ProResources Editorial Suite route

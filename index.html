@@ -125,6 +125,24 @@ button{cursor:pointer;color:inherit}
 .guide-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.guide-actions .btn{flex:1}
 .privacy-box{margin-top:18px;padding:13px;background:var(--blue-soft);border-left:4px solid var(--blue);color:#2e4e60;font-size:.78rem;line-height:1.55}
 .result-list{display:grid;gap:10px;margin-top:16px}.result-item{padding:15px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--sage);border-radius:var(--radius)}.result-item strong{display:block;color:var(--navy)}.result-item span{display:block;margin-top:4px;color:var(--muted);font-size:.82rem}.result-links{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.mini-link{display:inline-flex;align-items:center;min-height:36px;padding:7px 9px;color:var(--navy);background:var(--sage-soft);border:1px solid #b9cbbf;border-radius:var(--radius);text-decoration:none;font-size:.68rem;font-weight:800;text-transform:uppercase}.mini-link.external{background:var(--blue-soft);border-color:#bad2df}.empty-guide{padding:26px;color:var(--muted);border:1px dashed var(--line-dark);text-align:center}
+.guide-preferences{margin-top:18px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+.guide-preferences summary{cursor:pointer;padding:12px 13px;color:var(--navy);font-size:.8rem;font-weight:700}
+.guide-preferences[open]{padding-bottom:14px}
+.guide-preferences[open] summary{border-bottom:1px solid var(--line)}
+.preference-intro{margin:12px 13px 0;color:var(--muted);font-size:.78rem;line-height:1.5}
+.guide-preferences .field-group{margin:14px 13px 0}
+.guide-preferences .choice-grid{grid-template-columns:repeat(3,1fr)}
+.guide-preferences .choice{font-weight:650}
+.guide-response-intro{padding:15px 17px;background:var(--sage-soft);border:1px solid #b9cbbf;border-radius:var(--radius);color:var(--navy);line-height:1.58}
+.guide-response-intro strong{display:block;font-family:var(--display);font-size:1.08rem;font-weight:600}
+.guide-response-intro p{margin:7px 0 0}
+.guide-response-section{padding:14px 16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+.guide-response-section h4{margin:0;color:var(--navy);font-family:var(--display);font-size:1.08rem;font-weight:600}
+.guide-response-section p{margin:7px 0 0;color:var(--muted);font-size:.84rem;line-height:1.62}
+.guide-response-section details{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.guide-response-section details summary{cursor:pointer;color:var(--navy);font-size:.8rem;font-weight:700}
+.guide-response-section details p{font-size:.78rem}
+.guide-response-note{color:var(--muted);font-size:.76rem;line-height:1.55}
 .catalog-tools{display:grid;grid-template-columns:minmax(240px,1fr) 220px auto;gap:9px;margin-bottom:16px}.tool-button{min-height:50px;padding:10px 13px;border:1px solid var(--line-dark);border-radius:var(--radius);background:#fff;color:var(--navy);font-size:.78rem;font-weight:800}.tool-button[aria-pressed="true"]{background:var(--navy);color:#fff}.catalog-status{margin:0 3px 14px;color:var(--muted);font-size:.8rem}
 .tool-grid,.official-grid,.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.tool-card,.official-card,.plan-card,.letter-card{min-height:315px;padding:21px;display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--paper);border:1px solid var(--line-dark);border-radius:var(--radius);box-shadow:var(--shadow-soft)}.tool-card[hidden],.official-card[hidden]{display:none}.source-badge{margin-top:13px;padding:5px 8px;border:1px solid var(--line);color:var(--clay);background:var(--clay-soft);font-size:.62rem;font-weight:800;letter-spacing:.075em;text-transform:uppercase}.tool-meta{margin-top:9px;color:#899397;font-size:.68rem;font-style:italic}.tool-card .btn,.official-card .btn{width:100%;margin-top:auto}
 .deep .tool-card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.2);box-shadow:none}.deep .tool-card h3{color:#fff}.deep .tool-card p{color:#cedbd9}.deep .source-badge{color:var(--sun-soft);background:rgba(216,169,75,.1);border-color:rgba(245,229,184,.25)}.deep .tool-meta{color:#a9bbba}
@@ -366,7 +384,7 @@ button{cursor:pointer;color:inherit}
 
 <section class="section" id="guide">
   <div class="section-inner">
-    <div class="section-heading"><p class="eyebrow">One Door guided intake</p><h2>Build a calm next-step plan</h2><p>Select one or more needs. The guide creates a short, practical sequence using verified Verve N Veda tools and official public resources. Do not enter sensitive identifying information.</p></div>
+    <div class="section-heading"><p class="eyebrow">One Door guided intake</p><h2>Build a calm next-step plan</h2><p>Select one or more needs. The guide will put one manageable action first, then keep the rest available as support. Optional preferences can make the wording and plan fit your capacity. Do not enter sensitive identifying information.</p></div>
     <div class="guide-shell">
       <section class="guide-panel" aria-labelledby="guideTitle">
         <h3 id="guideTitle">What is happening today?</h3>
@@ -375,8 +393,28 @@ button{cursor:pointer;color:inherit}
         <div class="field-group" role="group" aria-labelledby="needsLabel"><span class="field-label" id="needsLabel">Needs</span><div class="choice-grid" id="needChoices">
           <button class="choice" type="button" data-need="shelter" aria-pressed="false">Shelter or housing</button><button class="choice" type="button" data-need="food" aria-pressed="false">Food or basic supplies</button><button class="choice" type="button" data-need="health" aria-pressed="false">Health or medication</button><button class="choice" type="button" data-need="documents" aria-pressed="false">ID or documents</button><button class="choice" type="button" data-need="benefits" aria-pressed="false">Benefits or financial help</button><button class="choice" type="button" data-need="work" aria-pressed="false">Work, résumé or training</button><button class="choice" type="button" data-need="legal" aria-pressed="false">Eviction, legal or records</button><button class="choice" type="button" data-need="safety" aria-pressed="false">Violence or personal safety</button><button class="choice" type="button" data-need="youth" aria-pressed="false">Youth or student support</button><button class="choice" type="button" data-need="veteran" aria-pressed="false">Veteran support</button><button class="choice" type="button" data-need="wellness" aria-pressed="false">Stress, sleep or reflection</button><button class="choice" type="button" data-need="family" aria-pressed="false">Family or caregiver support</button>
         </div></div>
+        <details class="guide-preferences">
+          <summary>Optional: tailor this guide to what would feel manageable</summary>
+          <p class="preference-intro">These choices are optional. They do not ask for identity details, and you can leave them untouched.</p>
+          <div class="field-group" role="group" aria-labelledby="styleLabel">
+            <span class="field-label" id="styleLabel">Response style</span>
+            <div class="choice-grid" id="styleChoices">
+              <button class="choice" type="button" data-style="direct" aria-pressed="false">Practical and direct</button>
+              <button class="choice" type="button" data-style="encouraging" aria-pressed="false">Calm and encouraging</button>
+              <button class="choice" type="button" data-style="steps" aria-pressed="false">Step by step</button>
+            </div>
+          </div>
+          <div class="field-group" role="group" aria-labelledby="constraintLabel">
+            <span class="field-label" id="constraintLabel">Practical constraints</span>
+            <div class="choice-grid" id="constraintChoices">
+              <button class="choice" type="button" data-constraint="limited-travel" aria-pressed="false">Travel is difficult</button>
+              <button class="choice" type="button" data-constraint="safe-contact" aria-pressed="false">Use a safer contact plan</button>
+              <button class="choice" type="button" data-constraint="what-to-say" aria-pressed="false">Help me with what to say</button>
+            </div>
+          </div>
+        </details>
         <div class="guide-actions"><button class="btn dark" id="buildGuide" type="button">Build my guide</button><button class="btn soft" id="resetGuide" type="button">Reset</button></div>
-        <div class="privacy-box"><strong>Privacy:</strong> Do not enter Social Security numbers, bank details, passwords, immigration-document numbers, medical-record numbers, full ID numbers, or photographs of documents. This guide stores only your selected categories in this browser.</div>
+        <div class="privacy-box"><strong>Privacy:</strong> Do not enter Social Security numbers, bank details, passwords, immigration-document numbers, medical-record numbers, full ID numbers, or photographs of documents. This guide stores only your selected categories and optional guide preferences in this browser.</div>
       </section>
       <section class="results-panel" aria-labelledby="resultsTitle"><h3 id="resultsTitle">Your next doorways</h3><p>Start with the first item that feels possible. A completed referral or phone call is progress.</p><div id="guideResults" class="result-list" aria-live="polite" aria-atomic="false"><div class="empty-guide">Choose your urgency and needs, then select “Build my guide.”</div></div></section>
     </div>
@@ -955,6 +993,28 @@ const GUIDE_RULES={
   ]
 };
 
+const GUIDE_URGENCY_COPY={
+  tonight:{opening:"You are looking for a safe place tonight. You do not have to solve the whole week right now; we will focus on the next safe step.",reason:"The time horizon is immediate, so live local coordination comes before longer-term planning."},
+  soon:{opening:"You may be trying to protect your housing before the situation becomes urgent. We will start with one prevention step.",reason:"Early contact can open prevention, mediation, rental-assistance, or legal pathways before a deadline passes."},
+  stabilize:{opening:"You are working toward stability. That work matters, and we can make it manageable by choosing one next action.",reason:"A short sequence helps turn a larger stability goal into a step you can actually complete."},
+  helping:{opening:"Helping someone else can be a lot to carry. We will keep this plan short and practical so you can share it without solving everything for them.",reason:"A clear first referral and a backup are useful when you are supporting another person."}
+};
+const GUIDE_STYLE_LINES={
+  direct:"Here is the most practical first step.",
+  encouraging:"You can pause after this step; completing one call or referral is progress.",
+  steps:"First we will handle the immediate doorway, then a backup, then anything that can wait."
+};
+const GUIDE_NEED_LABELS={
+  shelter:"shelter or housing",food:"food or basic supplies",health:"health or medication",
+  documents:"ID or documents",benefits:"benefits or financial help",work:"work, résumé or training",
+  legal:"eviction, legal or records",safety:"violence or personal safety",youth:"youth or student support",
+  veteran:"Veteran support",wellness:"stress, sleep or reflection",family:"family or caregiver support"
+};
+const GUIDE_URGENCY_LABELS={
+  tonight:"a safe place tonight",soon:"possible housing loss soon",
+  stabilize:"working toward stability",helping:"helping someone else"
+};
+
 const FUNDING_RESOURCES=[
   {
     id:"coc-2026",title:"HUD Continuum of Care Competition",
@@ -1099,9 +1159,19 @@ function setupLocation(){
   renderNearby();
 }
 function selectedGuideNeeds(){
+  const urgencyButtons=[...document.querySelectorAll("[data-urgency][aria-pressed='true']")];
+  const needButtons=[...document.querySelectorAll("[data-need][aria-pressed='true']")];
+  const styleButton=document.querySelector("[data-style][aria-pressed='true']");
+  const constraintButtons=[...document.querySelectorAll("[data-constraint][aria-pressed='true']")];
   return {
-    urgency:[...document.querySelectorAll("[data-urgency][aria-pressed='true']")].map(x=>x.textContent.trim()),
-    needs:[...document.querySelectorAll("[data-need][aria-pressed='true']")].map(x=>x.textContent.trim())
+    urgency:urgencyButtons.map(x=>x.dataset.urgency),
+    urgencyLabels:urgencyButtons.map(x=>x.textContent.trim()),
+    needs:needButtons.map(x=>x.dataset.need),
+    needsLabels:needButtons.map(x=>x.textContent.trim()),
+    style:styleButton?.dataset.style||"",
+    styleLabel:styleButton?.textContent.trim()||"",
+    constraints:constraintButtons.map(x=>x.dataset.constraint),
+    constraintLabels:constraintButtons.map(x=>x.textContent.trim())
   };
 }
 function buildHopeBrief(){
@@ -1115,8 +1185,10 @@ function buildHopeBrief(){
     "Please act as Hope, the adult homelessness and stability resource mentor.",
     "Help me prioritize the next few practical steps. Do not assume a provider has space, funding, eligibility, or availability; help me verify before traveling.",
     "",
-    `Urgency selected: ${selected.urgency.length?selected.urgency.join("; "):"(none selected)"}`,
-    `Needs selected: ${selected.needs.length?selected.needs.join("; "):"(none selected)"}`,
+    `Urgency selected: ${selected.urgencyLabels.length?selected.urgencyLabels.join("; "):"(none selected)"}`,
+    `Needs selected: ${selected.needsLabels.length?selected.needsLabels.join("; "):"(none selected)"}`,
+    `Response style: ${selected.styleLabel||"(default calm and practical)"}`,
+    `Practical constraints: ${selected.constraintLabels.length?selected.constraintLabels.join("; "):"(none selected)"}`,
     `What I want help organizing: ${message||"(I will explain after opening the public directory.)"}`
   ];
   if(includeArea){
@@ -1170,22 +1242,103 @@ function renderOfficial(){
 function renderNetwork(){
   $("networkGrid").innerHTML=NETWORK.map(item=>isAllowedURL(item.url,"internal")?`<a class="network-card" href="${escapeHTML(item.url)}"><div class="tool-icon">${escapeHTML(item.mark)}</div><strong>${escapeHTML(item.title)}</strong><span>${escapeHTML(item.description)}</span><small>${escapeHTML(new URL(item.url).pathname)}</small></a>`:``).join("");
 }
+function guideResponseOpening(urgency,style){
+  const primary=urgency[0];
+  const base=GUIDE_URGENCY_COPY[primary]?.opening||"You do not have to explain everything perfectly. We will start with the need you selected and keep the next step manageable.";
+  const styleLine=GUIDE_STYLE_LINES[style]||"Start with the first item that feels possible.";
+  return {base,styleLine};
+}
+function guideCallScript(urgency,needs,constraints){
+  const helping=urgency.includes("helping");
+  const subject=helping?"I am helping someone who needs":"I need";
+  const needText=needs.length?needs.map(need=>GUIDE_NEED_LABELS[need]||need).join(", "):"help finding the right local service";
+  let script=subject+" "+needText+". Can you connect me to the right local resource and tell me what I should do first?";
+  if(urgency.includes("tonight"))script+=" Please tell me whether same-day shelter or coordinated entry is available.";
+  if(constraints.includes("what-to-say"))script+=" I would also appreciate a name, direct number, intake time, and a backup option if the first doorway is full.";
+  return script;
+}
+function guideVerificationText(constraints,needs){
+  let text="Before traveling, ask about current availability, intake hours, eligibility, transportation, accessibility, identification requirements, and family or pet rules where relevant.";
+  if(constraints.includes("limited-travel"))text+=" Because travel is difficult, ask whether a closer option, remote intake, transportation help, or outreach visit is available.";
+  if(constraints.includes("safe-contact"))text+=" If it is not safe to receive a voicemail, ask for text, online contact, or a safer callback time, and use a safer device when possible.";
+  if(needs.includes("health"))text+=" For health or medication needs, ask about same-day care, medication access, and safe storage.";
+  return text;
+}
+function guideBackup(urgency,needs){
+  if(urgency.includes("tonight")||needs.includes("shelter"))return {
+    text:"If 211 cannot place you, ask for the local Continuum of Care, outreach team, or day center, and use HUD Find Shelter as a second route.",
+    links:[{title:"Call 211",url:"tel:211",kind:"phone"},{title:"HUD Find Shelter",url:"https://www.hud.gov/FindShelter",kind:"external"}]
+  };
+  if(needs.includes("food"))return {
+    text:"If the first pantry or meal site is closed or full, ask 211 for another same-day option and check the food-bank locator before traveling.",
+    links:[{title:"Call 211",url:"tel:211",kind:"phone"},{title:"Feeding America",url:"https://www.feedingamerica.org/find-your-local-foodbank",kind:"external"}]
+  };
+  if(needs.includes("safety"))return {
+    text:"If the first contact is not safe or cannot respond, use a safer device when possible and contact a live crisis or advocacy line.",
+    links:[{title:"Call 911",url:"tel:911",kind:"phone"},{title:"The Hotline",url:"https://www.thehotline.org/get-help/",kind:"external"}]
+  };
+  return {
+    text:"If the first referral is unavailable, ask the person who answered for the next provider, the direct number, the intake time, and what to do if that option is full.",
+    links:[{title:"Call 211",url:"tel:211",kind:"phone"}]
+  };
+}
+function guideWhyText(urgency,needs){
+  const reason=GUIDE_URGENCY_COPY[urgency[0]]?.reason||"Starting with one selected need keeps the plan usable and leaves room for the next decision.";
+  const needText=needs.length?" The plan also includes "+needs.map(need=>GUIDE_NEED_LABELS[need]||need).join(", ")+".":"";
+  return reason+needText;
+}
+function renderGuideSteps(steps){
+  return steps.map(step=>`<article class="result-item"><strong>${escapeHTML(step.title)}</strong><span>${escapeHTML(step.text)}</span><div class="result-links">${step.links.map(link=>guideMiniLink(link)).join("")}</div></article>`).join("");
+}
 function setupGuide(){
-  document.querySelectorAll(".choice").forEach(button=>button.addEventListener("click",()=>button.setAttribute("aria-pressed",String(button.getAttribute("aria-pressed")!=="true"))));
+  document.querySelectorAll(".choice").forEach(button=>button.addEventListener("click",()=>{
+    if(button.dataset.style){
+      document.querySelectorAll("[data-style]").forEach(other=>other.setAttribute("aria-pressed",String(other===button)));
+    }else{
+      button.setAttribute("aria-pressed",String(button.getAttribute("aria-pressed")!=="true"));
+    }
+  }));
   $("buildGuide").addEventListener("click",()=>{
-    const urgency=[...document.querySelectorAll("[data-urgency][aria-pressed='true']")].map(x=>x.dataset.urgency);
-    const needs=[...document.querySelectorAll("[data-need][aria-pressed='true']")].map(x=>x.dataset.need);
+    const selected=selectedGuideNeeds();
+    const urgency=selected.urgency;
+    const needs=selected.needs;
     if(!urgency.length&&!needs.length){notify("Choose at least one urgency or need.");return}
     const steps=[];
     if(urgency.includes("tonight"))steps.push({title:"Begin with immediate local coordination",text:"Call 211, ask for same-day shelter or coordinated entry, and open HUD Find Shelter. Confirm availability before traveling.",links:[{title:"Call 211",url:"tel:211",kind:"phone"},{title:"HUD Find Shelter",url:"https://www.hud.gov/FindShelter",kind:"external"}]});
     if(urgency.includes("soon"))steps.push({title:"Ask for homelessness prevention",text:"Contact 211 or a local coordinated-entry provider before housing is lost. Ask about prevention, rental assistance, legal aid, mediation, and a written safety plan.",links:[{title:"USA.gov Housing Help",url:"https://www.usa.gov/housing-help",kind:"external"},{title:"Homeless Hub",url:INTERNAL_TOOLS[0].url,kind:"internal"}]});
     needs.forEach(need=>(GUIDE_RULES[need]||[]).forEach((text,index)=>steps.push({title:`${need.charAt(0).toUpperCase()+need.slice(1)} · step ${index+1}`,text,links:guideLinksFor(need,index)})));
     if(!steps.length)steps.push({title:"Start with a listening conversation",text:"Call 211, explain the most urgent need, and ask for a warm referral with a name, phone number, intake time, and backup option.",links:[{title:"Call 211",url:"tel:211",kind:"phone"}]});
-    $("guideResults").innerHTML=steps.map(step=>`<article class="result-item"><strong>${escapeHTML(step.title)}</strong><span>${escapeHTML(step.text)}</span><div class="result-links">${step.links.map(link=>guideMiniLink(link)).join("")}</div></article>`).join("");
-    try{localStorage.setItem("oneDoorGuideV1",JSON.stringify({urgency,needs}))}catch{}
+    const first=steps[0];
+    const opening=guideResponseOpening(urgency,selected.style);
+    const backup=guideBackup(urgency,needs);
+    const laterSteps=steps.slice(1);
+    const later= laterSteps.length?`<details class="guide-response-section"><summary>See ${laterSteps.length} additional selected doorway${laterSteps.length===1?"":"s"}</summary><div class="result-list">${renderGuideSteps(laterSteps)}</div></details>`:"";
+    const resultHTML=
+      `<div class="guide-response-intro" role="status" aria-live="polite" aria-atomic="true"><strong>${escapeHTML(opening.base)}</strong><p>${escapeHTML(opening.styleLine)}</p></div>`+
+      `<article class="guide-response-section"><h4>Start here</h4><p>${escapeHTML(first.text)}</p><div class="result-links">${first.links.map(link=>guideMiniLink(link)).join("")}</div></article>`+
+      `<article class="guide-response-section"><h4>What to say</h4><p>${escapeHTML(guideCallScript(urgency,needs,selected.constraints))}</p></article>`+
+      `<article class="guide-response-section"><h4>Before traveling</h4><p>${escapeHTML(guideVerificationText(selected.constraints,needs))}</p></article>`+
+      `<article class="guide-response-section"><h4>If that doorway is closed</h4><p>${escapeHTML(backup.text)}</p><div class="result-links">${backup.links.map(link=>guideMiniLink(link)).join("")}</div></article>`+
+      later+
+      `<article class="guide-response-section"><details><summary>Why this is suggested</summary><p>${escapeHTML(guideWhyText(urgency,needs))}</p></details></article>`+
+      `<p class="guide-response-note">You can stop here. Only your selected categories and optional preferences are stored in this browser; no provider is contacted by this guide.</p>`;
+    $("guideResults").innerHTML=resultHTML;
+    try{localStorage.setItem("oneDoorGuideV2",JSON.stringify({urgency,needs,style:selected.style,constraints:selected.constraints}))}catch{}
   });
-  $("resetGuide").addEventListener("click",()=>{document.querySelectorAll(".choice").forEach(button=>button.setAttribute("aria-pressed","false"));$("guideResults").innerHTML='<div class="empty-guide">Choose your urgency and needs, then select “Build my guide.”</div>';try{localStorage.removeItem("oneDoorGuideV1")}catch{}});
-  try{const saved=JSON.parse(localStorage.getItem("oneDoorGuideV1")||"null");if(saved){(saved.urgency||[]).forEach(value=>document.querySelector(`[data-urgency="${CSS.escape(value)}"]`)?.setAttribute("aria-pressed","true"));(saved.needs||[]).forEach(value=>document.querySelector(`[data-need="${CSS.escape(value)}"]`)?.setAttribute("aria-pressed","true"))}}catch{}
+  $("resetGuide").addEventListener("click",()=>{
+    document.querySelectorAll("[data-urgency],[data-need],[data-style],[data-constraint]").forEach(button=>button.setAttribute("aria-pressed","false"));
+    $("guideResults").innerHTML='<div class="empty-guide">Choose your urgency and needs, then select “Build my guide.”</div>';
+    try{localStorage.removeItem("oneDoorGuideV1");localStorage.removeItem("oneDoorGuideV2")}catch{}
+  });
+  try{
+    const saved=JSON.parse(localStorage.getItem("oneDoorGuideV2")||localStorage.getItem("oneDoorGuideV1")||"null");
+    if(saved){
+      (saved.urgency||[]).forEach(value=>document.querySelector(`[data-urgency="${CSS.escape(value)}"]`)?.setAttribute("aria-pressed","true"));
+      (saved.needs||[]).forEach(value=>document.querySelector(`[data-need="${CSS.escape(value)}"]`)?.setAttribute("aria-pressed","true"));
+      if(saved.style)document.querySelector(`[data-style="${CSS.escape(saved.style)}"]`)?.setAttribute("aria-pressed","true");
+      (saved.constraints||[]).forEach(value=>document.querySelector(`[data-constraint="${CSS.escape(value)}"]`)?.setAttribute("aria-pressed","true"));
+    }
+  }catch{}
 }
 function guideLinksFor(need,index){
   const map={shelter:[[{title:"Call 211",url:"tel:211",kind:"phone"},{title:"HUD Find Shelter",url:"https://www.hud.gov/FindShelter",kind:"external"}],[{title:"Homeless Hub",url:INTERNAL_TOOLS[0].url,kind:"internal"}]],food:[[{title:"Call 211",url:"tel:211",kind:"phone"},{title:"Food Near Me",url:"#nearby",kind:"anchor"}],[{title:"Feeding America",url:"https://www.feedingamerica.org/find-your-local-foodbank",kind:"external"},{title:"SNAP Help",url:"https://www.fns.usda.gov/snap/applicant-participant",kind:"external"}]],health:[[{title:"Call 988",url:"tel:988",kind:"phone"}],[{title:"Find Health Center",url:"https://findahealthcenter.hrsa.gov/",kind:"external"},{title:"SAMHSA",url:"https://www.samhsa.gov/find-help/locators",kind:"external"}]],documents:[[{title:"Replace Documents",url:"https://www.usa.gov/replace-vital-documents",kind:"external"}],[{title:"DailySpark",url:INTERNAL_TOOLS[3].url,kind:"internal"}]],benefits:[[{title:"Government Benefits",url:"https://www.usa.gov/benefits",kind:"external"}],[{title:"Budget Tool",url:INTERNAL_TOOLS[8].url,kind:"internal"}]],work:[[{title:"Career Star",url:INTERNAL_TOOLS[1].url,kind:"internal"},{title:"Job Center",url:"https://www.careeronestop.org/LocalHelp/AmericanJobCenters/american-job-centers.aspx",kind:"external"},{title:"Goodwill Career Center",url:"https://www.goodwill.org/locate-a-career-center/",kind:"external"}],[{title:"Open PROSE",url:INTERNAL_TOOLS[2].url,kind:"internal"},{title:"Clothing & Thrift Near Me",url:"#nearby",kind:"anchor"}]],legal:[[{title:"Firmament Law",url:INTERNAL_TOOLS[5].url,kind:"internal"}],[{title:"Find Legal Aid",url:"https://www.lsc.gov/",kind:"external"},{title:"Homeless Hub",url:INTERNAL_TOOLS[0].url,kind:"internal"}]],safety:[[{title:"Call 911",url:"tel:911",kind:"phone"},{title:"The Hotline",url:"https://www.thehotline.org/get-help/",kind:"external"}],[{title:"Quick Exit",url:"https://www.usa.gov/",kind:"external"}]],youth:[[{title:"Youth Help",url:"https://www.1800runaway.org/",kind:"external"}],[{title:"Family Hub",url:INTERNAL_TOOLS[6].url,kind:"internal"}]],veteran:[[{title:"Call VA",url:"tel:8774243838",kind:"phone"},{title:"VA Homeless Help",url:"https://www.va.gov/homeless/nationalcallcenter.asp",kind:"external"}],[{title:"Veterans Portal",url:INTERNAL_TOOLS[7].url,kind:"internal"}]],wellness:[[{title:"Aurora Sanctuary",url:INTERNAL_TOOLS[11].url,kind:"internal"}],[{title:"Daily Journal",url:INTERNAL_TOOLS[4].url,kind:"internal"}]],family:[[{title:"Family Hub",url:INTERNAL_TOOLS[6].url,kind:"internal"},{title:"Call 211",url:"tel:211",kind:"phone"}],[{title:"Homeless Hub",url:INTERNAL_TOOLS[0].url,kind:"internal"}]]};return (map[need]||[])[index]||[]}

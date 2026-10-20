@@ -1,5 +1,12 @@
 # CHANGELOG.md
 
+## v2.4 · Safety + Navigation Hardening · 2026-10-20
+- made Quick Exit clear only One Door’s saved guide and planner keys before leaving the page
+- removed the CSP-blocked external support-script dependency
+- cleaned the duplicate escaped typography marker left by the readable-scale pass
+- added direct primary-navigation links for Tools, Letters, and Network
+- preserved local-first storage, route safety, responsive behavior, and the no-bold typography preference
+
 ## v2.3 · Readable Typography · 2026-10-20
 - increased every declared page font size by **3px** while preserving the existing responsive hierarchy
 - softened heavy typography weights to a readable medium weight; no bold redesign was introduced

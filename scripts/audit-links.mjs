@@ -14,6 +14,7 @@ import { readFile } from "node:fs/promises";
 import vm from "node:vm";
 
 const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
+const languageAsset = await readFile(new URL("../assets/vnv-language.js", import.meta.url), "utf8");
 const failures = [];
 const requireText = (condition, message) => {
   if (!condition) failures.push(message);
@@ -38,10 +39,29 @@ requireText(!/font-weight:(?:850|800|750|700|650|600)\b/.test(html), "heavy typo
 requireText(/id=["']guideResults["'][^>]*aria-live=["']polite["']/i.test(html), "guide result live region is missing");
 requireText(/id=["']letterOutput["'][^>]*aria-live=["']polite["']/i.test(html), "letter output live region is missing");
 requireText(!/(higher_learming|Career_star_index|financial_budget_calculator_index|artist1970\.github\.io\/noema-ai)/.test(html), "a legacy broken route remains");
+requireText(/<script\s+src=["']assets\/vnv-language\.js["']\s+defer><\/script>/i.test(html), "local language interface script is missing");
+requireText(/id=["']worldwide["']/.test(html) && /href=["']#worldwide["']/.test(html), "worldwide directory landmark or navigation link is missing");
+requireText((html.match(/class=["']worldwide-card["']/g) ?? []).length >= 9, "worldwide directory cards are incomplete");
+requireText(/data-i18n-no-online/.test(html), "dynamic location privacy boundary is missing");
+requireText(/function validCoordinates\(/.test(html), "geolocation coordinate validation is missing");
+requireText(/Content-Security-Policy["'][^>]*connect-src[^"']*api\.mymemory\.translated\.net/i.test(html), "translation endpoint CSP contract is missing");
+requireText(/vnv_language_v1/.test(html) && /vnv_translated_phrases_v2/.test(html), "Quick Exit language cleanup keys are missing");
+requireText(/const CODES=\["en","es","fr","ar","zh","de","ru","pt","hi","ja","ko","it","bn"\]/.test(languageAsset), "13-language asset contract is incomplete");
+requireText(/document\.documentElement\.dir/.test(languageAsset), "language direction support is missing");
+requireText(/vnv_public_translation_consent_v1/.test(languageAsset), "explicit translation-consent contract is missing");
 
 const ids = [...html.matchAll(/\bid=["']([^"']+)["']/gi)].map((match) => match[1]);
 const duplicateIds = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
 requireText(!duplicateIds.length, "duplicate IDs: " + duplicateIds.join(", "));
+
+const blankAnchors = [...html.matchAll(/<a\b[^>]*target=["']_blank["'][^>]*>/gi)].map((match) => match[0]);
+requireText(blankAnchors.every((anchor) => /rel=["'][^"']*noopener/i.test(anchor)), "a target=_blank link is missing rel=noopener");
+
+try {
+  new vm.Script(languageAsset, { filename: "assets/vnv-language.js" });
+} catch (error) {
+  failures.push("language asset: " + error.message);
+}
 
 const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)]
   .map((match) => match[1])

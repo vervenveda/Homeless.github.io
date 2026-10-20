@@ -27,6 +27,8 @@ requireText(/role=["']group["'][^>]*aria-labelledby=["']urgencyLabel["']/i.test(
 requireText(/role=["']group["'][^>]*aria-labelledby=["']needsLabel["']/i.test(html), "Needs group semantics are missing");
 requireText(/id=["']urgencyLabel["'][^>]*>Urgency</i.test(html), "Urgency group label is missing");
 requireText(/id=["']needsLabel["'][^>]*>Needs</i.test(html), "Needs group label is missing");
+requireText(/id=["']guideResults["'][^>]*aria-live=["']polite["']/i.test(html), "guide result live region is missing");
+requireText(/id=["']letterOutput["'][^>]*aria-live=["']polite["']/i.test(html), "letter output live region is missing");
 requireText(!/(higher_learming|Career_star_index|financial_budget_calculator_index|artist1970\.github\.io\/noema-ai)/.test(html), "a legacy broken route remains");
 
 const ids = [...html.matchAll(/\bid=["']([^"']+)["']/gi)].map((match) => match[1]);

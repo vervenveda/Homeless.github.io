@@ -8,7 +8,7 @@
 <meta name="color-scheme" content="light">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(self), payment=(), usb=(), interest-cohort=()">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.mymemory.translated.net; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'">
 <title>One Door · No Wrong Door | Homeless Services</title>
 <style>
 :root{
@@ -157,6 +157,7 @@ button{cursor:pointer;color:inherit}
 @media(max-width:930px){.hero-grid,.guide-shell,.planner-shell,.letter-grid,.safety-notice{grid-template-columns:1fr}.hero-copy{text-align:center}.hero-actions{justify-content:center}.door-scene{min-height:410px}.door-frame{height:370px}.immediate-grid{grid-template-columns:repeat(2,1fr)}.network-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:790px){.nav-links{position:fixed;inset:79px 12px auto 12px;z-index:2100;display:none;max-height:calc(100vh - 94px);overflow:auto;padding:12px;flex-direction:column;align-items:stretch;background:var(--cream);border:1px solid var(--line-dark);box-shadow:var(--shadow)}.nav-links.open{display:flex}.nav-links a,.nav-links button{width:100%;min-height:48px;border:1px solid var(--line)}.menu-button{display:grid;place-items:center}.brand-sub{display:none}.metrics{grid-template-columns:repeat(2,1fr)}.metric:nth-child(3){border-left:0;border-top:1px solid rgba(255,255,255,.22)}.metric:nth-child(4){border-top:1px solid rgba(255,255,255,.22)}.catalog-tools{grid-template-columns:1fr 1fr}.catalog-tools .field:first-child{grid-column:1/-1}}
 @media(max-width:590px){.shell{width:min(calc(100% - 20px),var(--max))}.urgent-inner{align-items:stretch}.urgent-link,.quick-exit{width:100%}.hero{padding:62px 11px}.hero h1{font-size:clamp(calc(3rem + 3px),calc(17vw + 3px),calc(5rem + 3px))}.door-scene{min-height:350px}.door-frame{width:260px;height:320px}.metrics{grid-template-columns:1fr}.metric{border-left:0!important;border-top:1px solid rgba(255,255,255,.22)}.metric:first-child{border-top:0}.section{padding:66px 11px}.immediate-grid,.tool-grid,.official-grid,.network-grid,.choice-grid,.catalog-tools{grid-template-columns:1fr}.catalog-tools .field:first-child{grid-column:auto}.guide-actions,.planner-actions,.letter-actions{flex-direction:column}.btn{width:100%}.tool-card,.official-card{min-height:285px}.letter-output{min-height:360px}}
+.worldwide-intro{max-width:980px;margin:0 auto 24px;padding:15px 17px;color:#31556a;background:var(--blue-soft);border:1px solid #c6d9e3;border-radius:var(--radius);font-size:calc(.84rem + 3px);line-height:1.64}.worldwide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.worldwide-card{min-height:280px;padding:21px;display:flex;flex-direction:column;align-items:flex-start;background:var(--paper);border:1px solid var(--line-dark);border-radius:var(--radius);box-shadow:var(--shadow-soft)}.worldwide-card .worldwide-region{margin:0;color:var(--clay);font-size:calc(.66rem + 3px);font-weight:500;letter-spacing:.09em;text-transform:uppercase}.worldwide-card h3{margin:12px 0 0;color:var(--navy);font-family:var(--display);font-size:calc(1.22rem + 3px);font-weight:500;line-height:1.2}.worldwide-card p{margin:9px 0 0;color:var(--muted);font-size:calc(.82rem + 3px);line-height:1.6}.worldwide-card .btn{width:100%;margin-top:auto}.worldwide-safety{margin:18px auto 0;max-width:980px;color:var(--muted);font-size:calc(.78rem + 3px);line-height:1.6;text-align:center}@media(max-width:1100px){.worldwide-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:590px){.worldwide-grid{grid-template-columns:1fr}.worldwide-card{min-height:250px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 @media print{.urgent-bar,.site-header,.hero,.notice-strip,.catalog-tools,.guide-actions,.planner-actions,.letter-controls,.letter-actions,.favorite,.toast,.site-footer{display:none!important}.section,.section.alt,.section.deep{padding:20px 0;color:#111;background:#fff;border:0}.section-heading h2,.tool-card h3,.official-card h3,.notice-card h2,.notice-card h3{color:#111}.tool-grid,.official-grid{grid-template-columns:repeat(2,1fr)}.tool-card,.official-card,.notice-card,.planner-shell,.letter-shell{color:#111;background:#fff;border:1px solid #777;box-shadow:none;break-inside:avoid}.tool-card p,.official-card p,.notice-card p,.notice-card li{color:#333}}
 
@@ -288,6 +289,7 @@ strong,b,h1,h2,h3,h4,h5,h6{font-weight:500}
     <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
       <a href="#immediate">Help Now</a>
       <a href="#nearby">Near Me</a>
+      <a href="#worldwide">Worldwide</a>
       <a href="#guide">My Guide</a>
       <a href="#hope">Hope</a>
       <a href="#official">Resources</a>
@@ -384,6 +386,73 @@ strong,b,h1,h2,h3,h4,h5,h6{font-weight:500}
         <div class="nearby-grid" id="nearbyGrid"></div>
       </section>
     </div>
+  </div>
+
+<section class="section" id="worldwide">
+  <div class="section-inner">
+    <div class="section-heading">
+      <p class="eyebrow">Worldwide starting points</p>
+      <h2>Find the right local door, wherever you are.</h2>
+      <p>There is no single directory that can guarantee a bed, a meal, or eligibility in every country. These reviewed starting points connect you to regional services, humanitarian networks, and local outreach. Choose the region that fits, then confirm hours, availability, language support, and eligibility before traveling.</p>
+    </div>
+    <div class="worldwide-intro"><strong>How to use this directory:</strong> Start with the link for your country or region. If you are in immediate danger, use your local emergency number. If you are supporting someone else, ask before sharing their location or personal information.</div>
+    <div class="worldwide-grid">
+      <article class="worldwide-card">
+        <p class="worldwide-region">Global · displacement and protection</p>
+        <h3>UNHCR HELP</h3>
+        <p>Country-specific guidance for refugees, asylum-seekers, displaced people, and people looking for protection or local assistance.</p>
+        <a class="btn soft" href="https://help.unhcr.org/" target="_blank" rel="noopener noreferrer">Open UNHCR HELP ↗</a>
+      </article>
+      <article class="worldwide-card">
+        <p class="worldwide-region">Global · humanitarian support</p>
+        <h3>Red Cross and Red Crescent</h3>
+        <p>Find your country's National Society and ask about local humanitarian, family, health, or emergency support.</p>
+        <a class="btn soft" href="https://www.ifrc.org/our-work/where-we-work" target="_blank" rel="noopener noreferrer">Find a National Society ↗</a>
+      </article>
+      <article class="worldwide-card">
+        <p class="worldwide-region">Europe · homelessness network</p>
+        <h3>FEANTSA</h3>
+        <p>A Europe-wide homelessness network that can point toward national organizations, policy contacts, and local service systems.</p>
+        <a class="btn soft" href="https://www.feantsa.org/" target="_blank" rel="noopener noreferrer">Open FEANTSA ↗</a>
+      </article>
+      <article class="worldwide-card">
+        <p class="worldwide-region">United States and Canada</p>
+        <h3>211</h3>
+        <p>Free, confidential local referrals for housing, food, health, transportation, and other essential needs. Language access varies by area.</p>
+        <a class="btn soft" href="https://211.org/" target="_blank" rel="noopener noreferrer">Open 211 ↗</a>
+      </article>
+      <article class="worldwide-card">
+        <p class="worldwide-region">Australia</p>
+        <h3>Ask Izzy</h3>
+        <p>A free, anonymous search for nearby housing, food, money, health, legal, and other support services.</p>
+        <a class="btn soft" href="https://askizzy.org.au/" target="_blank" rel="noopener noreferrer">Open Ask Izzy ↗</a>
+      </article>
+      <article class="worldwide-card">
+        <p class="worldwide-region">England and Wales</p>
+        <h3>StreetLink</h3>
+        <p>Alert local outreach teams when someone is sleeping rough. It is not an emergency service or a shelter booking system.</p>
+        <a class="btn soft" href="https://thestreetlink.org.uk/" target="_blank" rel="noopener noreferrer">Open StreetLink ↗</a>
+      </article>
+      <article class="worldwide-card">
+        <p class="worldwide-region">Canada · shelter inventory</p>
+        <h3>National Shelter Portfolio</h3>
+        <p>A Canadian government dataset covering emergency shelters and transitional housing, with regular updates for service planners and the public.</p>
+        <a class="btn soft" href="https://open.canada.ca/data/en/dataset/7e0189e3-8595-4e62-a4e9-4fed6f265e10" target="_blank" rel="noopener noreferrer">Open the Canadian list ↗</a>
+      </article>
+      <article class="worldwide-card">
+        <p class="worldwide-region">New Zealand</p>
+        <h3>Housing and rent help</h3>
+        <p>Government guidance for urgent housing needs, rent and housing costs, and finding the right local support pathway.</p>
+        <a class="btn soft" href="https://www.govt.nz/browse/housing-and-property/getting-help-with-housing/rent-and-housing-costs/" target="_blank" rel="noopener noreferrer">Open New Zealand help ↗</a>
+      </article>
+      <article class="worldwide-card">
+        <p class="worldwide-region">Global · safety-specific</p>
+        <h3>NO MORE Global Directory</h3>
+        <p>Country-by-country safety and violence-support contacts. Use this when homelessness is connected to abuse, stalking, trafficking, or personal danger.</p>
+        <a class="btn soft" href="https://www.nomore.org/the-no-more-global-directory/" target="_blank" rel="noopener noreferrer">Open safety directory ↗</a>
+      </article>
+    </div>
+    <p class="worldwide-safety"><strong>Before you go:</strong> services can be full, closed, or limited to a local area. Call or check the provider first, and use the emergency number for your country when there is immediate danger.</p>
   </div>
 </section>
 
@@ -1379,12 +1448,14 @@ $("toolSearch").addEventListener("input",renderTools);$("toolCategory").addEvent
 $("officialSearch").addEventListener("input",renderOfficial);$("officialCategory").addEventListener("change",renderOfficial);$("clearOfficial").addEventListener("click",()=>{$("officialSearch").value="";$("officialCategory").value="all";renderOfficial();$("officialSearch").focus()});
 function clearOneDoorStorage(){
   try{
-    ["oneDoorGuideV1","oneDoorGuideV2","oneDoorStabilityPlanV1","oneDoorStabilityNotesV1"].forEach(key=>localStorage.removeItem(key));
+    ["oneDoorGuideV1","oneDoorGuideV2","oneDoorStabilityPlanV1","oneDoorStabilityNotesV1","vnv_language_v1","vnv_translated_phrases_v2"].forEach(key=>localStorage.removeItem(key));
+    sessionStorage.removeItem("vnv_public_translation_consent_v1");
   }catch{}
 }
 $("quickExit").addEventListener("click",()=>{clearOneDoorStorage();window.location.replace("https://www.usa.gov/")});$("printButton").addEventListener("click",()=>print());$("year").textContent=new Date().getFullYear();$("toolCount").textContent=INTERNAL_TOOLS.length;$("officialCount").textContent=OFFICIAL_RESOURCES.length;
 setupNavigation();setupLocation();setupGuide();setupHope();setupPlanner();setupLetters();renderTools();renderOfficial();renderFunding();renderNetwork();
 </script>
+<script src="assets/vnv-language.js" defer></script>
 <a href="https://vervenveda.com/beta/" aria-label="Open Verve N Veda Beta Program" style="position:fixed;right:14px;bottom:14px;z-index:2147483000;padding:10px 13px;border:1px solid #b6934d;border-radius:7px;background:#fffaf0;color:#171717;text-decoration:none;font:500 13px/1.3 Georgia,serif">β Beta Program</a>
 </body>
 </html>

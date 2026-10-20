@@ -85,3 +85,15 @@ The route sweep and static checks were run against `main` after the compassionat
 - page runtime warnings/errors: **NONE** (browser-extension metadata noise excluded)
 
 The typography verification was committed on `main` at `9d93c3be8006b68124a5154ad61bdf5c1ecdea80`; GitHub Pages deployment and the post-deploy browser check completed successfully. A real-device keyboard/screen-reader pass remains recommended for final assistive-technology certification.
+
+### 2026-10-20 safety, CSP, and navigation hardening
+- Quick Exit clears only One Door-owned guide and planner keys before redirect: **PASS**
+- broad `localStorage.clear()` / `sessionStorage.clear()` calls: **NONE**
+- CSP-blocked external support-script tag removed: **PASS**
+- external script tags remaining under the local-first CSP: **NONE**
+- malformed duplicate typography marker removed: **PASS**
+- inline JavaScript syntax after the hardening pass: **PASS**
+- primary navigation exposes immediate, nearby, guide, Hope, resources, funding, My Path, tools, letters, and network: **PASS**
+- every primary navigation anchor resolves to an existing section: **PASS**
+- duplicate static IDs after navigation expansion: **NONE**
+- deployed visual and interaction check: **PENDING** (after the final Pages build)

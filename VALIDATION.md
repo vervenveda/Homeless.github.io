@@ -120,4 +120,4 @@ The typography verification was committed on `main` at `9d93c3be8006b68124a5154a
 - language asset syntax check in deterministic audit: **PASS**
 - target-blank links require rel=noopener: **PASS**
 - page static IDs and inline JavaScript after this pass: **PASS**
-- deployed verification after final hardening: **PENDING** (await Pages)
+- deployed verification after final hardening: **PASS** (Pages run 39371021322 succeeded; deployed browser confirmed 9 worldwide cards, 13 language options, Arabic RTL, sanitized manual location handling, two no-online privacy boundaries, 19px body text, no horizontal overflow, and no page-origin console errors)

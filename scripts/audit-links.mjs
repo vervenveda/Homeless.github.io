@@ -44,7 +44,7 @@ requireText(/id=["']worldwide["']/.test(html) && /href=["']#worldwide["']/.test(
 requireText((html.match(/class=["']worldwide-card["']/g) ?? []).length >= 9, "worldwide directory cards are incomplete");
 requireText(/data-i18n-no-online/.test(html), "dynamic location privacy boundary is missing");
 requireText(/function validCoordinates\(/.test(html), "geolocation coordinate validation is missing");
-requireText(/Content-Security-Policy["'][^>]*connect-src[^"']*api\.mymemory\.translated\.net/i.test(html), "translation endpoint CSP contract is missing");
+requireText(/Content-Security-Policy["'][^>]*connect-src[^>]*api\.mymemory\.translated\.net/i.test(html), "translation endpoint CSP contract is missing");
 requireText(/vnv_language_v1/.test(html) && /vnv_translated_phrases_v2/.test(html), "Quick Exit language cleanup keys are missing");
 requireText(/const CODES=\["en","es","fr","ar","zh","de","ru","pt","hi","ja","ko","it","bn"\]/.test(languageAsset), "13-language asset contract is incomplete");
 requireText(/document\.documentElement\.dir/.test(languageAsset), "language direction support is missing");

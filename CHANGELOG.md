@@ -7,6 +7,7 @@
 - replaced unavailable/private Hope destinations with the public Verve directory
 - kept the Hope brief local-first and explicit; no silent cross-origin transfer was added
 - added labelled group semantics to the Urgency and Needs choice sets for assistive technology
+- added polite live regions for generated guide results and letter drafts
 - verified 45 unique HTTP URLs from `main` with zero failures after redirects
 - recorded the route, stale-slug, duplicate-ID, and inline-script checks in `VALIDATION.md`
 

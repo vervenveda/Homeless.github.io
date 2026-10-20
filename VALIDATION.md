@@ -109,4 +109,4 @@ The typography verification was committed on `main` at `9d93c3be8006b68124a5154a
 - online translation remains explicit-consent only: **PASS**
 - Quick Exit clears language preference, translation cache, and translation-consent session key: **PASS**
 - CSP permits local scripts and only the explicit MyMemory translation endpoint: **PASS**
-- deployed language selector and worldwide cards: **PENDING** (verify after Pages completes)
+- deployed language selector and worldwide cards: **PASS** (Pages run 39370456219 succeeded; deployed browser rendered the selector, 9 cards, worldwide nav link, 19px body text, no horizontal overflow, and no page-origin console errors)

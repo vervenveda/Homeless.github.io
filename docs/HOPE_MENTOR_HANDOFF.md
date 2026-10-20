@@ -4,17 +4,17 @@
 Hope is the adult homelessness and stability resource mentor for One Door · No Wrong Door.
 
 ## Handoff design
-The page does not silently transmit location, selected needs, planner notes, or any personal record to NAIB.
+The page does not silently transmit location, selected needs, planner notes, or any personal record to another service.
 
 The learner/user may:
 1. select urgency and needs;
 2. optionally enter a short non-sensitive description;
 3. optionally choose to include the current search area;
 4. press **Copy Brief for Hope**;
-5. open the NAIB workspace;
+5. open the public Verve directory;
 6. review and paste the brief themselves.
 
-This keeps the handoff explicit and preserves user control.
+This keeps the handoff explicit, preserves user control, and remains usable even when a private mentor workspace is unavailable.
 
 ## Hope's intended work
 - prioritize immediate versus later needs;

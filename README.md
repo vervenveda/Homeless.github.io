@@ -20,7 +20,7 @@ To follow every literal HTTP(S) route and verify redirects/statuses as well:
 node scripts/audit-links.mjs --online
 ```
 
-The audit checks landmarks, named choice groups, duplicate IDs, stale route slugs, primary navigation anchors, the local-first CSP contract, and inline JavaScript syntax before the optional live URL sweep.
+The audit checks landmarks, named choice groups, duplicate IDs, stale route slugs, primary navigation anchors, the worldwide directory, the local bilingual asset, the local-first CSP contract, location-privacy boundaries, coordinate validation, safe external-link attributes, and JavaScript syntax before the optional live URL sweep.
 
 Quick Exit clears One Door-owned guide, planner, language, translation-cache, and translation-consent keys before leaving the page, and the primary navigation exposes the tools, letters, network, and worldwide-support sections. The worldwide directory is a curated set of regional starting points—not a promise of a bed or eligibility—and keeps local emergency numbers and provider confirmation in view.
 

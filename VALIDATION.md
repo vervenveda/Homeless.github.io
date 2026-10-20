@@ -61,7 +61,7 @@
 - inline JavaScript syntax: **1 block — PASS**
 - deployed-browser visual test: **NOT CLAIMED**
 
-The route sweep and static checks were run against `main` after commit `b0e603381ae8bafefdee2be8d7ea0707b743c364`. A real-device keyboard/screen-reader pass remains recommended before treating this as a complete assistive-technology certification.
+The route sweep and static checks were run against `main` after the compassionate-intake commits `59980238e1dca4cf93f3e6f13ead5acb87208352` through `241672677ec1426dce5707af1c4f2d9ca5bd159e`. A real-device keyboard/screen-reader pass remains recommended before treating this as a complete assistive-technology certification.
 
 ### 2026-10-20 compassionate guided intake
 - optional response style choices: **PASS** (direct, encouraging, step by step)
@@ -72,4 +72,4 @@ The route sweep and static checks were run against `main` after commit `b0e60338
 - local-only `oneDoorGuideV2` state with `oneDoorGuideV1` migration: **PASS**
 - no automatic provider contact or location transmission: **PASS**
 - no sensitive free-text copied into the guide response: **PASS**
-- hosted browser interaction verification: pending after deployment propagation
+- hosted browser interaction verification: **PASS** (deployed main tested with optional preferences, generated response, and no console warnings)

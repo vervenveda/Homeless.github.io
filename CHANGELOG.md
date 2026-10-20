@@ -1,5 +1,11 @@
 # CHANGELOG.md
 
+## v2.6 · Location Privacy + Audit Hardening · 2026-10-20
+- kept dynamic manual-location and nearby-search text out of the optional online translation pass with an explicit no-online boundary
+- sanitized manual search-area input for control characters and bounded it before it reaches map-search URLs or the page status region
+- validated browser coordinates for finite latitude/longitude ranges before rendering or linking any nearby search
+- expanded the deterministic audit to cover the worldwide directory, bilingual asset, CSP translation boundary, Quick Exit cleanup, location privacy marker, coordinate validation, language direction, and safe external-link rel attributes
+
 ## v2.5 · Worldwide Directory + Bilingual Interface · 2026-10-20
 - added nine reviewed worldwide and regional starting points, including UNHCR HELP, IFRC National Societies, FEANTSA, 211, Ask Izzy, StreetLink, Canada’s shelter portfolio, New Zealand housing help, and the NO MORE safety directory
 - framed the directory honestly as regional doors rather than a universal guarantee of beds, eligibility, or emergency response

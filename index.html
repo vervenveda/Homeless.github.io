@@ -371,7 +371,7 @@ strong,b,h1,h2,h3,h4,h5,h6{font-weight:500}
           </div>
         </div>
 
-        <div class="location-status" id="locationStatus" role="status" aria-live="polite">
+        <div class="location-status" id="locationStatus" role="status" aria-live="polite" data-i18n-no-online>
           No location selected. Official national locators still work without sharing your location here.
         </div>
 
@@ -383,7 +383,7 @@ strong,b,h1,h2,h3,h4,h5,h6{font-weight:500}
       <section class="nearby-panel" aria-labelledby="nearbyTitle">
         <h3 id="nearbyTitle">Nearby doorways</h3>
         <p>Call or check the provider before traveling. Hours, eligibility, stock, beds, meals, transportation and intake rules can change.</p>
-        <div class="nearby-grid" id="nearbyGrid"></div>
+        <div class="nearby-grid" id="nearbyGrid" data-i18n-no-online></div>
       </section>
     </div>
   </div>
@@ -1172,10 +1172,13 @@ const NEARBY_LANES=[
 let oneDoorLocation={mode:"none",label:"",lat:null,lng:null};
 
 function sanitizedArea(value){
-  return String(value||"").replace(/[<>{}\[\]]/g,"").trim().slice(0,80);
+  return String(value||"").replace(/[\u0000-\u001f\u007f<>{}\[\]]/g," ").replace(/\s+/g," ").trim().slice(0,80);
+}
+function validCoordinates(lat,lng){
+  return Number.isFinite(lat)&&Number.isFinite(lng)&&lat>=-90&&lat<=90&&lng>=-180&&lng<=180;
 }
 function locationContext(){
-  if(oneDoorLocation.mode==="coords")return `${oneDoorLocation.lat.toFixed(5)},${oneDoorLocation.lng.toFixed(5)}`;
+  if(oneDoorLocation.mode==="coords"&&validCoordinates(oneDoorLocation.lat,oneDoorLocation.lng))return `${oneDoorLocation.lat.toFixed(5)},${oneDoorLocation.lng.toFixed(5)}`;
   if(oneDoorLocation.mode==="manual")return oneDoorLocation.label;
   return "";
 }
@@ -1205,7 +1208,14 @@ function setupLocation(){
     setLocationStatus("Waiting for your browser's location permission…");
     navigator.geolocation.getCurrentPosition(
       pos=>{
-        oneDoorLocation={mode:"coords",label:"Browser location",lat:Number(pos.coords.latitude),lng:Number(pos.coords.longitude)};
+        const lat=Number(pos?.coords?.latitude),lng=Number(pos?.coords?.longitude);
+        if(!validCoordinates(lat,lng)){
+          oneDoorLocation={mode:"none",label:"",lat:null,lng:null};
+          setLocationStatus("The browser returned an invalid location. You can type a city, state, or ZIP instead.");
+          renderNearby();
+          return;
+        }
+        oneDoorLocation={mode:"coords",label:"Browser location",lat,lng};
         setLocationStatus("Location ready for this tab only. Precise coordinates were not saved. Nearby search links have been refreshed.");
         renderNearby();
       },

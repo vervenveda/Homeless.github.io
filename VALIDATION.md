@@ -110,3 +110,14 @@ The typography verification was committed on `main` at `9d93c3be8006b68124a5154a
 - Quick Exit clears language preference, translation cache, and translation-consent session key: **PASS**
 - CSP permits local scripts and only the explicit MyMemory translation endpoint: **PASS**
 - deployed language selector and worldwide cards: **PASS** (Pages run 39370456219 succeeded; deployed browser rendered the selector, 9 cards, worldwide nav link, 19px body text, no horizontal overflow, and no page-origin console errors)
+
+
+### 2026-10-20 location privacy + audit hardening
+- dynamic manual-location and nearby-search text excluded from optional online translation: **PASS** (data-i18n-no-online)
+- manual location control-character sanitization and 80-character bound: **PASS**
+- browser latitude/longitude finite-range validation before nearby rendering: **PASS**
+- worldwide directory, bilingual asset, CSP, Quick Exit, language-direction, and safe external-link audit coverage: **PASS**
+- language asset syntax check in deterministic audit: **PASS**
+- target-blank links require rel=noopener: **PASS**
+- page static IDs and inline JavaScript after this pass: **PASS**
+- deployed verification after final hardening: **PENDING** (await Pages)

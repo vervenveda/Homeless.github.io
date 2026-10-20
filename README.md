@@ -1,4 +1,4 @@
-# One Door · No Wrong Door — Hope + Geolocator v2
+# One Door · No Wrong Door — Hope + Geolocator v2.2
 
 This is a single-file, local-first homelessness and stability resource portal.
 
@@ -21,6 +21,8 @@ node scripts/audit-links.mjs --online
 ```
 
 The audit checks landmarks, named choice groups, duplicate IDs, stale route slugs, and inline JavaScript syntax before the optional live URL sweep.
+
+The guided intake now offers optional response style and practical-constraint preferences. It generates a compassionate, deterministic response with a first action, a call script, travel checks, a backup doorway, and a transparent reason for the suggestion. These preferences remain local to the browser and never contact a provider.
 
 See:
 - `VALIDATION.md`

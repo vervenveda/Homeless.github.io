@@ -1374,7 +1374,12 @@ const toolCategories=["all",...new Set(INTERNAL_TOOLS.map(x=>x.category))];$("to
 const officialCategories=["all",...new Set(OFFICIAL_RESOURCES.map(x=>x.category))];$("officialCategory").innerHTML=officialCategories.map(x=>`<option value="${escapeHTML(x)}">${x==="all"?"All outside resources":escapeHTML(x)}</option>`).join("");
 $("toolSearch").addEventListener("input",renderTools);$("toolCategory").addEventListener("change",renderTools);$("clearTools").addEventListener("click",()=>{$("toolSearch").value="";$("toolCategory").value="all";renderTools();$("toolSearch").focus()});
 $("officialSearch").addEventListener("input",renderOfficial);$("officialCategory").addEventListener("change",renderOfficial);$("clearOfficial").addEventListener("click",()=>{$("officialSearch").value="";$("officialCategory").value="all";renderOfficial();$("officialSearch").focus()});
-$("quickExit").addEventListener("click",()=>window.location.replace("https://www.usa.gov/"));$("printButton").addEventListener("click",()=>print());$("year").textContent=new Date().getFullYear();$("toolCount").textContent=INTERNAL_TOOLS.length;$("officialCount").textContent=OFFICIAL_RESOURCES.length;
+function clearOneDoorStorage(){
+  try{
+    ["oneDoorGuideV1","oneDoorGuideV2","oneDoorStabilityPlanV1","oneDoorStabilityNotesV1"].forEach(key=>localStorage.removeItem(key));
+  }catch{}
+}
+$("quickExit").addEventListener("click",()=>{clearOneDoorStorage();window.location.replace("https://www.usa.gov/")});$("printButton").addEventListener("click",()=>print());$("year").textContent=new Date().getFullYear();$("toolCount").textContent=INTERNAL_TOOLS.length;$("officialCount").textContent=OFFICIAL_RESOURCES.length;
 setupNavigation();setupLocation();setupGuide();setupHope();setupPlanner();setupLetters();renderTools();renderOfficial();renderFunding();renderNetwork();
 </script>
 <a href="https://vervenveda.com/beta/" aria-label="Open Verve N Veda Beta Program" style="position:fixed;right:14px;bottom:14px;z-index:2147483000;padding:10px 13px;border:1px solid #b6934d;border-radius:7px;background:#fffaf0;color:#171717;text-decoration:none;font:500 13px/1.3 Georgia,serif">β Beta Program</a>

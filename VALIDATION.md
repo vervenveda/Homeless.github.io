@@ -97,3 +97,16 @@ The typography verification was committed on `main` at `9d93c3be8006b68124a5154a
 - every primary navigation anchor resolves to an existing section: **PASS**
 - duplicate static IDs after navigation expansion: **NONE**
 - deployed visual and interaction check: **PASS** (latest main rendered at 19px/400 body text, retained the guide action, exposed the three new navigation links, and had no horizontal overflow)
+
+
+### 2026-10-20 worldwide directory + bilingual interface
+- worldwide region/service starting points: **PASS** (9 reviewed external doors with explicit scope labels)
+- no universal-bed or universal-eligibility promise: **PASS**
+- local emergency and provider-confirmation guidance: **PASS**
+- shared local bilingual interface asset copied from the canonical Verve N Veda/Khaemenes Academy asset: **PASS** (source SHA 89b56ff095fb0aacec4e70ebbbb575e6d6bef9f6)
+- 13 language codes exposed by the selector: **PASS**
+- Arabic right-to-left document direction support: **PASS** (provided by the shared interface layer)
+- online translation remains explicit-consent only: **PASS**
+- Quick Exit clears language preference, translation cache, and translation-consent session key: **PASS**
+- CSP permits local scripts and only the explicit MyMemory translation endpoint: **PASS**
+- deployed language selector and worldwide cards: **PENDING** (verify after Pages completes)

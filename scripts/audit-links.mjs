@@ -34,7 +34,7 @@ requireText(/data-constraint=["']limited-travel["']/.test(html) && /data-constra
 requireText(/function guideCallScript\(/.test(html) && /function guideVerificationText\(/.test(html), "personalized guide helpers are missing");
 requireText(/oneDoorGuideV2/.test(html), "versioned personalized guide state is missing");
 requireText(/Accessible reading scale: \+3px text and medium weights across the page/.test(html), "readable typography scale marker is missing");
-requireText(!/font-weight:(?:850|800|750|700|650|600)\\b/.test(html), "heavy typography weight remains");
+requireText(!/font-weight:(?:850|800|750|700|650|600)\b/.test(html), "heavy typography weight remains");
 requireText(/id=["']guideResults["'][^>]*aria-live=["']polite["']/i.test(html), "guide result live region is missing");
 requireText(/id=["']letterOutput["'][^>]*aria-live=["']polite["']/i.test(html), "letter output live region is missing");
 requireText(!/(higher_learming|Career_star_index|financial_budget_calculator_index|artist1970\.github\.io\/noema-ai)/.test(html), "a legacy broken route remains");

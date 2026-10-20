@@ -6,7 +6,24 @@ Upload `index.html` over the existing page. The `docs/` files are optional refer
 
 No backend, API key or account is required for the geolocation feature. Location is requested only by explicit user action and is kept in tab memory only.
 
+## Verification
+
+From a local clone, run the deterministic contract audit:
+
+```sh
+node scripts/audit-links.mjs
+```
+
+To follow every literal HTTP(S) route and verify redirects/statuses as well:
+
+```sh
+node scripts/audit-links.mjs --online
+```
+
+The audit checks landmarks, named choice groups, duplicate IDs, stale route slugs, and inline JavaScript syntax before the optional live URL sweep.
+
 See:
 - `VALIDATION.md`
+- `CHANGELOG.md`
 - `docs/RESOURCE_RESEARCH.md`
 - `docs/HOPE_MENTOR_HANDOFF.md`

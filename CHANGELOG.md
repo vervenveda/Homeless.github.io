@@ -1,5 +1,10 @@
 # CHANGELOG.md
 
+## v2.3 · Readable Typography · 2026-10-20
+- increased every declared page font size by **3px** while preserving the existing responsive hierarchy
+- softened heavy typography weights to a readable medium weight; no bold redesign was introduced
+- preserved the parchment palette, 7px radius system, responsive layout, accessibility focus states and compassionate intake behavior
+
 ## v2.2 · Compassionate Guided Intake · 2026-10-20
 - added an optional progressive-disclosure panel for response style and practical constraints
 - changed the guide response from a flat list into a first action, call script, verification checklist, backup doorway and transparent rationale

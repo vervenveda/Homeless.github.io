@@ -56,8 +56,9 @@
 - unique static IDs: **NONE duplicated**
 - Urgency and Needs choice groups: **PASS** (`role="group"` + labelled group names)
 - choice state exposed with `aria-pressed`: **PASS**
+- guide results and letter output announced with polite live regions: **PASS**
 - `lang`, skip link, main landmark, and navigation landmark: **PASS**
 - inline JavaScript syntax: **1 block — PASS**
 - deployed-browser visual test: **NOT CLAIMED**
 
-The route sweep and static checks were run against `main` after commit `7663ea1e570f64dc853b7aac3d2c9266676a39ab`. A real-device keyboard/screen-reader pass remains recommended before treating this as a complete assistive-technology certification.
+The route sweep and static checks were run against `main` after commit `b0e603381ae8bafefdee2be8d7ea0707b743c364`. A real-device keyboard/screen-reader pass remains recommended before treating this as a complete assistive-technology certification.

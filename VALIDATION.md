@@ -7,6 +7,7 @@
 - original outside resources: **13/13 preserved**
 - expanded public/nonprofit resource registry: **21**
 - network cards: **8/8 preserved**
+- funding resources: **4**
 - stability checklist steps: **8/8 preserved**
 - guide needs/rules: **preserved and expanded**
 - `oneDoorGuideV1`: **preserved**
@@ -26,9 +27,9 @@
 - no external geocoding API: **PASS**
 - CSP `connect-src 'none'` retained: **PASS**
 
-### Hope / NAIB
+### Hope handoff
 - dedicated Hope adult-resource-mentor section: **PASS**
-- explicit NAIB workspace link: **PASS**
+- public Verve directory fallback: **PASS**
 - Copy Brief handoff: **PASS**
 - silent cross-origin transfer: **NONE**
 - private planner notes automatically included in brief: **NO**
@@ -45,9 +46,18 @@
 - Dress for Success: **PASS**
 - separate provider-funding section: **PASS**
 
-### Static code
-- inline JavaScript blocks checked with Node: **1 — PASS**
-- duplicate static IDs: **NONE**
-- broken static in-page anchors: **NONE**
-- canonical Verve network URLs: **PASS**
+### 2026-10-20 route and accessibility hardening
+- corrected Career Star route to the live Higher Learning portal path: **PASS**
+- corrected PROSE route to the live Editorial Suite path: **PASS**
+- corrected Budget route to the live Finance portal path: **PASS**
+- replaced unavailable/private Hope destination with the public Verve directory: **PASS**
+- live HTTP sweep of **45 unique URLs** (following redirects): **0 failures**
+- stale-route scan (`higher_learming`, old Career/PROSE/Budget slugs, old NAIB host): **PASS**
+- unique static IDs: **NONE duplicated**
+- Urgency and Needs choice groups: **PASS** (`role="group"` + labelled group names)
+- choice state exposed with `aria-pressed`: **PASS**
+- `lang`, skip link, main landmark, and navigation landmark: **PASS**
+- inline JavaScript syntax: **1 block — PASS**
 - deployed-browser visual test: **NOT CLAIMED**
+
+The route sweep and static checks were run against `main` after commit `7663ea1e570f64dc853b7aac3d2c9266676a39ab`. A real-device keyboard/screen-reader pass remains recommended before treating this as a complete assistive-technology certification.

@@ -73,3 +73,15 @@ The route sweep and static checks were run against `main` after the compassionat
 - no automatic provider contact or location transmission: **PASS**
 - no sensitive free-text copied into the guide response: **PASS**
 - hosted browser interaction verification: **PASS** (deployed main tested with optional preferences, generated response, and no console warnings)
+
+### 2026-10-20 readable typography
+- all 76 declared `font-size` rules increased by 3px: **PASS**
+- explicit 600–850 weights softened to medium 500; body and controls default to 400: **PASS**
+- no duplicate IDs after the type-scale pass: **PASS**
+- inline JavaScript syntax: **PASS**
+- deployed desktop typography and layout inspection: **PASS** (body 19px, no horizontal overflow)
+- responsive/mobile breakpoint rules retained for the narrow layout: **PASS**
+- personalized guide action after the typography pass: **PASS**
+- page runtime warnings/errors: **NONE** (browser-extension metadata noise excluded)
+
+The typography verification was committed on `main` at `9d93c3be8006b68124a5154ad61bdf5c1ecdea80`; GitHub Pages deployment and the post-deploy browser check completed successfully. A real-device keyboard/screen-reader pass remains recommended for final assistive-technology certification.

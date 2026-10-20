@@ -1,5 +1,12 @@
 # CHANGELOG.md
 
+## v2.5 · Worldwide Directory + Bilingual Interface · 2026-10-20
+- added nine reviewed worldwide and regional starting points, including UNHCR HELP, IFRC National Societies, FEANTSA, 211, Ask Izzy, StreetLink, Canada’s shelter portfolio, New Zealand housing help, and the NO MORE safety directory
+- framed the directory honestly as regional doors rather than a universal guarantee of beds, eligibility, or emergency response
+- added the shared 13-language vnv-language.js interface used by Verve N Veda and Khaemenes Academy, with explicit consent before any MyMemory translation request
+- kept the page local-first; Quick Exit now clears the language preference, translation cache, and translation-consent session key alongside One Door-owned state
+- preserved the no-bold typography preference and expanded the CSP only for the local script and explicit translation endpoint
+
 ## v2.4 · Safety + Navigation Hardening · 2026-10-20
 - made Quick Exit clear only One Door’s saved guide and planner keys before leaving the page
 - removed the CSP-blocked external support-script dependency

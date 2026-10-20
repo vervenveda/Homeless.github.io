@@ -27,6 +27,12 @@ requireText(/role=["']group["'][^>]*aria-labelledby=["']urgencyLabel["']/i.test(
 requireText(/role=["']group["'][^>]*aria-labelledby=["']needsLabel["']/i.test(html), "Needs group semantics are missing");
 requireText(/id=["']urgencyLabel["'][^>]*>Urgency</i.test(html), "Urgency group label is missing");
 requireText(/id=["']needsLabel["'][^>]*>Needs</i.test(html), "Needs group label is missing");
+requireText(/id=["']styleChoices["'][^>]*>/.test(html), "response style choices are missing");
+requireText(/data-style=["']direct["']/.test(html) && /data-style=["']encouraging["']/.test(html) && /data-style=["']steps["']/.test(html), "response style options are incomplete");
+requireText(/id=["']constraintChoices["'][^>]*>/.test(html), "practical constraint choices are missing");
+requireText(/data-constraint=["']limited-travel["']/.test(html) && /data-constraint=["']safe-contact["']/.test(html) && /data-constraint=["']what-to-say["']/.test(html), "practical constraint options are incomplete");
+requireText(/function guideCallScript\(/.test(html) && /function guideVerificationText\(/.test(html), "personalized guide helpers are missing");
+requireText(/oneDoorGuideV2/.test(html), "versioned personalized guide state is missing");
 requireText(/id=["']guideResults["'][^>]*aria-live=["']polite["']/i.test(html), "guide result live region is missing");
 requireText(/id=["']letterOutput["'][^>]*aria-live=["']polite["']/i.test(html), "letter output live region is missing");
 requireText(!/(higher_learming|Career_star_index|financial_budget_calculator_index|artist1970\.github\.io\/noema-ai)/.test(html), "a legacy broken route remains");

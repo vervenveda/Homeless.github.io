@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="One Door · No Wrong Door — a compassionate, local-first homelessness resource portal with opt-in geolocation, shelter and food locators, job and clothing support, public benefits, provider funding pathways, local planning, and Hope · NAIB adult resource mentoring.">
+<meta name="description" content="One Door · No Wrong Door — a compassionate, local-first homelessness resource portal with opt-in geolocation, shelter and food locators, job and clothing support, public benefits, provider funding pathways, local planning, and Hope adult resource guidance.">
 <meta name="theme-color" content="#102f3a">
 <meta name="color-scheme" content="light">
 <meta name="referrer" content="no-referrer">
@@ -284,7 +284,7 @@ button{cursor:pointer;color:inherit}
     <div class="hero-copy">
       <p class="kicker">Receive · Listen · Connect · Follow Through</p>
       <h1>One Door<span>No wrong door. No shame. A place to begin.</span></h1>
-      <p class="hero-lead">A compassionate starting point for anyone without stable housing or worried they may lose it to find nearby help, organize next steps, reach verified public and nonprofit resources, search for work and clothing support, and walk through the process with Hope · the NAIB adult resource mentor.</p>
+      <p class="hero-lead">A compassionate starting point for anyone without stable housing or worried they may lose it to find nearby help, organize next steps, reach verified public and nonprofit resources, search for work and clothing support, and walk through the process with Hope · a local-first adult resource mentor.</p>
       <div class="hero-actions">
         <a class="btn primary" href="#immediate">I need help now</a>
         <a class="btn secondary" href="#nearby">Find help near me</a>
@@ -371,8 +371,8 @@ button{cursor:pointer;color:inherit}
       <section class="guide-panel" aria-labelledby="guideTitle">
         <h3 id="guideTitle">What is happening today?</h3>
         <p>Choose all that apply. You can change your selections at any time.</p>
-        <div class="field-group"><span class="field-label">Urgency</span><div class="choice-grid" id="urgencyChoices"><button class="choice" type="button" data-urgency="tonight" aria-pressed="false">I need a safe place tonight</button><button class="choice" type="button" data-urgency="soon" aria-pressed="false">I may lose housing soon</button><button class="choice" type="button" data-urgency="stabilize" aria-pressed="false">I am working toward stability</button><button class="choice" type="button" data-urgency="helping" aria-pressed="false">I am helping someone else</button></div></div>
-        <div class="field-group"><span class="field-label">Needs</span><div class="choice-grid" id="needChoices">
+        <div class="field-group" role="group" aria-labelledby="urgencyLabel"><span class="field-label" id="urgencyLabel">Urgency</span><div class="choice-grid" id="urgencyChoices"><button class="choice" type="button" data-urgency="tonight" aria-pressed="false">I need a safe place tonight</button><button class="choice" type="button" data-urgency="soon" aria-pressed="false">I may lose housing soon</button><button class="choice" type="button" data-urgency="stabilize" aria-pressed="false">I am working toward stability</button><button class="choice" type="button" data-urgency="helping" aria-pressed="false">I am helping someone else</button></div></div>
+        <div class="field-group" role="group" aria-labelledby="needsLabel"><span class="field-label" id="needsLabel">Needs</span><div class="choice-grid" id="needChoices">
           <button class="choice" type="button" data-need="shelter" aria-pressed="false">Shelter or housing</button><button class="choice" type="button" data-need="food" aria-pressed="false">Food or basic supplies</button><button class="choice" type="button" data-need="health" aria-pressed="false">Health or medication</button><button class="choice" type="button" data-need="documents" aria-pressed="false">ID or documents</button><button class="choice" type="button" data-need="benefits" aria-pressed="false">Benefits or financial help</button><button class="choice" type="button" data-need="work" aria-pressed="false">Work, résumé or training</button><button class="choice" type="button" data-need="legal" aria-pressed="false">Eviction, legal or records</button><button class="choice" type="button" data-need="safety" aria-pressed="false">Violence or personal safety</button><button class="choice" type="button" data-need="youth" aria-pressed="false">Youth or student support</button><button class="choice" type="button" data-need="veteran" aria-pressed="false">Veteran support</button><button class="choice" type="button" data-need="wellness" aria-pressed="false">Stress, sleep or reflection</button><button class="choice" type="button" data-need="family" aria-pressed="false">Family or caregiver support</button>
         </div></div>
         <div class="guide-actions"><button class="btn dark" id="buildGuide" type="button">Build my guide</button><button class="btn soft" id="resetGuide" type="button">Reset</button></div>
@@ -386,7 +386,7 @@ button{cursor:pointer;color:inherit}
 <section class="section deep hope-section" id="hope">
   <div class="section-inner">
     <div class="section-heading">
-      <p class="eyebrow">NAIB adult resource mentor</p>
+      <p class="eyebrow">Adult resource mentor</p>
       <h2>Meet Hope.</h2>
       <p>Hope is the named homelessness and stability mentor for this doorway. She can help turn a complicated situation into a short sequence: what must happen today, which resource to call first, what to ask, what documents to gather, what backup plan to keep, and what can wait until later.</p>
     </div>
@@ -414,12 +414,12 @@ button{cursor:pointer;color:inherit}
 
         <div class="hope-actions">
           <button class="btn primary" id="copyHopeBrief" type="button">Copy Brief for Hope</button>
-          <a class="btn secondary" id="openNaib" href="https://artist1970.github.io/noema-ai.github.io/#naib-workspace"
-             target="_blank" rel="noopener noreferrer">Open NAIB · Ask for Hope ↗</a>
+          <a class="btn secondary" id="openNaib" href="https://vervenveda.com/"
+             target="_blank" rel="noopener noreferrer">Open public Verve directory ↗</a>
         </div>
 
         <div class="hope-privacy">
-          Nothing is silently transmitted to NAIB. “Copy Brief for Hope” puts a plain-text summary on your clipboard for you to review and paste yourself. Your private planner notes are never included automatically.
+          Nothing is silently transmitted. “Copy Brief for Hope” puts a plain-text summary on your clipboard for you to review and paste into the public Verve directory when you choose. Your private planner notes are never included automatically.
         </div>
       </article>
 
@@ -431,8 +431,8 @@ button{cursor:pointer;color:inherit}
           <div><strong>Cannot</strong><span>Dispatch emergency responders, reserve shelter beds, guarantee benefits, award grants, or promise provider availability.</span></div>
           <div><strong>Cannot</strong><span>Replace a lawyer, doctor, licensed clinician, benefits worker, housing case manager, or emergency service.</span></div>
         </div>
-        <a class="btn soft" href="https://artist1970.github.io/noema-ai.github.io/"
-           target="_blank" rel="noopener noreferrer">Open NAIB Home ↗</a>
+        <a class="btn soft" href="https://vervenveda.com/"
+           target="_blank" rel="noopener noreferrer">Open public Verve home ↗</a>
       </aside>
     </div>
   </div>
@@ -496,7 +496,7 @@ button{cursor:pointer;color:inherit}
           <label class="field-label" for="requestSummary">What are you asking for?</label><textarea class="field" id="requestSummary" placeholder="Keep this brief. Do not include sensitive ID numbers."></textarea>
           <label class="field-label" for="deadlineText">Important date or urgency</label><input class="field" id="deadlineText" placeholder="Example: I need a response before Monday">
           <button class="btn dark" id="buildLetter" type="button">Create starter draft</button>
-          <a class="btn soft" href="https://vervenveda.com/proresource_hub.github.io/Protools/PROSE%E2%84%A2%20editingsuite_index.html">Open PROSE for full editing</a>
+          <a class="btn soft" href="https://vervenveda.com/proresource_hub.github.io/Protools/PROSE/Editorial%20Suite/editingsuite_index.html">Open PROSE for full editing</a>
         </div>
         <div><div class="letter-output empty" id="letterOutput">Your draft will appear here. It will not be saved automatically.</div><div class="letter-actions"><button class="btn dark" id="copyLetter" type="button">Copy draft</button><button class="btn soft" id="clearLetter" type="button">Clear draft</button></div></div>
       </div>
@@ -535,7 +535,7 @@ const INTERNAL_TOOLS=[
   {
     "id": "career-star",
     "title": "Khaemenes Career Star",
-    "url": "https://vervenveda.com/Khaemenes_Academy.github.io/higher_learming/apps/Career_star_index.html",
+    "url": "https://vervenveda.com/Khaemenes_Higher_Learning.github.io/Career/apps/career-star_index.html",
     "icon": "Star",
     "category": "Work & Training",
     "description": "Explore thirteen career zones, score interests and strengths, rank a short list, and plan small employment experiments.",
@@ -544,7 +544,7 @@ const INTERNAL_TOOLS=[
   {
     "id": "prose",
     "title": "PROSE™ Editorial Suite",
-    "url": "https://vervenveda.com/proresource_hub.github.io/Protools/PROSE%E2%84%A2%20editingsuite_index.html",
+    "url": "https://vervenveda.com/proresource_hub.github.io/Protools/PROSE/Editorial%20Suite/editingsuite_index.html",
     "icon": "P",
     "category": "Letters & Documents",
     "description": "Draft and format résumés, cover letters, agency requests, explanations, applications, statements, and other professional writing.",
@@ -598,7 +598,7 @@ const INTERNAL_TOOLS=[
   {
     "id": "budget",
     "title": "Financial Budget Calculator",
-    "url": "https://vervenveda.com/Khaemenes_Academy.github.io/higher_learming/apps/financial_budget_calculator_index.html",
+    "url": "https://vervenveda.com/finance.github.io/apps/budget-calculator_index.html",
     "icon": "$",
     "category": "Money & Benefits",
     "description": "Create a simple private budget snapshot for income, expenses, immediate priorities, and planning conversations.",
@@ -1117,7 +1117,7 @@ function buildHopeBrief(){
     "",
     `Urgency selected: ${selected.urgency.length?selected.urgency.join("; "):"(none selected)"}`,
     `Needs selected: ${selected.needs.length?selected.needs.join("; "):"(none selected)"}`,
-    `What I want help organizing: ${message||"(I will explain after opening NAIB.)"}`
+    `What I want help organizing: ${message||"(I will explain after opening the public directory.)"}`
   ];
   if(includeArea){
     lines.push(`Search area I chose to share: ${area||(sanitizedArea($("manualLocation").value)||"(not set)")}`);
@@ -1130,7 +1130,7 @@ function buildHopeBrief(){
 function setupHope(){
   $("copyHopeBrief").addEventListener("click",async()=>{
     const brief=buildHopeBrief();
-    try{await navigator.clipboard.writeText(brief);notify("Hope brief copied. Open NAIB and paste it when you are ready.")}
+    try{await navigator.clipboard.writeText(brief);notify("Hope brief copied. Open the public Verve directory and paste it when you are ready.")}
     catch{prompt("Copy this brief for Hope:",brief)}
   });
 }

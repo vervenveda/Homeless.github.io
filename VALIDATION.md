@@ -62,3 +62,14 @@
 - deployed-browser visual test: **NOT CLAIMED**
 
 The route sweep and static checks were run against `main` after commit `b0e603381ae8bafefdee2be8d7ea0707b743c364`. A real-device keyboard/screen-reader pass remains recommended before treating this as a complete assistive-technology certification.
+
+### 2026-10-20 compassionate guided intake
+- optional response style choices: **PASS** (direct, encouraging, step by step)
+- optional practical constraints: **PASS** (travel, safer contact, call-script support)
+- deterministic “Start here / What to say / Before traveling / Backup / Why” response: **PASS**
+- urgency-aware dignity-first acknowledgement: **PASS**
+- original guide rules retained as expandable additional doorways: **PASS**
+- local-only `oneDoorGuideV2` state with `oneDoorGuideV1` migration: **PASS**
+- no automatic provider contact or location transmission: **PASS**
+- no sensitive free-text copied into the guide response: **PASS**
+- hosted browser interaction verification: pending after deployment propagation

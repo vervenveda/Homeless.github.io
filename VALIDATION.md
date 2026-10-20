@@ -96,4 +96,4 @@ The typography verification was committed on `main` at `9d93c3be8006b68124a5154a
 - primary navigation exposes immediate, nearby, guide, Hope, resources, funding, My Path, tools, letters, and network: **PASS**
 - every primary navigation anchor resolves to an existing section: **PASS**
 - duplicate static IDs after navigation expansion: **NONE**
-- deployed visual and interaction check: **PENDING** (after the final Pages build)
+- deployed visual and interaction check: **PASS** (latest main rendered at 19px/400 body text, retained the guide action, exposed the three new navigation links, and had no horizontal overflow)
